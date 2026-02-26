@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Leonardo Pires - O Dragonborn Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "primary-glow": "#4d8eff",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "stone-dark": "#1a1f2e",
+                        "stone-light": "#252b3d",
+                        "parchment": "#e3dacb",
+                        "constellation-blue": "#8ab4f8",
+                        "constellation-line": "rgba(255, 255, 255, 0.3)"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "skyrim": ["Cinzel", "serif"]
+                    },
+                    backgroundImage: {
+                        'fog-pattern': "radial-gradient(circle at 50% 50%, rgba(19, 91, 236, 0.08) 0%, rgba(16, 22, 34, 0) 50%)",
+                        'stone-texture': "linear-gradient(to bottom right, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%)",
+                        'nebula': "radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 40%, #020617 100%)"
+                    },
+                    boxShadow: {
+                        'rune': '0 0 15px rgba(19, 91, 236, 0.3)',
+                        'rune-hover': '0 0 25px rgba(19, 91, 236, 0.6)',
+                        'star-glow': '0 0 10px 2px rgba(138, 180, 248, 0.6), 0 0 20px 5px rgba(19, 91, 236, 0.2)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101622;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #252b3d;
+            border: 1px solid #135bec;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #135bec;
+        }
+
+        @keyframes drift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .fog-bg {
+            background-size: 200% 200%;
+            animation: drift 15s ease infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+        }
+
+        .star-node {
+            animation: twinkle 4s ease-in-out infinite;
+        }
+
+        .star-node:nth-child(even) {
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display selection:bg-primary selection:text-white overflow-x-hidden">
+    <div class="fixed inset-0 pointer-events-none z-0 bg-fog-pattern opacity-60"></div>
+    <div class="relative flex min-h-screen w-full flex-col z-10">
+        <header
+            class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-dark/80 border-b border-primary/30 shadow-lg shadow-black/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
+                        <div
+                            class="w-10 h-10 rounded bg-stone-dark border border-stone-light flex items-center justify-center shadow-inner group-hover:border-primary transition-colors duration-300">
+                            <span
+                                class="material-symbols-outlined text-primary group-hover:text-primary-glow">diamond</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <h1
+                                class="text-white text-lg font-bold tracking-[0.2em] leading-none group-hover:text-primary-glow transition-colors">
+                                LEONARDO</h1>
+                            <span class="text-xs text-slate-400 tracking-widest uppercase">Programador Dragonborn</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
+                                href="#about">
+                                <span class="material-symbols-outlined text-[18px]">history_edu</span> Diário de Missões
+                            </a>
+                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
+                                href="#skills">
+                                <span class="material-symbols-outlined text-[18px]">swords</span> Habilidades
+                            </a>
+                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
+                                href="#projects">
+                                <span class="material-symbols-outlined text-[18px]">backpack</span> Inventário
+                            </a>
+                            <a class="bg-primary/10 hover:bg-primary hover:shadow-rune border border-primary text-primary hover:text-white transition-all duration-300 px-6 py-2 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center gap-2"
+                                href="#contact">
+                                <span class="material-symbols-outlined text-[18px]">mail</span> Recrutar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="-mr-2 flex md:hidden">
+                        <button
+                            class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-stone-light focus:outline-none"
+                            type="button">
+                            <span class="material-symbols-outlined">menu</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow flex flex-col items-center w-full">
+            <section class="relative w-full py-20 lg:py-32 px-4 flex justify-center overflow-hidden">
+                <div class="absolute inset-0 z-[-1]">
+                    <img alt="Paisagem nórdica escura e enevoada com montanhas e neblina"
+                        class="w-full h-full object-cover opacity-20 mix-blend-overlay"
+                        data-alt="Paisagem nórdica escura e enevoada com montanhas e neblina"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuR_hDf5jl6PhmwUmDop1-T9poYWssx2AlqYZhORegDUqd8wcrQUg-Yz0AoKnmsIC3wJ5FOG5Yu36hb42B_oM2PmYZ0N_w2NG6qEmm5RuqdaEF0LDZrfQEuttH2JYLgWcWk3UBvMPrzGJZlkSn36Y4YKwjdrK57UpBeVfN0gKKKe-r8ghx-NRNQbmCrZLNJtryeW5hemiHWetldHlszmkZlnFO35Stlzm7lztlApsVW8kNXd1wniYKraq18dP2H8DXYb9yzM7jPDg" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent">
+                    </div>
+                </div>
+                <div class="max-w-5xl w-full text-center flex flex-col items-center gap-8 relative z-10">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-stone-light/50 border border-slate-700 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-xs text-slate-300 font-medium tracking-widest uppercase">Desenvolvedor Web
+                            Nível 23</span>
+                    </div>
+                    <h1
+                        class="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-tight drop-shadow-2xl">
+                        LEONARDO <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">PIRES</span>
+                    </h1>
+                    <div class="h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                    <p class="text-lg md:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
+                        Estudante de Ciência da Computação | Aspirante a Desenvolvedor Web.<br />
+                        <span class="text-white font-normal italic opacity-80">"Forjando reinos digitais com código e
+                            maestria."</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full justify-center">
+                        <button
+                            class="group relative px-8 py-4 bg-stone-dark overflow-hidden rounded-lg border border-primary text-white shadow-rune transition-all hover:scale-105 active:scale-95">
+                            <div
+                                class="absolute inset-0 w-0 bg-primary transition-all duration-[250ms] ease-out group-hover:w-full opacity-20">
+                            </div>
+                            <span
+                                class="relative text-sm font-bold uppercase tracking-[0.15em] flex items-center gap-2 justify-center">
+                                Ver Minha Jornada <span
+                                    class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </span>
+                        </button>
+                        <button
+                            class="px-8 py-4 bg-transparent rounded-lg border border-slate-600 text-slate-300 hover:bg-stone-light hover:border-slate-400 hover:text-white transition-all active:scale-95 text-sm font-bold uppercase tracking-[0.15em]">
+                            Baixar Currículo
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section class="w-full max-w-6xl px-4 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" id="about">
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-2 bg-gradient-to-r from-primary to-slate-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                    </div>
+                    <div
+                        class="relative h-[500px] w-full bg-stone-dark rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
+                        <img alt="Pessoa programando no notebook em ambiente escuro com iluminação azul"
+                            class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
+                            data-alt="Pessoa programando no notebook em ambiente escuro com iluminação azul"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBISNMbhyrpiTsLb2fePZjAwppjaAQjDiCtQTuohyrZDJ7Pbu4__4TScIaIcxcIXyo597HVfWkLYx9J27RgE82DksesrwrQHIqA5k64jX267Iv3IiV0ZZnuOrglzZRkjEDluXeYtr2aYZhbUuixpxzTc6bNvdqabMatR9lGVf_nTxJwA4Qj9yK0kYxlWjuLYkzJKo26hzrOSyqivWuBRE4kE3e0es1givSjLwSTNbROOcyKl6bKXnuIAr5cDtbmyK3o_5kEio7pQ2U" />
+                        <div
+                            class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                            <div class="flex items-center gap-2 text-primary mb-1">
+                                <span class="material-symbols-outlined text-sm">location_on</span>
+                                <span class="text-xs uppercase tracking-widest font-bold">Maceió, Alagoas</span>
+                            </div>
+                            <h3 class="text-white font-bold text-xl">O Estúdio do Artesão</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">A Biografia do
+                            Dragonborn</h2>
+                    </div>
+                    <div
+                        class="bg-stone-dark/50 p-8 rounded-lg border border-slate-700/50 backdrop-blur-sm relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
+                        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                            Sou um artesão de código, forjando experiências digitais a partir dos elementos brutos de
+                            lógica e criatividade. Assim como um ferreiro tempera o aço, eu refino algoritmos para
+                            construir aplicações web robustas.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed">
+                            Atualmente cursando Ciência da Computação, passo minhas noites batalhando contra bugs e
+                            dominando novas linguagens. Minha missão é criar interfaces que sejam tão imersivas quanto
+                            funcionais.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded bg-stone-dark border border-slate-800 flex flex-col gap-1">
+                            <span class="text-2xl font-bold text-white">3+</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-wider">Anos de Experiência</span>
+                        </div>
+                        <div class="p-4 rounded bg-stone-dark border border-slate-800 flex flex-col gap-1">
+                            <span class="text-2xl font-bold text-white">12+</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-wider">Missões Concluídas</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="w-full bg-nebula py-24 px-4 border-y border-slate-800/50 relative overflow-hidden"
+                id="skills">
+
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <img src="universo.jpeg" alt="Fundo constelação" class="w-full h-full object-cover opacity-20" />
+                    <div class="absolute inset-0 bg-background-dark/20"></div>
+                </div>
+
+                <div class="absolute inset-0 opacity-40 z-0 pointer-events-none"
+                    style="background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px); background-size: 550px 550px; background-position: 0 0;">
+                </div>
+                <div class="absolute inset-0 opacity-20 z-0 pointer-events-none"
+                    style="background-image: radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px); background-size: 350px 350px; background-position: 50% 50%;">
+                </div>
+
+                <div class="max-w-7xl mx-auto flex flex-col gap-16 relative z-10">
+
+                    <div class="text-center">
+                        <h2
+                            class="text-3xl md:text-4xl font-skyrim font-bold text-white tracking-widest uppercase mb-2">
+                            Constelações de Habilidades</h2>
+                        <div class="h-[1px] w-64 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto">
+                        </div>
+                        <p class="text-slate-400 mt-4 max-w-xl mx-auto italic font-serif">"Contemple os céus, onde o
+                            conhecimento está escrito na luz das estrelas."</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
+                        <div class="relative flex flex-col items-center h-[500px]">
+                            <h3
+                                class="text-xl font-skyrim text-constellation-blue mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(138,180,248,0.8)]">
+                                Caminho do Frontend</h3>
+                            <div class="relative w-full h-full">
+                                <svg class="absolute inset-0 w-full h-full pointer-events-none z-0"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="50%"
+                                        y1="15%" y2="45%"></line>
+                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="30%"
+                                        y1="45%" y2="70%"></line>
+                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="70%"
+                                        y1="45%" y2="70%"></line>
+                                    <line class="opacity-30" stroke="var(--constellation-line)" stroke-dasharray="4 2"
+                                        stroke-width="1" x1="70%" x2="70%" y1="70%" y2="90%"></line>
+                                </svg>
+                                <div
+                                    class="absolute top-[15%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
+                                    <div
+                                        class="w-16 h-16 rounded-full bg-slate-900 border-2 border-constellation-blue shadow-star-glow flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">html</span>
+                                    </div>
+                                    <span
+                                        class="absolute top-1/2 left-[120%] -translate-y-1/2 text-white font-skyrim text-sm tracking-widest w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/80 px-2 py-1 border border-slate-700 rounded">Maestria
+                                        em HTML5</span>
+                                </div>
+                                <div
+                                    class="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
+                                    <div
+                                        class="w-14 h-14 rounded-full bg-slate-900 border-2 border-constellation-blue shadow-star-glow flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                                        <span
+                                            class="material-symbols-outlined text-2xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">css</span>
+                                    </div>
+                                    <span
+                                        class="text-constellation-blue font-serif text-xs uppercase tracking-widest mt-16 absolute">CSS3</span>
+                                </div>
+                                <div
+                                    class="absolute top-[70%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-900 border border-constellation-blue shadow-[0_0_10px_rgba(138,180,248,0.4)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                                        <span class="material-symbols-outlined text-xl text-white">javascript</span>
+                                    </div>
+                                    <span
+                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider mt-14 absolute">JavaScript</span>
+                                </div>
+                                <div
+                                    class="absolute top-[70%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-60 grayscale">
+                                        <span
+                                            class="material-symbols-outlined text-lg text-slate-500">code_blocks</span>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-12 absolute">React
+                                        (Bloqueado)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative flex flex-col items-center h-[500px]">
+                            <h3
+                                class="text-xl font-skyrim text-purple-300 mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(216,180,254,0.6)]">
+                                Caminho do Backend</h3>
+                            <div class="relative w-full h-full">
+                                <svg class="absolute inset-0 w-full h-full pointer-events-none z-0"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="20%" x2="50%"
+                                        y1="30%" y2="20%"></line>
+                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="80%"
+                                        y1="20%" y2="35%"></line>
+                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="50%"
+                                        y1="20%" y2="55%"></line>
+                                    <line class="opacity-30" stroke="var(--constellation-line)" stroke-dasharray="4 2"
+                                        stroke-width="1" x1="50%" x2="50%" y1="55%" y2="80%"></line>
+                                </svg>
+                                <div
+                                    class="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
+                                    <div
+                                        class="w-16 h-16 rounded-full bg-slate-900 border-2 border-purple-400 shadow-[0_0_15px_rgba(192,132,252,0.4)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">terminal</span>
+                                    </div>
+                                    <span
+                                        class="text-purple-300 font-serif text-sm uppercase tracking-widest mt-18 absolute top-full">Python</span>
+                                </div>
+                                <div
+                                    class="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-900 border border-purple-300 shadow-[0_0_10px_rgba(192,132,252,0.3)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                                        <span class="material-symbols-outlined text-xl text-white">smart_toy</span>
+                                    </div>
+                                    <span
+                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider absolute left-full ml-4 w-max">Framework
+                                        Flask</span>
+                                </div>
+                                <div
+                                    class="absolute top-[30%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-50">
+                                        <span class="material-symbols-outlined text-xs text-slate-500">lock</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute top-[35%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-50">
+                                        <span class="material-symbols-outlined text-xs text-slate-500">lock</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-60 grayscale">
+                                        <span class="material-symbols-outlined text-lg text-slate-500">dns</span>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-12 absolute">Node.js</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative flex flex-col items-center h-[500px]">
+                            <h3
+                                class="text-xl font-skyrim text-emerald-300 mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(110,231,183,0.6)]">
+                                Caminho dos Dados</h3>
+                            <div class="relative w-full h-full">
+                                <svg class="absolute inset-0 w-full h-full pointer-events-none z-0"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M50% 15% Q 20% 35% 30% 60%" fill="none" stroke="var(--constellation-line)"
+                                        stroke-width="1.5"></path>
+                                    <path d="M50% 15% Q 80% 35% 70% 60%" fill="none" stroke="var(--constellation-line)"
+                                        stroke-width="1.5"></path>
+                                    <line class="opacity-30" stroke="var(--constellation-line)" stroke-dasharray="4 2"
+                                        stroke-width="1" x1="30%" x2="50%" y1="60%" y2="80%"></line>
+                                    <line class="opacity-30" stroke="var(--constellation-line)" stroke-dasharray="4 2"
+                                        stroke-width="1" x1="70%" x2="50%" y1="60%" y2="80%"></line>
+                                </svg>
+                                <div
+                                    class="absolute top-[15%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
+                                    <div
+                                        class="w-14 h-14 rounded-full bg-slate-900 border-2 border-emerald-400 shadow-[0_0_15px_rgba(52,211,153,0.4)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                                        <span
+                                            class="material-symbols-outlined text-2xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">database</span>
+                                    </div>
+                                    <span
+                                        class="text-emerald-300 font-serif text-sm uppercase tracking-widest mt-16 absolute">SQLite</span>
+                                </div>
+                                <div
+                                    class="absolute top-[60%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-900 border border-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.3)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                                        <span class="material-symbols-outlined text-xl text-white">data_object</span>
+                                    </div>
+                                    <span
+                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider absolute top-full mt-2">JSON</span>
+                                </div>
+                                <div
+                                    class="absolute top-[60%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-900 border border-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.3)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                                        <span class="material-symbols-outlined text-xl text-white">table_chart</span>
+                                    </div>
+                                    <span
+                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider absolute top-full mt-2">SQL</span>
+                                </div>
+                                <div
+                                    class="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-60 grayscale">
+                                        <span class="material-symbols-outlined text-lg text-slate-500">storage</span>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-12 absolute">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="w-full max-w-7xl px-4 py-24 flex flex-col gap-12" id="projects">
+                <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-slate-800 pb-6">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">Campanhas
+                            Recentes</h2>
+                        <p class="text-slate-400 mt-2">Uma coleção de artefatos forjados nas chamas do desenvolvimento.
+                        </p>
+                    </div>
+                    <a class="text-primary hover:text-white font-bold uppercase tracking-widest text-sm flex items-center gap-2 transition-colors"
+                        href="#">
+                        Ver Todos os Projetos <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <article
+                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
+                            </div>
+                            <img alt="Nós geométricos abstratos em azul escuro se conectando como uma rede"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Nós geométricos abstratos em azul escuro se conectando como uma rede"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYkm8BtpZOTeXL-5w5UcEtNP6p4PrqjM4qbLAVXFhmIIAFoklsANr8R6R2vyZRMbubmhUIKpp-18GEM7KMFWiGTQVrZTGNDhEt8aAXGX0Udf-MvVL9Q841JYqoMIyO4e-xwSmHau8BielrP07_LCgHF-DikqxXZZjufroK0nlHWiMHuJ-bUkPbFLZaOysahrLKyzau0cgLMeA5dFktUetkIiIlBCSbfNVfHhnKeNlFeSEdvDepTIaIFce45QJT0AWPos-a5IOkAEY" />
+                            <div
+                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
+                                <span class="text-xs font-bold text-primary uppercase">Web App</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                                Landing Page – Kamila Pontes, Psicóloga Clínica</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Uma interface front-end otimizada para
+                                conversão e agendamento via WhatsApp, estilizada com Tailwind CSS e suporte a temas
+                                dinâmicos (Light/Dark) via JavaScript.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">HTML</span>
+                                <span
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Tailwind
+                                    CSS</span>
+                                <span
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JavaScript</span>
+                            </div>
+                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
+                                href="https://leonardo-piresf.github.io/site-kamila-pontes/">
+                                Ver Artefato <span class="material-symbols-outlined text-[16px]">visibility</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article
+                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
+                            </div>
+                            <img alt="Painel de interface escuro com gráficos e visualização de dados"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Painel de interface escuro com gráficos e visualização de dados"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVl3Sd4PEf3TqccdH--BROoHH6VPNaRKpsZKYEEyNtmqYSONKjGt-9O9r-n1XBFUj1ICU0rEXiSsRtL9q9u8FUk-sai6l9EXtA9IQy_c8YVFIuvWUGMT8q7ZQJANCCGtr3RTXEV7C9c2SnCiW-oKH6uVaeUM5HedO15dSITnO333kJSUBVC5R3ik8xC3K5egj7nPKYe18wwt1K44t0hp1bq3IKv3CxtyiTpjRkpM1PrizG05eDt3uYLUqT8DzQ85_NRBr7atFaMBg" />
+                            <div
+                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
+                                <span class="text-xs font-bold text-primary uppercase">Frontend</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                                Fachada Nórdica</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Uma interface de e-commerce projetada com
+                                Tailwind CSS, com modo escuro e layouts responsivos.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">HTML</span>
+                                <span
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Tailwind</span>
+                                <span
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JS</span>
+                            </div>
+                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
+                                href="#">
+                                Ver Artefato <span class="material-symbols-outlined text-[16px]">visibility</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article
+                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
+                        <div class="relative h-48 overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
+                            </div>
+                            <img alt="Tela de computador com editor de código mostrando lógica complexa"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Tela de computador com editor de código mostrando lógica complexa"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS73_eQQp7bUQvBxr2keiSzekA93RKZARek-qAPWnY1HioDMsHPbsAp4BjUwb13PacNvc3-5HOSMtmv_QCHsaaODTugRI9xJOIxrq47knBUeSm1hiTque6csrp0yuwsMP5TdlBolnk6SF1dQ8_-9dW2ZtL8njCHD0dZ3wqRdA3e0MBtkAW3keRbSMhmRXv9_GFEWwXTWMChJYyKNwGZmtA5q5b1ZD8e7e4NMn29uHm3Wk8dHZBQwtL3Ri0T1J0X7iezfwGiDDP3y8" />
+                            <div
+                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
+                                <span class="text-xs font-bold text-primary uppercase">Scripts</span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Bot
+                                Explorador de Masmorras</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Script automatizado para raspagem e análise de
+                                dados, visualizando resultados em um painel personalizado.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Python</span>
+                                <span
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Selenium</span>
+                            </div>
+                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
+                                href="#">
+                                Ver Artefato <span class="material-symbols-outlined text-[16px]">visibility</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="w-full px-4 pb-20 pt-10" id="contact">
+                <div
+                    class="max-w-5xl mx-auto relative rounded-2xl overflow-hidden bg-stone-dark border border-slate-700 p-8 md:p-16 text-center shadow-2xl">
+                    <div class="absolute top-0 left-0 w-full h-full bg-stone-texture opacity-30"></div>
+                    <div
+                        class="absolute -top-[100px] -right-[100px] w-64 h-64 bg-primary rounded-full blur-[100px] opacity-20">
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center gap-6">
+                        <div
+                            class="w-16 h-16 rounded-full bg-stone-light border border-slate-600 flex items-center justify-center text-primary mb-2 shadow-rune">
+                            <span class="material-symbols-outlined text-3xl">handshake</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight">Recrute um Artesão
+                            para sua Próxima Missão</h2>
+                        <p class="text-slate-400 max-w-lg mx-auto text-lg">Vamos colaborar para construir algo lendário.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                            <a class="px-8 py-4 bg-primary hover:bg-primary-glow text-white rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-blue-900/50 hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1"
+                                href="mailto:leo@example.com">
+                                Enviar Mensageiro
+                            </a>
+                            <a class="px-8 py-4 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white rounded-lg font-bold uppercase tracking-widest transition-all"
+                                href="#">
+                                Copiar Coordenadas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="w-full bg-stone-dark border-t border-slate-800 py-12 px-4">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-xl font-bold text-white tracking-[0.2em]">LEONARDO PIRES</h2>
+                    <p class="text-slate-500 text-sm">© 2026. Forjado em Tamriel.</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
+                        href="#">
+                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">code</span>
+                    </a>
+                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
+                        href="#">
+                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">work</span>
+                    </a>
+                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
+                        href="#">
+                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">mail</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
