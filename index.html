@@ -120,21 +120,15 @@
             class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-dark/80 border-b border-primary/30 shadow-lg shadow-black/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
-                    <div class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
-                        <div
-                            class="w-10 h-10 rounded bg-stone-dark border border-stone-light flex items-center justify-center shadow-inner group-hover:border-primary transition-colors duration-300">
-                            <span
-                                class="material-symbols-outlined text-primary group-hover:text-primary-glow">diamond</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <h1
-                                class="text-white text-lg font-bold tracking-[0.2em] leading-none group-hover:text-primary-glow transition-colors">
-                                LEONARDO</h1>
-                            <span class="text-xs text-slate-400 tracking-widest uppercase">Programador Dragonborn</span>
-                        </div>
+
+                    <div class="flex-shrink-0 flex items-center group cursor-pointer">
+                        <img src="logo 1.png" alt="Símbolo Leonardo" class="h-10 w-auto object-contain" />
+                        <img src="logo 2.png" alt="Nome Leonardo"
+                            class="h-16 w-72 object-cover object-center mix-blend-screen -ml-2" />
                     </div>
+
                     <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-8">
+                        <div class="ml-auto flex items-baseline space-x-8">
                             <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
                                 href="#about">
                                 <span class="material-symbols-outlined text-[18px]">history_edu</span> Diário de Missões
@@ -153,13 +147,38 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="-mr-2 flex md:hidden">
-                        <button
-                            class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-stone-light focus:outline-none"
+                        <button id="btn-mobile"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-stone-light focus:outline-none transition-colors"
                             type="button">
-                            <span class="material-symbols-outlined">menu</span>
+                            <span id="icon-mobile" class="material-symbols-outlined text-2xl">menu</span>
                         </button>
                     </div>
+
+                </div>
+            </div>
+
+            <div id="menu-mobile"
+                class="hidden md:hidden bg-stone-dark/95 backdrop-blur-lg border-t border-slate-800 shadow-2xl">
+                <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
+                        href="#about">
+                        <span class="material-symbols-outlined text-[20px] text-primary">history_edu</span> Diário de
+                        Missões
+                    </a>
+                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
+                        href="#skills">
+                        <span class="material-symbols-outlined text-[20px] text-primary">swords</span> Habilidades
+                    </a>
+                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
+                        href="#projects">
+                        <span class="material-symbols-outlined text-[20px] text-primary">backpack</span> Inventário
+                    </a>
+                    <a class="mt-4 bg-primary/10 hover:bg-primary border border-primary text-primary hover:text-white transition-all duration-300 px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3"
+                        href="#contact">
+                        <span class="material-symbols-outlined text-[20px]">mail</span> Recrutar
+                    </a>
                 </div>
             </div>
         </header>
@@ -189,8 +208,8 @@
                     <div class="h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
                     <p class="text-lg md:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
                         Estudante de Ciência da Computação | Aspirante a Desenvolvedor Web.<br />
-                        <span class="text-white font-normal italic opacity-80">"Forjando reinos digitais com código e
-                            maestria."</span>
+                        <span class="text-white font-normal italic opacity-80">"Construindo soluções web com foco em
+                            performance e experiência do usuário."</span>
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full justify-center">
                         <button
@@ -221,46 +240,50 @@
                         <img alt="Pessoa programando no notebook em ambiente escuro com iluminação azul"
                             class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
                             data-alt="Pessoa programando no notebook em ambiente escuro com iluminação azul"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBISNMbhyrpiTsLb2fePZjAwppjaAQjDiCtQTuohyrZDJ7Pbu4__4TScIaIcxcIXyo597HVfWkLYx9J27RgE82DksesrwrQHIqA5k64jX267Iv3IiV0ZZnuOrglzZRkjEDluXeYtr2aYZhbUuixpxzTc6bNvdqabMatR9lGVf_nTxJwA4Qj9yK0kYxlWjuLYkzJKo26hzrOSyqivWuBRE4kE3e0es1givSjLwSTNbROOcyKl6bKXnuIAr5cDtbmyK3o_5kEio7pQ2U" />
+                            src="Léo terno.png" />
                         <div
                             class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
                             <div class="flex items-center gap-2 text-primary mb-1">
                                 <span class="material-symbols-outlined text-sm">location_on</span>
                                 <span class="text-xs uppercase tracking-widest font-bold">Maceió, Alagoas</span>
                             </div>
-                            <h3 class="text-white font-bold text-xl">O Estúdio do Artesão</h3>
+                            <h3 class="text-white font-bold text-xl">Leonardo Pires - Desenvolvedor Web</h3>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col gap-6">
                     <div class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">A Biografia do
-                            Dragonborn</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">Minha caminhada
+                        </h2>
                     </div>
                     <div
                         class="bg-stone-dark/50 p-8 rounded-lg border border-slate-700/50 backdrop-blur-sm relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
                         <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
-                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
-                            Sou um artesão de código, forjando experiências digitais a partir dos elementos brutos de
-                            lógica e criatividade. Assim como um ferreiro tempera o aço, eu refino algoritmos para
-                            construir aplicações web robustas.
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
+                            Sou natural de Salvador, Bahia, e me mudei para Maceió no final de 2021.
                         </p>
-                        <p class="text-slate-400 leading-relaxed">
-                            Atualmente cursando Ciência da Computação, passo minhas noites batalhando contra bugs e
-                            dominando novas linguagens. Minha missão é criar interfaces que sejam tão imersivas quanto
-                            funcionais.
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
+                            Desde 2023, quando me encontrei na Ciência da Computação, minha verdadeira vocação, venho
+                            direcionando
+                            minha energia para o desenvolvimento web, buscando transformar fundamentos sólidos de lógica
+                            e algoritmos em aplicações funcionais, bem estruturadas e eficientes.
+                        </p>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
+                            Atualmente desenvolvo projetos próprios com foco em frontend e backend, priorizando clareza
+                            de código, organização arquitetural, performance e experiência do usuário. Acredito que boas
+                            soluções nascem do equilíbrio entre técnica, simplicidade e propósito.
                         </p>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 rounded bg-stone-dark border border-slate-800 flex flex-col gap-1">
                             <span class="text-2xl font-bold text-white">3+</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider">Anos de Experiência</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-wider">Anos de Estudo</span>
                         </div>
                         <div class="p-4 rounded bg-stone-dark border border-slate-800 flex flex-col gap-1">
                             <span class="text-2xl font-bold text-white">12+</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider">Missões Concluídas</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-wider">Projetos Concluídos</span>
                         </div>
                     </div>
                 </div>
@@ -473,13 +496,15 @@
             <section class="w-full max-w-7xl px-4 py-24 flex flex-col gap-12" id="projects">
                 <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-slate-800 pb-6">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">Campanhas
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">Projetos
                             Recentes</h2>
-                        <p class="text-slate-400 mt-2">Uma coleção de artefatos forjados nas chamas do desenvolvimento.
+                        <p class="text-slate-400 mt-2">"Explore as criações mais recentes, onde cada projeto é uma
+                            missão cumprida e um passo adiante
+                            na minha jornada de desenvolvimento."</p>
                         </p>
                     </div>
-                    <a class="text-primary hover:text-white font-bold uppercase tracking-widest text-sm flex items-center gap-2 transition-colors"
-                        href="#">
+                    <a class="text-primary hover:text-white font-bold uppercase tracking-widest text-sm flex items-center gap-2 transition-colors text-center"
+                        href="https://github.com/Leonardo-PiresF">
                         Ver Todos os Projetos <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </a>
                 </div>
@@ -493,10 +518,10 @@
                             <img alt="Nós geométricos abstratos em azul escuro se conectando como uma rede"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                 data-alt="Nós geométricos abstratos em azul escuro se conectando como uma rede"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYkm8BtpZOTeXL-5w5UcEtNP6p4PrqjM4qbLAVXFhmIIAFoklsANr8R6R2vyZRMbubmhUIKpp-18GEM7KMFWiGTQVrZTGNDhEt8aAXGX0Udf-MvVL9Q841JYqoMIyO4e-xwSmHau8BielrP07_LCgHF-DikqxXZZjufroK0nlHWiMHuJ-bUkPbFLZaOysahrLKyzau0cgLMeA5dFktUetkIiIlBCSbfNVfHhnKeNlFeSEdvDepTIaIFce45QJT0AWPos-a5IOkAEY" />
+                                src="Capa Kamila.png" />
                             <div
                                 class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">Web App</span>
+                                <span class="text-xs font-bold text-primary uppercase">Landing Page</span>
                             </div>
                         </div>
                         <div class="p-6 flex flex-col flex-1">
@@ -515,8 +540,8 @@
                                     class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JavaScript</span>
                             </div>
                             <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="https://leonardo-piresf.github.io/site-kamila-pontes/">
-                                Ver Artefato <span class="material-symbols-outlined text-[16px]">visibility</span>
+                                href="https://leonardo-piresf.github.io/site-kamila-pontes/" target="_blank">
+                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
                             </a>
                         </div>
                     </article>
@@ -529,17 +554,18 @@
                             <img alt="Painel de interface escuro com gráficos e visualização de dados"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                 data-alt="Painel de interface escuro com gráficos e visualização de dados"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVl3Sd4PEf3TqccdH--BROoHH6VPNaRKpsZKYEEyNtmqYSONKjGt-9O9r-n1XBFUj1ICU0rEXiSsRtL9q9u8FUk-sai6l9EXtA9IQy_c8YVFIuvWUGMT8q7ZQJANCCGtr3RTXEV7C9c2SnCiW-oKH6uVaeUM5HedO15dSITnO333kJSUBVC5R3ik8xC3K5egj7nPKYe18wwt1K44t0hp1bq3IKv3CxtyiTpjRkpM1PrizG05eDt3uYLUqT8DzQ85_NRBr7atFaMBg" />
+                                src="Capa anjos advogados associados.png" />
                             <div
                                 class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">Frontend</span>
+                                <span class="text-xs font-bold text-primary uppercase">Site institucional</span>
                             </div>
                         </div>
                         <div class="p-6 flex flex-col flex-1">
                             <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                                Fachada Nórdica</h3>
-                            <p class="text-slate-400 text-sm mb-6 flex-1">Uma interface de e-commerce projetada com
-                                Tailwind CSS, com modo escuro e layouts responsivos.</p>
+                                Site institucional - Anjos Advogados Associados</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Site institucional para o escritorio de
+                                advocacia Anjos Advogados Associados, desenvolvido com HTML, Tailwind CSS e JavaScript.
+                            </p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span
                                     class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">HTML</span>
@@ -549,8 +575,9 @@
                                     class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JS</span>
                             </div>
                             <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="#">
-                                Ver Artefato <span class="material-symbols-outlined text-[16px]">visibility</span>
+                                href="https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/"
+                                target="_blank">
+                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
                             </a>
                         </div>
                     </article>
@@ -563,26 +590,26 @@
                             <img alt="Tela de computador com editor de código mostrando lógica complexa"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                 data-alt="Tela de computador com editor de código mostrando lógica complexa"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS73_eQQp7bUQvBxr2keiSzekA93RKZARek-qAPWnY1HioDMsHPbsAp4BjUwb13PacNvc3-5HOSMtmv_QCHsaaODTugRI9xJOIxrq47knBUeSm1hiTque6csrp0yuwsMP5TdlBolnk6SF1dQ8_-9dW2ZtL8njCHD0dZ3wqRdA3e0MBtkAW3keRbSMhmRXv9_GFEWwXTWMChJYyKNwGZmtA5q5b1ZD8e7e4NMn29uHm3Wk8dHZBQwtL3Ri0T1J0X7iezfwGiDDP3y8" />
+                                src="obra.jpg" />
                             <div
                                 class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">Scripts</span>
+                                <span class="text-xs font-bold text-primary uppercase">*****</span>
                             </div>
                         </div>
                         <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Bot
-                                Explorador de Masmorras</h3>
-                            <p class="text-slate-400 text-sm mb-6 flex-1">Script automatizado para raspagem e análise de
-                                dados, visualizando resultados em um painel personalizado.</p>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">[EM
+                                PRODUÇÃO]</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit..</p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Python</span>
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">????</span>
                                 <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Selenium</span>
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">??????</span>
                             </div>
                             <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="#">
-                                Ver Artefato <span class="material-symbols-outlined text-[16px]">visibility</span>
+                                href="#" target="_blank">
+                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
                             </a>
                         </div>
                     </article>
@@ -600,18 +627,29 @@
                             class="w-16 h-16 rounded-full bg-stone-light border border-slate-600 flex items-center justify-center text-primary mb-2 shadow-rune">
                             <span class="material-symbols-outlined text-3xl">handshake</span>
                         </div>
-                        <h2 class="text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight">Recrute um Artesão
-                            para sua Próxima Missão</h2>
-                        <p class="text-slate-400 max-w-lg mx-auto text-lg">Vamos colaborar para construir algo lendário.
+                        <h2 class="text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight">Disponível para
+                            novos projetos</h2>
+                        <p class="text-slate-400 max-w-lg mx-auto text-lg">Aberto a oportunidades de estágio, freelance
+                            e colaborações em desenvolvimento web.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 mt-6">
-                            <a class="px-8 py-4 bg-primary hover:bg-primary-glow text-white rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-blue-900/50 hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1"
-                                href="mailto:leo@example.com">
-                                Enviar Mensageiro
+                            <a class="flex items-center justify-center px-8 py-4 bg-primary hover:bg-primary-glow text-white rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-blue-900/50 hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
+                                target="_blank">
+                                Enviar Email
                             </a>
-                            <a class="px-8 py-4 bg-transparent border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white rounded-lg font-bold uppercase tracking-widest transition-all"
-                                href="#">
-                                Copiar Coordenadas
+
+                            <a class="relative flex items-center justify-center px-8 py-4 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-green-900/40 hover:shadow-green-500/60 transition-all transform hover:-translate-y-1 group"
+                                href="https://wa.me/5575988472549" target="_blank">
+
+                                <span
+                                    class="absolute -inset-0.5 rounded-lg bg-[#25D366] opacity-40 blur-md group-hover:opacity-60 animate-pulse transition-opacity duration-300"></span>
+
+                                <span class="relative flex items-center gap-2">
+                                    <span
+                                        class="material-symbols-outlined group-hover:animate-bounce text-[20px]">chat</span>
+                                    WhatsApp
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -622,11 +660,11 @@
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="flex flex-col gap-2">
                     <h2 class="text-xl font-bold text-white tracking-[0.2em]">LEONARDO PIRES</h2>
-                    <p class="text-slate-500 text-sm">© 2026. Forjado em Tamriel.</p>
+                    <p class="text-slate-500 text-sm">© 2026. Todos os direitos reservados.</p>
                 </div>
                 <div class="flex items-center gap-6">
                     <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
-                        href="#">
+                        href="https://github.com/Leonardo-PiresF">
                         <span class="material-symbols-outlined group-hover:scale-110 transition-transform">code</span>
                     </a>
                     <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
@@ -641,6 +679,31 @@
             </div>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnMobile = document.getElementById('btn-mobile');
+            const menuMobile = document.getElementById('menu-mobile');
+            const iconMobile = document.getElementById('icon-mobile');
+            const linksMobile = menuMobile.querySelectorAll('a');
+
+            btnMobile.addEventListener('click', () => {
+                menuMobile.classList.toggle('hidden');
+
+                if (menuMobile.classList.contains('hidden')) {
+                    iconMobile.textContent = 'menu';
+                } else {
+                    iconMobile.textContent = 'close';
+                }
+            });
+
+            linksMobile.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuMobile.classList.add('hidden');
+                    iconMobile.textContent = 'menu';
+                });
+            });
+        });
+    </script>
 
 </body>
 
