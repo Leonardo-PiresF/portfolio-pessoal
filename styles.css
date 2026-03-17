@@ -1,0 +1,206 @@
+/* ============================================
+   LEONARDO PIRES — Shared Styles
+   ============================================ */
+
+:root {
+    --primary: #135bec;
+    --primary-glow: #4d8eff;
+    --bg-dark: #101622;
+    --stone-dark: #1a1f2e;
+    --stone-light: #252b3d;
+    --constellation-line: rgba(255, 255, 255, 0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #101622;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #252b3d;
+    border: 1px solid #135bec;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #135bec;
+}
+
+/* Fog drift animation */
+@keyframes drift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.fog-bg {
+    background-size: 200% 200%;
+    animation: drift 15s ease infinite;
+}
+
+/* Star/skill node twinkle */
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+}
+
+.star-node {
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+.star-node:nth-child(even) {
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+/* Fade-in on scroll */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    animation: fadeUp 0.65s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+.delay-2 {
+    animation-delay: 0.22s;
+    opacity: 0;
+}
+
+.delay-3 {
+    animation-delay: 0.34s;
+    opacity: 0;
+}
+
+.delay-4 {
+    animation-delay: 0.46s;
+    opacity: 0;
+}
+
+/* Gradient text */
+.text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #8ab4f8 55%, #135bec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Service card shine sweep on hover */
+@keyframes shine {
+    from {
+        transform: translateX(-100%) skewX(-15deg);
+    }
+
+    to {
+        transform: translateX(220%) skewX(-15deg);
+    }
+}
+
+.service-card {
+    position: relative;
+}
+
+.service-card .shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transform: translateX(-100%) skewX(-15deg);
+    pointer-events: none;
+}
+
+.service-card:hover .shine {
+    animation: shine 0.55s ease forwards;
+}
+
+/* Cursor blink for typewriter */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.cursor-blink {
+    animation: blink 1.1s step-end infinite;
+}
+
+/* Number stat tabular */
+.stat-number {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+}
+
+/* Pulsing ring on avatar */
+@keyframes ring-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(19, 91, 236, 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(19, 91, 236, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(19, 91, 236, 0);
+    }
+}
+
+.avatar-ring {
+    animation: ring-pulse 2.5s ease-out infinite;
+}
+
+/* Floating badge */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.float-badge {
+    animation: float 3.5s ease-in-out infinite;
+}

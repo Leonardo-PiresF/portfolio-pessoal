@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Leonardo Pires - O Dragonborn Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leonardo Pires — Desenvolvimento Web Freelancer</title>
+    <meta name="description"
+        content="Desenvolvimento web profissional: landing pages, sites institucionais e aplicações front-end sob medida." />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
@@ -15,696 +15,702 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#135bec",
-                        "primary-glow": "#4d8eff",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "stone-dark": "#1a1f2e",
-                        "stone-light": "#252b3d",
-                        "parchment": "#e3dacb",
-                        "constellation-blue": "#8ab4f8",
-                        "constellation-line": "rgba(255, 255, 255, 0.3)"
+                        "primary": "#135bec", "primary-glow": "#4d8eff",
+                        "background-dark": "#101622", "stone-dark": "#1a1f2e", "stone-light": "#252b3d",
+                        "constellation-blue": "#8ab4f8"
                     },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "skyrim": ["Cinzel", "serif"]
-                    },
-                    backgroundImage: {
-                        'fog-pattern': "radial-gradient(circle at 50% 50%, rgba(19, 91, 236, 0.08) 0%, rgba(16, 22, 34, 0) 50%)",
-                        'stone-texture': "linear-gradient(to bottom right, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%)",
-                        'nebula': "radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 40%, #020617 100%)"
-                    },
-                    boxShadow: {
-                        'rune': '0 0 15px rgba(19, 91, 236, 0.3)',
-                        'rune-hover': '0 0 25px rgba(19, 91, 236, 0.6)',
-                        'star-glow': '0 0 10px 2px rgba(138, 180, 248, 0.6), 0 0 20px 5px rgba(19, 91, 236, 0.2)',
-                    }
-                },
-            },
+                    fontFamily: { "display": ["Space Grotesk", "sans-serif"], "skyrim": ["Cinzel", "serif"] },
+                    boxShadow: { "rune": "0 0 15px rgba(19,91,236,0.3)", "rune-hover": "0 0 25px rgba(19,91,236,0.6)" }
+                }
+            }
         }
     </script>
-    <style>
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #101622;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #252b3d;
-            border: 1px solid #135bec;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #135bec;
-        }
-
-        @keyframes drift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .fog-bg {
-            background-size: 200% 200%;
-            animation: drift 15s ease infinite;
-        }
-
-        @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 0.8;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.4;
-                transform: scale(0.9);
-            }
-        }
-
-        .star-node {
-            animation: twinkle 4s ease-in-out infinite;
-        }
-
-        .star-node:nth-child(even) {
-            animation-duration: 5s;
-            animation-delay: 1s;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display selection:bg-primary selection:text-white overflow-x-hidden">
-    <div class="fixed inset-0 pointer-events-none z-0 bg-fog-pattern opacity-60"></div>
+    class="bg-background-dark text-slate-100 font-display selection:bg-primary selection:text-white overflow-x-hidden">
+
+    <div class="fixed inset-0 pointer-events-none z-0"
+        style="background:radial-gradient(circle at 50% 30%,rgba(19,91,236,0.08) 0%,rgba(16,22,34,0) 65%);"></div>
+
     <div class="relative flex min-h-screen w-full flex-col z-10">
+
+        <!-- HEADER -->
         <header
             class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-dark/80 border-b border-primary/30 shadow-lg shadow-black/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
-
-                    <div class="flex-shrink-0 flex items-center group cursor-pointer">
+                    <a href="#" class="flex-shrink-0 flex items-center">
                         <img src="logo 1.png" alt="Símbolo Leonardo" class="h-10 w-auto object-contain" />
                         <img src="logo 2.png" alt="Nome Leonardo"
                             class="h-16 w-72 object-cover object-center mix-blend-screen -ml-2" />
-                    </div>
-
-                    <div class="hidden md:block">
-                        <div class="ml-auto flex items-baseline space-x-8">
-                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
-                                href="#about">
-                                <span class="material-symbols-outlined text-[18px]">history_edu</span> Diário de Missões
-                            </a>
-                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
-                                href="#skills">
-                                <span class="material-symbols-outlined text-[18px]">swords</span> Habilidades
-                            </a>
-                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
-                                href="#projects">
-                                <span class="material-symbols-outlined text-[18px]">backpack</span> Inventário
-                            </a>
-                            <a class="bg-primary/10 hover:bg-primary hover:shadow-rune border border-primary text-primary hover:text-white transition-all duration-300 px-6 py-2 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center gap-2"
-                                href="#contact">
-                                <span class="material-symbols-outlined text-[18px]">mail</span> Recrutar
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="-mr-2 flex md:hidden">
-                        <button id="btn-mobile"
-                            class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-stone-light focus:outline-none transition-colors"
-                            type="button">
-                            <span id="icon-mobile" class="material-symbols-outlined text-2xl">menu</span>
-                        </button>
-                    </div>
-
+                    </a>
+                    <nav class="hidden md:flex items-center space-x-6">
+                        <a href="#services"
+                            class="text-slate-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-widest">Serviços</a>
+                        <a href="#process"
+                            class="text-slate-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-widest">Processo</a>
+                        <a href="#projects"
+                            class="text-slate-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-widest">Projetos</a>
+                        <a href="portfolio.html"
+                            class="text-slate-400 hover:text-constellation-blue transition-colors text-sm font-medium uppercase tracking-widest flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">open_in_new</span> Portfólio
+                        </a>
+                        <a href="#contact"
+                            class="bg-primary/10 hover:bg-primary border border-primary text-primary hover:text-white transition-all duration-300 px-5 py-2 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center gap-2 shadow-rune hover:shadow-rune-hover">
+                            <span class="material-symbols-outlined text-[16px]">chat</span> Falar agora
+                        </a>
+                    </nav>
+                    <button id="btn-mobile"
+                        class="md:hidden p-2 rounded-md text-slate-400 hover:text-white hover:bg-stone-light transition-colors">
+                        <span id="icon-mobile" class="material-symbols-outlined text-2xl">menu</span>
+                    </button>
                 </div>
             </div>
-
-            <div id="menu-mobile"
-                class="hidden md:hidden bg-stone-dark/95 backdrop-blur-lg border-t border-slate-800 shadow-2xl">
+            <div id="menu-mobile" class="hidden md:hidden bg-stone-dark/95 backdrop-blur-lg border-t border-slate-800">
                 <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
-                        href="#about">
-                        <span class="material-symbols-outlined text-[20px] text-primary">history_edu</span> Diário de
-                        Missões
-                    </a>
-                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
-                        href="#skills">
-                        <span class="material-symbols-outlined text-[20px] text-primary">swords</span> Habilidades
-                    </a>
-                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
-                        href="#projects">
-                        <span class="material-symbols-outlined text-[20px] text-primary">backpack</span> Inventário
-                    </a>
-                    <a class="mt-4 bg-primary/10 hover:bg-primary border border-primary text-primary hover:text-white transition-all duration-300 px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3"
-                        href="#contact">
-                        <span class="material-symbols-outlined text-[20px]">mail</span> Recrutar
-                    </a>
+                    <a href="#services"
+                        class="text-slate-300 hover:bg-slate-800 px-4 py-3 rounded-md text-sm uppercase tracking-widest flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[18px] text-primary">layers</span> Serviços</a>
+                    <a href="#process"
+                        class="text-slate-300 hover:bg-slate-800 px-4 py-3 rounded-md text-sm uppercase tracking-widest flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[18px] text-primary">route</span> Processo</a>
+                    <a href="#projects"
+                        class="text-slate-300 hover:bg-slate-800 px-4 py-3 rounded-md text-sm uppercase tracking-widest flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[18px] text-primary">work</span> Projetos</a>
+                    <a href="portfolio.html"
+                        class="text-slate-400 hover:bg-slate-800 px-4 py-3 rounded-md text-sm uppercase tracking-widest flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[18px] text-primary">open_in_new</span> Portfólio
+                        Completo</a>
+                    <a href="#contact"
+                        class="mt-2 bg-primary/10 hover:bg-primary border border-primary text-primary hover:text-white transition-all px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2"><span
+                            class="material-symbols-outlined text-[18px]">chat</span> Falar agora</a>
                 </div>
             </div>
         </header>
+
         <main class="flex-grow flex flex-col items-center w-full">
-            <section class="relative w-full py-20 lg:py-32 px-4 flex justify-center overflow-hidden">
-                <div class="absolute inset-0 z-[-1]">
-                    <img alt="Paisagem nórdica escura e enevoada com montanhas e neblina"
-                        class="w-full h-full object-cover opacity-20 mix-blend-overlay"
-                        data-alt="Paisagem nórdica escura e enevoada com montanhas e neblina"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuR_hDf5jl6PhmwUmDop1-T9poYWssx2AlqYZhORegDUqd8wcrQUg-Yz0AoKnmsIC3wJ5FOG5Yu36hb42B_oM2PmYZ0N_w2NG6qEmm5RuqdaEF0LDZrfQEuttH2JYLgWcWk3UBvMPrzGJZlkSn36Y4YKwjdrK57UpBeVfN0gKKKe-r8ghx-NRNQbmCrZLNJtryeW5hemiHWetldHlszmkZlnFO35Stlzm7lztlApsVW8kNXd1wniYKraq18dP2H8DXYb9yzM7jPDg" />
+
+            <!-- HERO -->
+            <section class="relative w-full min-h-[92vh] flex items-center justify-center px-4 py-24 overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuR_hDf5jl6PhmwUmDop1-T9poYWssx2AlqYZhORegDUqd8wcrQUg-Yz0AoKnmsIC3wJ5FOG5Yu36hb42B_oM2PmYZ0N_w2NG6qEmm5RuqdaEF0LDZrfQEuttH2JYLgWcWk3UBvMPrzGJZlkSn36Y4YKwjdrK57UpBeVfN0gKKKe-r8ghx-NRNQbmCrZLNJtryeW5hemiHWetldHlszmkZlnFO35Stlzm7lztlApsVW8kNXd1wniYKraq18dP2H8DXYb9yzM7jPDg"
+                        alt="" class="w-full h-full object-cover opacity-15 mix-blend-overlay" />
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent">
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/70 to-transparent">
                     </div>
                 </div>
+                <div
+                    class="absolute -top-40 -left-40 w-96 h-96 bg-primary rounded-full blur-[140px] opacity-10 pointer-events-none">
+                </div>
+                <div
+                    class="absolute bottom-0 right-0 w-80 h-80 bg-primary-glow rounded-full blur-[160px] opacity-[0.06] pointer-events-none">
+                </div>
+
                 <div class="max-w-5xl w-full text-center flex flex-col items-center gap-8 relative z-10">
                     <div
-                        class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-stone-light/50 border border-slate-700 backdrop-blur-sm">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span class="text-xs text-slate-300 font-medium tracking-widest uppercase">Desenvolvedor Web
-                            Nível 23</span>
+                        class="fade-up delay-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-light/60 border border-slate-700 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <span class="text-xs text-slate-300 font-medium tracking-widest uppercase">Disponível para novos
+                            projetos</span>
                     </div>
                     <h1
-                        class="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-tight drop-shadow-2xl">
-                        LEONARDO <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">PIRES</span>
+                        class="fade-up delay-2 text-5xl md:text-7xl lg:text-[88px] font-bold tracking-tighter leading-[0.95] text-white">
+                        Sites que<br /><span class="text-gradient">convertem.</span><br />Negócios que <br /><span
+                            class="text-gradient">crescem.</span>
                     </h1>
-                    <div class="h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                    <p class="text-lg md:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
-                        Estudante de Ciência da Computação | Aspirante a Desenvolvedor Web.<br />
-                        <span class="text-white font-normal italic opacity-80">"Construindo soluções web com foco em
-                            performance e experiência do usuário."</span>
+                    <div class="fade-up delay-3 h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent">
+                    </div>
+                    <p class="fade-up delay-3 text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
+                        Desenvolvimento web profissional para quem quer resultados reais, landing pages, sites
+                        institucionais e interfaces personalizadas.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full justify-center">
-                        <button
-                            class="group relative px-8 py-4 bg-stone-dark overflow-hidden rounded-lg border border-primary text-white shadow-rune transition-all hover:scale-105 active:scale-95">
-                            <div
-                                class="absolute inset-0 w-0 bg-primary transition-all duration-[250ms] ease-out group-hover:w-full opacity-20">
-                            </div>
+                    <div class="fade-up delay-4 flex flex-col sm:flex-row gap-4 mt-4">
+                        <a href="https://wa.me/5575988472549" target="_blank"
+                            class="group relative px-8 py-4 bg-[#25D366] hover:bg-[#1aad54] text-white rounded-xl font-bold uppercase tracking-wider shadow-lg shadow-green-900/30 hover:shadow-green-500/40 transition-all transform hover:-translate-y-1 flex items-center gap-2 justify-center">
                             <span
-                                class="relative text-sm font-bold uppercase tracking-[0.15em] flex items-center gap-2 justify-center">
-                                Ver Minha Jornada <span
-                                    class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </span>
-                        </button>
-                        <button
-                            class="px-8 py-4 bg-transparent rounded-lg border border-slate-600 text-slate-300 hover:bg-stone-light hover:border-slate-400 hover:text-white transition-all active:scale-95 text-sm font-bold uppercase tracking-[0.15em]">
-                            Baixar Currículo
-                        </button>
+                                class="absolute -inset-0.5 rounded-xl bg-[#25D366] opacity-30 blur-md group-hover:opacity-50 animate-pulse transition-opacity"></span>
+                            <span class="relative flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-[20px]">chat</span>Pedir orçamento
+                                grátis</span>
+                        </a>
+                        <a href="#projects"
+                            class="px-8 py-4 bg-stone-dark rounded-xl border border-primary/50 text-slate-300 hover:border-primary hover:text-white hover:shadow-rune transition-all transform hover:-translate-y-1 font-bold uppercase tracking-wider flex items-center gap-2 justify-center">
+                            Ver projetos <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+                        </a>
                     </div>
                 </div>
             </section>
-            <section class="w-full max-w-6xl px-4 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" id="about">
-                <div class="relative group">
+
+            <!-- STATS -->
+            <section class="w-full border-y border-slate-800 bg-stone-dark/50 backdrop-blur-sm py-10 px-4">
+                <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col gap-1"><span
+                            class="stat-number text-4xl font-bold text-white">12+</span><span
+                            class="text-xs text-slate-500 uppercase tracking-widest">Projetos entregues</span></div>
+                    <div class="flex flex-col gap-1"><span
+                            class="stat-number text-4xl font-bold text-white">100%</span><span
+                            class="text-xs text-slate-500 uppercase tracking-widest">Clientes satisfeitos</span></div>
+                    <div class="flex flex-col gap-1"><span
+                            class="stat-number text-4xl font-bold text-white">3+</span><span
+                            class="text-xs text-slate-500 uppercase tracking-widest">Anos de estudo</span></div>
+                    <div class="flex flex-col gap-1"><span
+                            class="stat-number text-4xl font-bold text-white">48h</span><span
+                            class="text-xs text-slate-500 uppercase tracking-widest">Resposta média</span></div>
+                </div>
+            </section>
+
+            <!-- SERVIÇOS -->
+            <section id="services" class="w-full max-w-7xl px-4 py-24 flex flex-col gap-16">
+                <div class="text-center flex flex-col items-center gap-4">
+                    <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">O que eu faço</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Serviços que entregam valor
+                    </h2>
+                    <div class="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                    <p class="text-slate-400 max-w-lg">Cada projeto começa com um objetivo claro. Você não paga por
+                        horas, você investe em resultado.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 overflow-visible pt-4">
+                    <!-- Landing Page -->
                     <div
-                        class="absolute -inset-2 bg-gradient-to-r from-primary to-slate-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
-                    </div>
-                    <div
-                        class="relative h-[500px] w-full bg-stone-dark rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
-                        <img alt="Pessoa programando no notebook em ambiente escuro com iluminação azul"
-                            class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
-                            data-alt="Pessoa programando no notebook em ambiente escuro com iluminação azul"
-                            src="Léo terno.png" />
+                        class="service-card group bg-stone-dark rounded-2xl border border-slate-800 hover:border-primary/50 p-8 flex flex-col gap-5 transition-all duration-300 hover:shadow-rune cursor-default">
+                        <div class="shine"></div>
                         <div
-                            class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-                            <div class="flex items-center gap-2 text-primary mb-1">
-                                <span class="material-symbols-outlined text-sm">location_on</span>
-                                <span class="text-xs uppercase tracking-widest font-bold">Maceió, Alagoas</span>
+                            class="w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                            <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Landing Page</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Página focada em converter visitantes em
+                                clientes. Design persuasivo, carregamento rápido e CTA estratégico. Ideal para serviços,
+                                produtos e campanhas.</p>
+                        </div>
+                        <ul class="flex flex-col gap-2 mt-auto">
+                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                Design responsivo mobile-first</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                Integração com WhatsApp</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                Otimizado para SEO básico</li>
+                        </ul>
+                    </div>
+                    <!-- Site Institucional -->
+                    <div class="pt-5 overflow-visible">
+                        <div
+                            class="service-card group bg-stone-dark rounded-2xl border border-primary/60 hover:border-primary p-8 flex flex-col gap-5 transition-all duration-300 hover:shadow-rune cursor-default relative shadow-rune overflow-visible">
+                            <div class="shine"></div>
+                            <div
+                                class="absolute -top-[14px] left-1/2 -translate-x-1/2 px-4 py-1 bg-primary rounded-full text-[10px] font-bold text-white uppercase tracking-widest whitespace-nowrap shadow-rune z-20">
+                                ⭐ Mais solicitado</div>
+                            <div
+                                class="w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                                <span class="material-symbols-outlined text-3xl">corporate_fare</span>
                             </div>
-                            <h3 class="text-white font-bold text-xl">Leonardo Pires - Desenvolvedor Web</h3>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Site Institucional</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Presença digital profissional para sua
+                                    empresa. Múltiplas seções, sobre, serviços, contato, construído para gerar
+                                    credibilidade e facilitar negócios.</p>
+                            </div>
+                            <ul class="flex flex-col gap-2 mt-auto">
+                                <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                        class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                    Múltiplas páginas e seções</li>
+                                <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                        class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                    Formulário de contato</li>
+                                <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                        class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                    Identidade visual aplicada</li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-col gap-6">
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">Minha caminhada
-                        </h2>
-                    </div>
+                    <!-- Interface sob medida -->
                     <div
-                        class="bg-stone-dark/50 p-8 rounded-lg border border-slate-700/50 backdrop-blur-sm relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
-                        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
-                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
-                            Sou natural de Salvador, Bahia, e me mudei para Maceió no final de 2021.
-                        </p>
-                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
-                            Desde 2023, quando me encontrei na Ciência da Computação, minha verdadeira vocação, venho
-                            direcionando
-                            minha energia para o desenvolvimento web, buscando transformar fundamentos sólidos de lógica
-                            e algoritmos em aplicações funcionais, bem estruturadas e eficientes.
-                        </p>
-                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
-                            Atualmente desenvolvo projetos próprios com foco em frontend e backend, priorizando clareza
-                            de código, organização arquitetural, performance e experiência do usuário. Acredito que boas
-                            soluções nascem do equilíbrio entre técnica, simplicidade e propósito.
+                        class="service-card group bg-stone-dark rounded-2xl border border-slate-800 hover:border-primary/50 p-8 flex flex-col gap-5 transition-all duration-300 hover:shadow-rune cursor-default">
+                        <div class="shine"></div>
+                        <div
+                            class="w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                            <span class="material-symbols-outlined text-3xl">design_services</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Interface Personalizada</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Desenvolvimento front-end sob medida para
+                                projetos específicos: dashboards, painéis, portais e componentes customizados com HTML,
+                                CSS e JavaScript.</p>
+                        </div>
+                        <ul class="flex flex-col gap-2 mt-auto">
+                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                Lógica e interatividade JS</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                Componentes reutilizáveis</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
+                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+                                Integração com APIs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-slate-500 text-sm mb-4">Não encontrou exatamente o que precisa?</p>
+                    <a href="https://wa.me/5575988472549" target="_blank"
+                        class="inline-flex items-center gap-2 text-primary hover:text-white border border-primary/40 hover:bg-primary px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all hover:shadow-rune">
+                        <span class="material-symbols-outlined text-[16px]">chat</span> Vamos conversar sobre o seu
+                        projeto
+                    </a>
+                </div>
+            </section>
+
+            <!-- como funciona -->
+            <section id="process" class="w-full bg-stone-dark/40 border-y border-slate-800 py-24 px-4">
+                <div class="max-w-5xl mx-auto flex flex-col gap-16">
+                    <div class="text-center flex flex-col items-center gap-4">
+                        <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">Como funciona</span>
+                        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Do briefing à entrega</h2>
+                        <div class="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                        <p class="text-slate-400 max-w-lg">Um processo claro, sem surpresas. Você acompanha cada etapa.
                         </p>
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 rounded bg-stone-dark border border-slate-800 flex flex-col gap-1">
-                            <span class="text-2xl font-bold text-white">3+</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider">Anos de Estudo</span>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <!-- etapa 1 -->
+                        <div class="flex flex-col gap-4 group">
+                            <div class="flex items-center">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-stone-dark border-2 border-primary flex items-center justify-center text-primary font-bold text-lg shrink-0 shadow-rune group-hover:bg-primary group-hover:text-white transition-all">
+                                    01</div>
+                                <div
+                                    class="hidden md:block flex-1 h-px bg-gradient-to-r from-primary/50 to-slate-700/30 ml-2">
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-white text-base uppercase tracking-wide">Contato & Briefing</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Você me conta o que precisa: objetivo,
+                                público, prazo e referências. Sem formulário complicado, uma conversa no WhatsApp
+                                resolve.</p>
                         </div>
-                        <div class="p-4 rounded bg-stone-dark border border-slate-800 flex flex-col gap-1">
-                            <span class="text-2xl font-bold text-white">12+</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider">Projetos Concluídos</span>
+                        <!-- etapa 2 -->
+                        <div class="flex flex-col gap-4 group">
+                            <div class="flex items-center">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-stone-dark border border-slate-600 flex items-center justify-center text-slate-300 font-bold text-lg shrink-0 group-hover:border-primary group-hover:text-primary transition-all">
+                                    02</div>
+                                <div
+                                    class="hidden md:block flex-1 h-px bg-gradient-to-r from-slate-700/30 to-slate-700/30 ml-2">
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-white text-base uppercase tracking-wide">Proposta & Aprovação</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Envio escopo, prazo e valor. Tudo por
+                                escrito. Aprovado, damos início, sem cobranças surpresa no meio do caminho.</p>
+                        </div>
+                        <!-- etapa 3 -->
+                        <div class="flex flex-col gap-4 group">
+                            <div class="flex items-center">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-stone-dark border border-slate-600 flex items-center justify-center text-slate-300 font-bold text-lg shrink-0 group-hover:border-primary group-hover:text-primary transition-all">
+                                    03</div>
+                                <div
+                                    class="hidden md:block flex-1 h-px bg-gradient-to-r from-slate-700/30 to-slate-700/30 ml-2">
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-white text-base uppercase tracking-wide">Desenvolvimento</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Codifico com atenção a cada detalhe. Você
+                                recebe atualizações durante o processo e pode solicitar ajustes antes da entrega final.
+                            </p>
+                        </div>
+                        <!-- etapa 4 -->
+                        <div class="flex flex-col gap-4 group">
+                            <div
+                                class="w-14 h-14 rounded-full bg-stone-dark border border-slate-600 flex items-center justify-center text-slate-300 font-bold text-lg group-hover:border-primary group-hover:text-primary transition-all">
+                                04</div>
+                            <h3 class="font-bold text-white text-base uppercase tracking-wide">Entrega & Suporte</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Projeto entregue, publicado e funcionando.
+                                Inclui orientação para edições básicas e suporte pós-entrega por 30 dias.</p>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="w-full bg-nebula py-24 px-4 border-y border-slate-800/50 relative overflow-hidden"
-                id="skills">
 
-                <div class="absolute inset-0 z-0 pointer-events-none">
-                    <img src="universo.jpeg" alt="Fundo constelação" class="w-full h-full object-cover opacity-20" />
-                    <div class="absolute inset-0 bg-background-dark/20"></div>
-                </div>
-
-                <div class="absolute inset-0 opacity-40 z-0 pointer-events-none"
-                    style="background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px); background-size: 550px 550px; background-position: 0 0;">
-                </div>
-                <div class="absolute inset-0 opacity-20 z-0 pointer-events-none"
-                    style="background-image: radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px); background-size: 350px 350px; background-position: 50% 50%;">
-                </div>
-
-                <div class="max-w-7xl mx-auto flex flex-col gap-16 relative z-10">
-
-                    <div class="text-center">
-                        <h2
-                            class="text-3xl md:text-4xl font-skyrim font-bold text-white tracking-widest uppercase mb-2">
-                            Constelações de Habilidades</h2>
-                        <div class="h-[1px] w-64 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto">
-                        </div>
-                        <p class="text-slate-400 mt-4 max-w-xl mx-auto italic font-serif">"Contemple os céus, onde o
-                            conhecimento está escrito na luz das estrelas."</p>
-                    </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
-                        <div class="relative flex flex-col items-center h-[500px]">
-                            <h3
-                                class="text-xl font-skyrim text-constellation-blue mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(138,180,248,0.8)]">
-                                Caminho do Frontend</h3>
-                            <div class="relative w-full h-full">
-                                <svg class="absolute inset-0 w-full h-full pointer-events-none z-0"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="50%"
-                                        y1="15%" y2="45%"></line>
-                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="30%"
-                                        y1="45%" y2="70%"></line>
-                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="70%"
-                                        y1="45%" y2="70%"></line>
-                                    <line class="opacity-30" stroke="var(--constellation-line)" stroke-dasharray="4 2"
-                                        stroke-width="1" x1="70%" x2="70%" y1="70%" y2="90%"></line>
-                                </svg>
-                                <div
-                                    class="absolute top-[15%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
-                                    <div
-                                        class="w-16 h-16 rounded-full bg-slate-900 border-2 border-constellation-blue shadow-star-glow flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                                        <span
-                                            class="material-symbols-outlined text-3xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">html</span>
-                                    </div>
-                                    <span
-                                        class="absolute top-1/2 left-[120%] -translate-y-1/2 text-white font-skyrim text-sm tracking-widest w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/80 px-2 py-1 border border-slate-700 rounded">Maestria
-                                        em HTML5</span>
-                                </div>
-                                <div
-                                    class="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
-                                    <div
-                                        class="w-14 h-14 rounded-full bg-slate-900 border-2 border-constellation-blue shadow-star-glow flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                                        <span
-                                            class="material-symbols-outlined text-2xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">css</span>
-                                    </div>
-                                    <span
-                                        class="text-constellation-blue font-serif text-xs uppercase tracking-widest mt-16 absolute">CSS3</span>
-                                </div>
-                                <div
-                                    class="absolute top-[70%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-slate-900 border border-constellation-blue shadow-[0_0_10px_rgba(138,180,248,0.4)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                                        <span class="material-symbols-outlined text-xl text-white">javascript</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider mt-14 absolute">JavaScript</span>
-                                </div>
-                                <div
-                                    class="absolute top-[70%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-60 grayscale">
-                                        <span
-                                            class="material-symbols-outlined text-lg text-slate-500">code_blocks</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-12 absolute">React
-                                        (Bloqueado)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative flex flex-col items-center h-[500px]">
-                            <h3
-                                class="text-xl font-skyrim text-purple-300 mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(216,180,254,0.6)]">
-                                Caminho do Backend</h3>
-                            <div class="relative w-full h-full">
-                                <svg class="absolute inset-0 w-full h-full pointer-events-none z-0"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="20%" x2="50%"
-                                        y1="30%" y2="20%"></line>
-                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="80%"
-                                        y1="20%" y2="35%"></line>
-                                    <line stroke="var(--constellation-line)" stroke-width="1.5" x1="50%" x2="50%"
-                                        y1="20%" y2="55%"></line>
-                                    <line class="opacity-30" stroke="var(--constellation-line)" stroke-dasharray="4 2"
-                                        stroke-width="1" x1="50%" x2="50%" y1="55%" y2="80%"></line>
-                                </svg>
-                                <div
-                                    class="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
-                                    <div
-                                        class="w-16 h-16 rounded-full bg-slate-900 border-2 border-purple-400 shadow-[0_0_15px_rgba(192,132,252,0.4)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                                        <span
-                                            class="material-symbols-outlined text-3xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">terminal</span>
-                                    </div>
-                                    <span
-                                        class="text-purple-300 font-serif text-sm uppercase tracking-widest mt-18 absolute top-full">Python</span>
-                                </div>
-                                <div
-                                    class="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-slate-900 border border-purple-300 shadow-[0_0_10px_rgba(192,132,252,0.3)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                                        <span class="material-symbols-outlined text-xl text-white">smart_toy</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider absolute left-full ml-4 w-max">Framework
-                                        Flask</span>
-                                </div>
-                                <div
-                                    class="absolute top-[30%] left-[20%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-50">
-                                        <span class="material-symbols-outlined text-xs text-slate-500">lock</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="absolute top-[35%] left-[80%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-50">
-                                        <span class="material-symbols-outlined text-xs text-slate-500">lock</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-60 grayscale">
-                                        <span class="material-symbols-outlined text-lg text-slate-500">dns</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-12 absolute">Node.js</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative flex flex-col items-center h-[500px]">
-                            <h3
-                                class="text-xl font-skyrim text-emerald-300 mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(110,231,183,0.6)]">
-                                Caminho dos Dados</h3>
-                            <div class="relative w-full h-full">
-                                <svg class="absolute inset-0 w-full h-full pointer-events-none z-0"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M50% 15% Q 20% 35% 30% 60%" fill="none" stroke="var(--constellation-line)"
-                                        stroke-width="1.5"></path>
-                                    <path d="M50% 15% Q 80% 35% 70% 60%" fill="none" stroke="var(--constellation-line)"
-                                        stroke-width="1.5"></path>
-                                    <line class="opacity-30" stroke="var(--constellation-line)" stroke-dasharray="4 2"
-                                        stroke-width="1" x1="30%" x2="50%" y1="60%" y2="80%"></line>
-                                    <line class="opacity-30" stroke="var(--constellation-line)" stroke-dasharray="4 2"
-                                        stroke-width="1" x1="70%" x2="50%" y1="60%" y2="80%"></line>
-                                </svg>
-                                <div
-                                    class="absolute top-[15%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
-                                    <div
-                                        class="w-14 h-14 rounded-full bg-slate-900 border-2 border-emerald-400 shadow-[0_0_15px_rgba(52,211,153,0.4)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                                        <span
-                                            class="material-symbols-outlined text-2xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">database</span>
-                                    </div>
-                                    <span
-                                        class="text-emerald-300 font-serif text-sm uppercase tracking-widest mt-16 absolute">SQLite</span>
-                                </div>
-                                <div
-                                    class="absolute top-[60%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-slate-900 border border-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.3)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                                        <span class="material-symbols-outlined text-xl text-white">data_object</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider absolute top-full mt-2">JSON</span>
-                                </div>
-                                <div
-                                    class="absolute top-[60%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node">
-                                    <div
-                                        class="w-12 h-12 rounded-full bg-slate-900 border border-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.3)] flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
-                                        <span class="material-symbols-outlined text-xl text-white">table_chart</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider absolute top-full mt-2">SQL</span>
-                                </div>
-                                <div
-                                    class="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center relative z-10 opacity-60 grayscale">
-                                        <span class="material-symbols-outlined text-lg text-slate-500">storage</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-12 absolute">PostgreSQL</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="w-full max-w-7xl px-4 py-24 flex flex-col gap-12" id="projects">
+            <section id="projects" class="w-full max-w-7xl px-4 py-24 flex flex-col gap-12">
                 <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-slate-800 pb-6">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">Projetos
-                            Recentes</h2>
-                        <p class="text-slate-400 mt-2">"Explore as criações mais recentes, onde cada projeto é uma
-                            missão cumprida e um passo adiante
-                            na minha jornada de desenvolvimento."</p>
-                        </p>
+                        <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">Projetos recentes</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 tracking-tight">Resultados que falam
+                            por si</h2>
                     </div>
-                    <a class="text-primary hover:text-white font-bold uppercase tracking-widest text-sm flex items-center gap-2 transition-colors text-center"
-                        href="https://github.com/Leonardo-PiresF">
-                        Ver Todos os Projetos <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    <a href="portfolio.html"
+                        class="text-primary hover:text-white font-bold uppercase tracking-widest text-sm flex items-center gap-2 transition-colors whitespace-nowrap">
+                        Ver portfólio completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </a>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <article
-                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
-                        <div class="relative h-48 overflow-hidden">
+                        class="group bg-stone-dark rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 shadow-lg">
+                        <div class="relative h-52 overflow-hidden">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
+                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-70">
                             </div>
-                            <img alt="Nós geométricos abstratos em azul escuro se conectando como uma rede"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                data-alt="Nós geométricos abstratos em azul escuro se conectando como uma rede"
-                                src="Capa Kamila.png" />
-                            <div
-                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">Landing Page</span>
+                            <img src="Capa Kamila.png" alt="Landing Page Kamila Pontes"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-primary/80 backdrop-blur">
+                                <span class="text-[10px] font-bold text-white uppercase tracking-widest">Landing
+                                    Page</span>
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                                Landing Page – Kamila Pontes, Psicóloga Clínica</h3>
-                            <p class="text-slate-400 text-sm mb-6 flex-1">Uma interface front-end otimizada para
-                                conversão e agendamento via WhatsApp, estilizada com Tailwind CSS e suporte a temas
-                                dinâmicos (Light/Dark) via JavaScript.</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
+                        <div class="p-7 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Landing
+                                Page — Kamila Pontes, Psicóloga</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Interface de alta conversão para
+                                agendamento via WhatsApp. Tema claro/escuro dinâmico, totalmente responsiva e otimizada
+                                para carregamento rápido.</p>
+                            <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">HTML</span>
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">HTML</span>
                                 <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Tailwind
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">Tailwind
                                     CSS</span>
                                 <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JavaScript</span>
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">JavaScript</span>
                             </div>
-                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="https://leonardo-piresf.github.io/site-kamila-pontes/" target="_blank">
-                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
+                            <a href="https://psikamilapontes.com/" target="_blank"
+                                class="w-full py-3 bg-slate-800 hover:bg-primary border border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded-lg transition-all">
+                                Ver projeto ao vivo <span
+                                    class="material-symbols-outlined text-[16px]">open_in_new</span>
                             </a>
                         </div>
                     </article>
                     <article
-                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
-                        <div class="relative h-48 overflow-hidden">
+                        class="group bg-stone-dark rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 shadow-lg">
+                        <div class="relative h-52 overflow-hidden">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
+                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-70">
                             </div>
-                            <img alt="Painel de interface escuro com gráficos e visualização de dados"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                data-alt="Painel de interface escuro com gráficos e visualização de dados"
-                                src="Capa anjos advogados associados.png" />
-                            <div
-                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">Site institucional</span>
+                            <img src="Capa anjos advogados associados.png" alt="Site Anjos Advogados"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-primary/80 backdrop-blur">
+                                <span class="text-[10px] font-bold text-white uppercase tracking-widest">Site
+                                    Institucional</span>
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                                Site institucional - Anjos Advogados Associados</h3>
-                            <p class="text-slate-400 text-sm mb-6 flex-1">Site institucional para o escritorio de
-                                advocacia Anjos Advogados Associados, desenvolvido com HTML, Tailwind CSS e JavaScript.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
+                        <div class="p-7 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Site
+                                Institucional — Anjos Advogados</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Presença digital completa para escritório
+                                de advocacia. Visual sóbrio e profissional, com seções de serviços, equipe e contato,
+                                focado em credibilidade.</p>
+                            <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">HTML</span>
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">HTML</span>
                                 <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Tailwind</span>
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">Tailwind</span>
                                 <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JS</span>
+                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">JavaScript</span>
                             </div>
-                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/"
-                                target="_blank">
-                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
-                            </a>
-                        </div>
-                    </article>
-                    <article
-                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
-                        <div class="relative h-48 overflow-hidden">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
-                            </div>
-                            <img alt="Tela de computador com editor de código mostrando lógica complexa"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                data-alt="Tela de computador com editor de código mostrando lógica complexa"
-                                src="obra.jpg" />
-                            <div
-                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">*****</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">[EM
-                                PRODUÇÃO]</h3>
-                            <p class="text-slate-400 text-sm mb-6 flex-1">Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit..</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">????</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">??????</span>
-                            </div>
-                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="#" target="_blank">
-                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
+                            <a href="https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/" target="_blank"
+                                class="w-full py-3 bg-slate-800 hover:bg-primary border border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded-lg transition-all">
+                                Ver projeto ao vivo <span
+                                    class="material-symbols-outlined text-[16px]">open_in_new</span>
                             </a>
                         </div>
                     </article>
                 </div>
             </section>
-            <section class="w-full px-4 pb-20 pt-10" id="contact">
-                <div
-                    class="max-w-5xl mx-auto relative rounded-2xl overflow-hidden bg-stone-dark border border-slate-700 p-8 md:p-16 text-center shadow-2xl">
-                    <div class="absolute top-0 left-0 w-full h-full bg-stone-texture opacity-30"></div>
-                    <div
-                        class="absolute -top-[100px] -right-[100px] w-64 h-64 bg-primary rounded-full blur-[100px] opacity-20">
+
+            <section class="w-full bg-stone-dark/40 border-y border-slate-800 py-24 px-4">
+                <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+                    <div class="flex-shrink-0 relative">
+                        <div
+                            class="relative w-60 h-60 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl avatar-ring">
+                            <img src="Léo terno.png" alt="Leonardo Pires"
+                                class="w-full h-full object-cover object-top" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-background-dark/60 via-transparent to-transparent">
+                            </div>
+                        </div>
+                        <div
+                            class="float-badge absolute -bottom-4 -right-4 bg-primary px-4 py-2 rounded-xl shadow-rune">
+                            <span class="text-white text-xs font-bold uppercase tracking-wide">Maceió, AL</span>
+                        </div>
                     </div>
+                    <div class="flex flex-col gap-6">
+                        <div>
+                            <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">Por que me
+                                contratar</span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 leading-tight">Técnica
+                                sólida.<br />Comunicação clara.</h2>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed max-w-lg">
+                            Sou estudante de Ciência da Computação com foco em desenvolvimento web. Trabalho com atenção
+                            real ao detalhe, não entrego templates genéricos. Cada projeto é construído do zero,
+                            pensando no seu cliente final.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex items-start gap-3 p-4 rounded-xl bg-stone-dark border border-slate-800">
+                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">speed</span>
+                                <div>
+                                    <h4 class="text-white font-bold text-sm">Entregas no prazo</h4>
+                                    <p class="text-slate-500 text-xs mt-1">Cronograma definido na proposta e respeitado.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-4 rounded-xl bg-stone-dark border border-slate-800">
+                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">devices</span>
+                                <div>
+                                    <h4 class="text-white font-bold text-sm">100% Responsivo</h4>
+                                    <p class="text-slate-500 text-xs mt-1">Perfeito em celular, tablet e desktop.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-4 rounded-xl bg-stone-dark border border-slate-800">
+                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">code_blocks</span>
+                                <div>
+                                    <h4 class="text-white font-bold text-sm">Código limpo</h4>
+                                    <p class="text-slate-500 text-xs mt-1">Organizado, comentado e fácil de manter.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-4 rounded-xl bg-stone-dark border border-slate-800">
+                                <span
+                                    class="material-symbols-outlined text-primary text-2xl mt-0.5">support_agent</span>
+                                <div>
+                                    <h4 class="text-white font-bold text-sm">Suporte incluso</h4>
+                                    <p class="text-slate-500 text-xs mt-1">30 dias de suporte após a entrega.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="w-full max-w-3xl px-4 py-24 flex flex-col gap-12">
+                <div class="text-center flex flex-col items-center gap-4">
+                    <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">Dúvidas frequentes</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Perguntas & Respostas</h2>
+                    <div class="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <details
+                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
+                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
+                                class="font-medium text-white">Quanto custa um site?</span><span
+                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">O valor depende do tipo de
+                            projeto, das funcionalidades e dos objetivos do seu negócio. Mais do que um site bonito, o
+                            foco é criar uma página que realmente gere resultados para você.
+
+                            Para você ter uma ideia:
+                            Landing pages: a partir de R$600,
+                            Sites institucionais completos: a partir de R$1.200.
+
+                            Cada projeto é único, então o ideal é entender exatamente o que você precisa. Me chama e eu
+                            te envio um orçamento personalizado sem compromisso.</div>
+                    </details>
+                    <details
+                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
+                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
+                                class="font-medium text-white">Em quanto tempo o site fica pronto?</span><span
+                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Uma landing page leva em média
+                            5–10 dias úteis após aprovação do briefing. Sites institucionais entre 2 e 4 semanas. O
+                            prazo exato fica definido na proposta.</div>
+                    </details>
+                    <details
+                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
+                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
+                                class="font-medium text-white">Eu preciso ter domínio e hospedagem?</span><span
+                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Sim, para publicar o site você
+                            precisa de domínio e hospedagem. Posso orientar sobre as melhores opções e, se quiser, cuido
+                            da publicação por você.</div>
+                    </details>
+                    <details
+                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
+                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
+                                class="font-medium text-white">Consigo editar o site depois?</span><span
+                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Sim. Entrego o código organizado
+                            para edições simples (textos, imagens, cores). Para alterações maiores, é só me chamar,
+                            faço via contrato de manutenção avulso.</div>
+                    </details>
+                    <details
+                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
+                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
+                                class="font-medium text-white">Como funciona o pagamento?</span><span
+                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Normalmente 40% na aprovação da
+                            proposta e 60% na entrega. Aceito Pix. Para projetos maiores, posso parcelar em até 3x sem
+                            juros.</div>
+                    </details>
+
+                    <details
+                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
+                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
+                                class="font-medium text-white">Qual tipo de site é ideal para o meu negócio?</span><span
+                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Tudo depende do objetivo do seu
+                            negócio.
+
+                            Landing page: ideal para quem quer atrair clientes de forma rápida e direta, focando em
+                            conversão.
+                            Site institucional: indicado para quem precisa apresentar a empresa de forma mais completa e
+                            fortalecer a autoridade.
+
+                            Se você não tiver certeza do que faz mais sentido, posso analisar seu caso e te indicar a
+                            melhor opção.</div>
+                    </details>
+                </div>
+            </section>
+
+            <section id="contact" class="w-full px-4 pb-24">
+                <div
+                    class="max-w-4xl mx-auto relative rounded-2xl overflow-hidden bg-stone-dark border border-slate-700 p-10 md:p-16 text-center shadow-2xl">
+                    <div
+                        class="absolute -top-24 -right-24 w-72 h-72 bg-primary rounded-full blur-[120px] opacity-15 pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute -bottom-16 -left-16 w-48 h-48 bg-primary-glow rounded-full blur-[100px] opacity-10 pointer-events-none">
+                    </div>
+                    <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary"></div>
+                    <div class="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary"></div>
+                    <div class="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary"></div>
+                    <div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary"></div>
                     <div class="relative z-10 flex flex-col items-center gap-6">
                         <div
-                            class="w-16 h-16 rounded-full bg-stone-light border border-slate-600 flex items-center justify-center text-primary mb-2 shadow-rune">
+                            class="w-16 h-16 rounded-full bg-stone-light border border-slate-600 flex items-center justify-center text-primary shadow-rune">
                             <span class="material-symbols-outlined text-3xl">handshake</span>
                         </div>
-                        <h2 class="text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight">Disponível para
-                            novos projetos</h2>
-                        <p class="text-slate-400 max-w-lg mx-auto text-lg">Aberto a oportunidades de estágio, freelance
-                            e colaborações em desenvolvimento web.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 mt-6">
-                            <a class="flex items-center justify-center px-8 py-4 bg-primary hover:bg-primary-glow text-white rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-blue-900/50 hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1"
-                                href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
-                                target="_blank">
-                                Enviar Email
-                            </a>
-
-                            <a class="relative flex items-center justify-center px-8 py-4 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-green-900/40 hover:shadow-green-500/60 transition-all transform hover:-translate-y-1 group"
-                                href="https://wa.me/5575988472549" target="_blank">
-
+                        <h2 class="text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight">Pronto para
+                            ter<br /><span class="text-gradient">seu site no ar?</span></h2>
+                        <p class="text-slate-400 max-w-md text-lg">Me conta sobre o seu projeto. Respondo em até 48h com
+                            uma proposta clara e sem compromisso.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
+                            <a href="https://wa.me/5575988472549" target="_blank"
+                                class="group relative flex items-center justify-center px-8 py-4 bg-[#25D366] hover:bg-[#1aad54] text-white rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-green-900/40 hover:shadow-green-500/50 transition-all transform hover:-translate-y-1">
                                 <span
-                                    class="absolute -inset-0.5 rounded-lg bg-[#25D366] opacity-40 blur-md group-hover:opacity-60 animate-pulse transition-opacity duration-300"></span>
-
-                                <span class="relative flex items-center gap-2">
-                                    <span
-                                        class="material-symbols-outlined group-hover:animate-bounce text-[20px]">chat</span>
-                                    WhatsApp
-                                </span>
+                                    class="absolute -inset-0.5 rounded-xl bg-[#25D366] opacity-35 blur-md group-hover:opacity-55 animate-pulse transition-opacity"></span>
+                                <span class="relative flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-[20px] group-hover:animate-bounce">chat</span>WhatsApp</span>
+                            </a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
+                                target="_blank"
+                                class="flex items-center justify-center px-8 py-4 bg-stone-dark hover:bg-primary/20 border border-slate-600 hover:border-primary text-slate-300 hover:text-white rounded-xl font-bold uppercase tracking-widest transition-all transform hover:-translate-y-1">
+                                <span class="material-symbols-outlined text-[20px] mr-2">mail</span>Enviar e-mail
                             </a>
                         </div>
+                        <p class="text-slate-600 text-xs mt-2">leonardopires.dev@gmail.com · Maceió, Alagoas</p>
                     </div>
                 </div>
             </section>
+
+            <section id="recruiters" class="w-full px-4 py-24 bg-stone-dark/40 border-t border-slate-800">
+                <div class="max-w-5xl mx-auto flex flex-col gap-12">
+
+                    <div class="flex flex-col items-center text-center gap-4">
+                        <span
+                            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-constellation-blue/40 text-constellation-blue text-xs uppercase tracking-widest font-medium">
+                            <span class="material-symbols-outlined text-[14px]">badge</span> Para recrutadores
+                        </span>
+                        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Além do freelancer</h2>
+                        <p class="text-slate-400 max-w-xl text-lg">Se você chegou aqui avaliando um candidato para
+                            estágio ou CLT, aqui está o que precisa saber sobre minha formação e trajetória.</p>
+                    </div>
+
+
+
+                    <div
+                        class="relative rounded-2xl bg-stone-dark border border-constellation-blue/20 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
+                        <div
+                            class="absolute -top-16 -right-16 w-48 h-48 bg-constellation-blue rounded-full blur-[80px] opacity-[0.07] pointer-events-none">
+                        </div>
+
+                        <div class="flex flex-col gap-2 text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-white">Quer ver meu portfolio completo?</h3>
+                            <p class="text-slate-400 text-sm max-w-md">Projetos, habilidades detalhadas, currículo e
+                                histórico de formação, tudo em uma página só.</p>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+                            <a href="portfolio.html"
+                                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-constellation-blue/10 hover:bg-constellation-blue/20 border border-constellation-blue/40 hover:border-constellation-blue text-constellation-blue hover:text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all transform hover:-translate-y-0.5">
+                                <span class="material-symbols-outlined text-[18px]">open_in_new</span> Ver Portfolio
+                            </a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
+                                target="_blank"
+                                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-stone-light hover:bg-primary border border-slate-700 hover:border-primary text-slate-300 hover:text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all transform hover:-translate-y-0.5">
+                                <span class="material-symbols-outlined text-[18px]">mail</span> Enviar E-mail
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
         </main>
+
+        <!-- FOOTER -->
         <footer class="w-full bg-stone-dark border-t border-slate-800 py-12 px-4">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex flex-col gap-2">
-                    <h2 class="text-xl font-bold text-white tracking-[0.2em]">LEONARDO PIRES</h2>
-                    <p class="text-slate-500 text-sm">© 2026. Todos os direitos reservados.</p>
+                <div class="flex flex-col gap-1 items-center md:items-start">
+                    <h2 class="text-lg font-bold text-white tracking-[0.2em] uppercase">Leonardo Pires</h2>
+                    <p class="text-slate-600 text-xs">Desenvolvedor Web Freelancer · Maceió, AL</p>
+                    <p class="text-slate-700 text-xs mt-1">© 2026. Todos os direitos reservados.</p>
                 </div>
-                <div class="flex items-center gap-6">
-                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
-                        href="https://github.com/Leonardo-PiresF">
-                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">code</span>
-                    </a>
-                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
-                        href="#">
-                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">work</span>
-                    </a>
-                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
-                        href="#">
-                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">mail</span>
-                    </a>
+                <nav
+                    class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 uppercase tracking-widest">
+                    <a href="#services" class="hover:text-primary transition-colors">Serviços</a>
+                    <a href="#process" class="hover:text-primary transition-colors">Processo</a>
+                    <a href="#projects" class="hover:text-primary transition-colors">Projetos</a>
+                    <a href="#recruiters" class="hover:text-constellation-blue transition-colors">Recrutadores</a>
+                    <a href="portfolio.html" class="hover:text-primary transition-colors">Portfólio</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Contato</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/Leonardo-PiresF" target="_blank"
+                        class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary transition-all"><span
+                            class="material-symbols-outlined text-sm">code</span></a>
+                    <a href="https://wa.me/5575988472549" target="_blank"
+                        class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary transition-all"><span
+                            class="material-symbols-outlined text-sm">chat</span></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com" target="_blank"
+                        class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary transition-all"><span
+                            class="material-symbols-outlined text-sm">mail</span></a>
                 </div>
             </div>
         </footer>
+
     </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const btnMobile = document.getElementById('btn-mobile');
-            const menuMobile = document.getElementById('menu-mobile');
-            const iconMobile = document.getElementById('icon-mobile');
-            const linksMobile = menuMobile.querySelectorAll('a');
+        const btnMobile = document.getElementById('btn-mobile');
+        const menuMobile = document.getElementById('menu-mobile');
+        const iconMobile = document.getElementById('icon-mobile');
+        btnMobile.addEventListener('click', () => {
+            menuMobile.classList.toggle('hidden');
+            iconMobile.textContent = menuMobile.classList.contains('hidden') ? 'menu' : 'close';
+        });
+        menuMobile.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { menuMobile.classList.add('hidden'); iconMobile.textContent = 'menu'; }));
 
-            btnMobile.addEventListener('click', () => {
-                menuMobile.classList.toggle('hidden');
-
-                if (menuMobile.classList.contains('hidden')) {
-                    iconMobile.textContent = 'menu';
-                } else {
-                    iconMobile.textContent = 'close';
-                }
-            });
-
-            linksMobile.forEach(link => {
-                link.addEventListener('click', () => {
-                    menuMobile.classList.add('hidden');
-                    iconMobile.textContent = 'menu';
-                });
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });
         });
     </script>
-
 </body>
 
 </html>
