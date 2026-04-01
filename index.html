@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="pt-BR">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8" />
@@ -7,709 +7,737 @@
     <title>Leonardo Pires — Desenvolvimento Web Freelancer</title>
     <meta name="description"
         content="Desenvolvimento web profissional: landing pages, sites institucionais e aplicações front-end sob medida." />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cinzel:wght@400;700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec", "primary-glow": "#4d8eff",
-                        "background-dark": "#101622", "stone-dark": "#1a1f2e", "stone-light": "#252b3d",
-                        "constellation-blue": "#8ab4f8"
-                    },
-                    fontFamily: { "display": ["Space Grotesk", "sans-serif"], "skyrim": ["Cinzel", "serif"] },
-                    boxShadow: { "rune": "0 0 15px rgba(19,91,236,0.3)", "rune-hover": "0 0 25px rgba(19,91,236,0.6)" }
-                }
-            }
-        }
-    </script>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Extra page-level layout only */
+        body { background: #008080 !important; margin: 0; padding: 0; }
+        .page-wrap { max-width: 900px; margin: 0 auto; padding: 8px 8px 50px; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+        .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; }
+        @media(max-width:680px) {
+            .two-col, .three-col, .four-col { grid-template-columns: 1fr; }
+        }
+        @media(max-width:900px) {
+            .three-col { grid-template-columns: 1fr 1fr; }
+        }
+        /* hero banner inside window */
+        .win-hero-banner {
+            background: linear-gradient(180deg, #0a246a 0%, #3a6ea5 60%, #7aa0d4 100%);
+            padding: 24px 16px;
+            text-align: center;
+            color: white;
+        }
+        .win-hero-banner h1 {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 0 6px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+        .win-hero-banner .sub {
+            font-size: 12px;
+            color: #c8dcf4;
+            margin: 0 0 16px;
+        }
+        .win-hero-banner .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #aae0aa;
+            font-size: 10px;
+            padding: 2px 8px;
+            margin-bottom: 14px;
+        }
+        .win-hero-banner .dot {
+            width: 7px;
+            height: 7px;
+            background: #00cc00;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1.5s step-end infinite;
+        }
+        .win-hero-banner p {
+            font-size: 11px;
+            color: #d4e4f8;
+            max-width: 480px;
+            margin: 0 auto 18px;
+            line-height: 1.6;
+        }
+        .win-hero-actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+        /* stat strip */
+        .win-stat-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            background: var(--win-gray);
+            border-top: 2px solid var(--win-shadow-light);
+            border-left: 2px solid var(--win-shadow-light);
+            border-right: 2px solid var(--win-shadow-dark);
+            border-bottom: 2px solid var(--win-shadow-dark);
+            padding: 8px 0;
+        }
+        .win-stat-strip > div { padding: 4px; border-right: 1px solid var(--win-gray-dark); }
+        .win-stat-strip > div:last-child { border-right: none; }
+        .win-stat-num { font-size: 22px; font-weight: bold; color: var(--win-blue); font-variant-numeric: tabular-nums; }
+        .win-stat-label { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 0.05em; }
+        @media(max-width:500px) { .win-stat-strip { grid-template-columns: repeat(2,1fr); } }
+        /* progress bar section */
+        .skill-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+        .skill-name { width: 110px; font-size: 11px; text-align: right; flex-shrink: 0; }
+        .skill-bar { flex: 1; }
+        /* section heading strip */
+        .win-section-head {
+            background: var(--win-blue);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 8px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        /* about photo area */
+        .about-photo {
+            border-top: 2px solid var(--win-shadow-dark);
+            border-left: 2px solid var(--win-shadow-dark);
+            border-right: 2px solid var(--win-shadow-light);
+            border-bottom: 2px solid var(--win-shadow-light);
+            overflow: hidden;
+            width: 140px;
+            height: 160px;
+            flex-shrink: 0;
+        }
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        /* project thumbnail */
+        .project-thumb {
+            border-top: 1px solid var(--win-shadow-dark);
+            border-left: 1px solid var(--win-shadow-dark);
+            border-right: 1px solid var(--win-shadow-light);
+            border-bottom: 1px solid var(--win-shadow-light);
+            overflow: hidden;
+            height: 100px;
+        }
+        .project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* marquee strip */
+        .win-scrolling-strip {
+            background: white;
+            border-top: 1px solid var(--win-shadow-dark);
+            border-left: 1px solid var(--win-shadow-dark);
+            border-right: 1px solid var(--win-shadow-light);
+            border-bottom: 1px solid var(--win-shadow-light);
+            padding: 2px 0;
+            overflow: hidden;
+            font-size: 11px;
+            color: var(--win-blue);
+        }
+    </style>
 </head>
 
-<body
-    class="bg-background-dark text-slate-100 font-display selection:bg-primary selection:text-white overflow-x-hidden">
+<body>
 
-    <div class="fixed inset-0 pointer-events-none z-0"
-        style="background:radial-gradient(circle at 50% 30%,rgba(19,91,236,0.08) 0%,rgba(16,22,34,0) 65%);"></div>
+<!-- ====== WINDOWS TASKBAR ====== -->
+<div class="win-taskbar">
+    <button class="win-start-btn" onclick="alert('Clique nos links da página para navegar!')">
+        <span style="font-size:13px;">🪟</span> Start
+    </button>
+    <div class="win-toolbar-sep"></div>
+    <div class="win-taskbar-tasks">
+        <a href="#services" class="win-taskbar-task active">🖥️ Serviços</a>
+        <a href="#projects" class="win-taskbar-task">📁 Projetos</a>
+        <a href="#process" class="win-taskbar-task">⚙️ Processo</a>
+        <a href="#about" class="win-taskbar-task">👤 Sobre</a>
+        <a href="#contact" class="win-taskbar-task">✉️ Contato</a>
+    </div>
+    <div class="win-toolbar-sep"></div>
+    <div class="win-systray">
+        <span title="Disponível para projetos" style="font-size:12px;">🌐</span>
+        <span title="WhatsApp" style="font-size:12px;">💬</span>
+        <span id="clock" style="font-size:10px; white-space:nowrap;">00:00</span>
+    </div>
+</div>
 
-    <div class="relative flex min-h-screen w-full flex-col z-10">
+<!-- ====== DESKTOP ====== -->
+<div class="win-desktop">
+<div class="page-wrap">
 
-        <!-- HEADER -->
-        <header
-            class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-dark/80 border-b border-primary/30 shadow-lg shadow-black/20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <a href="#" class="flex-shrink-0 flex items-center">
-                        <img src="logo 1.png" alt="Símbolo Leonardo" class="h-10 w-auto object-contain" />
-                        <img src="logo 2.png" alt="Nome Leonardo"
-                            class="h-16 w-72 object-cover object-center mix-blend-screen -ml-2" />
-                    </a>
-                    <nav class="hidden md:flex items-center space-x-6">
-                        <a href="#services"
-                            class="text-slate-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-widest">Serviços</a>
-                        <a href="#process"
-                            class="text-slate-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-widest">Processo</a>
-                        <a href="#projects"
-                            class="text-slate-300 hover:text-white transition-colors text-sm font-medium uppercase tracking-widest">Projetos</a>
-                        <a href="portfolio.html"
-                            class="text-slate-400 hover:text-constellation-blue transition-colors text-sm font-medium uppercase tracking-widest flex items-center gap-1">
-                            <span class="material-symbols-outlined text-[16px]">open_in_new</span> Portfólio
-                        </a>
-                        <a href="#contact"
-                            class="bg-primary/10 hover:bg-primary border border-primary text-primary hover:text-white transition-all duration-300 px-5 py-2 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center gap-2 shadow-rune hover:shadow-rune-hover">
-                            <span class="material-symbols-outlined text-[16px]">chat</span> Falar agora
-                        </a>
-                    </nav>
-                    <button id="btn-mobile"
-                        class="md:hidden p-2 rounded-md text-slate-400 hover:text-white hover:bg-stone-light transition-colors">
-                        <span id="icon-mobile" class="material-symbols-outlined text-2xl">menu</span>
-                    </button>
-                </div>
+    <!-- ====== HERO WINDOW ====== -->
+    <div class="win-window" id="hero">
+        <!-- Titlebar -->
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span class="win-titlebar-icon">🌐</span>
+                <span class="win-titlebar-title">Leonardo Pires — Desenvolvedor Web Freelancer</span>
             </div>
-            <div id="menu-mobile" class="hidden md:hidden bg-stone-dark/95 backdrop-blur-lg border-t border-slate-800">
-                <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-                    <a href="#services"
-                        class="text-slate-300 hover:bg-slate-800 px-4 py-3 rounded-md text-sm uppercase tracking-widest flex items-center gap-3"><span
-                            class="material-symbols-outlined text-[18px] text-primary">layers</span> Serviços</a>
-                    <a href="#process"
-                        class="text-slate-300 hover:bg-slate-800 px-4 py-3 rounded-md text-sm uppercase tracking-widest flex items-center gap-3"><span
-                            class="material-symbols-outlined text-[18px] text-primary">route</span> Processo</a>
-                    <a href="#projects"
-                        class="text-slate-300 hover:bg-slate-800 px-4 py-3 rounded-md text-sm uppercase tracking-widest flex items-center gap-3"><span
-                            class="material-symbols-outlined text-[18px] text-primary">work</span> Projetos</a>
-                    <a href="portfolio.html"
-                        class="text-slate-400 hover:bg-slate-800 px-4 py-3 rounded-md text-sm uppercase tracking-widest flex items-center gap-3"><span
-                            class="material-symbols-outlined text-[18px] text-primary">open_in_new</span> Portfólio
-                        Completo</a>
-                    <a href="#contact"
-                        class="mt-2 bg-primary/10 hover:bg-primary border border-primary text-primary hover:text-white transition-all px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2"><span
-                            class="material-symbols-outlined text-[18px]">chat</span> Falar agora</a>
-                </div>
+            <div class="win-titlebar-buttons">
+                <button class="win-btn-min" title="Minimizar">_</button>
+                <button class="win-btn-max" title="Maximizar">□</button>
+                <button class="win-btn-close" title="Fechar">✕</button>
             </div>
-        </header>
-
-        <main class="flex-grow flex flex-col items-center w-full">
-
-            <!-- HERO -->
-            <section class="relative w-full min-h-[92vh] flex items-center justify-center px-4 py-24 overflow-hidden">
-                <div class="absolute inset-0 z-0">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuR_hDf5jl6PhmwUmDop1-T9poYWssx2AlqYZhORegDUqd8wcrQUg-Yz0AoKnmsIC3wJ5FOG5Yu36hb42B_oM2PmYZ0N_w2NG6qEmm5RuqdaEF0LDZrfQEuttH2JYLgWcWk3UBvMPrzGJZlkSn36Y4YKwjdrK57UpBeVfN0gKKKe-r8ghx-NRNQbmCrZLNJtryeW5hemiHWetldHlszmkZlnFO35Stlzm7lztlApsVW8kNXd1wniYKraq18dP2H8DXYb9yzM7jPDg"
-                        alt="" class="w-full h-full object-cover opacity-15 mix-blend-overlay" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/70 to-transparent">
-                    </div>
-                </div>
-                <div
-                    class="absolute -top-40 -left-40 w-96 h-96 bg-primary rounded-full blur-[140px] opacity-10 pointer-events-none">
-                </div>
-                <div
-                    class="absolute bottom-0 right-0 w-80 h-80 bg-primary-glow rounded-full blur-[160px] opacity-[0.06] pointer-events-none">
-                </div>
-
-                <div class="max-w-5xl w-full text-center flex flex-col items-center gap-8 relative z-10">
-                    <div
-                        class="fade-up delay-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-light/60 border border-slate-700 backdrop-blur-sm">
-                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                        <span class="text-xs text-slate-300 font-medium tracking-widest uppercase">Disponível para novos
-                            projetos</span>
-                    </div>
-                    <h1
-                        class="fade-up delay-2 text-5xl md:text-7xl lg:text-[88px] font-bold tracking-tighter leading-[0.95] text-white">
-                        Sites que<br /><span class="text-gradient">convertem.</span><br />Negócios que <br /><span
-                            class="text-gradient">crescem.</span>
-                    </h1>
-                    <div class="fade-up delay-3 h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent">
-                    </div>
-                    <p class="fade-up delay-3 text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
-                        Desenvolvimento web profissional para quem quer resultados reais, landing pages, sites
-                        institucionais e interfaces personalizadas.
-                    </p>
-                    <div class="fade-up delay-4 flex flex-col sm:flex-row gap-4 mt-4">
-                        <a href="https://wa.me/5575988472549" target="_blank"
-                            class="group relative px-8 py-4 bg-[#25D366] hover:bg-[#1aad54] text-white rounded-xl font-bold uppercase tracking-wider shadow-lg shadow-green-900/30 hover:shadow-green-500/40 transition-all transform hover:-translate-y-1 flex items-center gap-2 justify-center">
-                            <span
-                                class="absolute -inset-0.5 rounded-xl bg-[#25D366] opacity-30 blur-md group-hover:opacity-50 animate-pulse transition-opacity"></span>
-                            <span class="relative flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-[20px]">chat</span>Pedir orçamento</span>
-                        </a>
-                        <a href="#projects"
-                            class="px-8 py-4 bg-stone-dark rounded-xl border border-primary/50 text-slate-300 hover:border-primary hover:text-white hover:shadow-rune transition-all transform hover:-translate-y-1 font-bold uppercase tracking-wider flex items-center gap-2 justify-center">
-                            Ver projetos <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- STATS -->
-            <section class="w-full border-y border-slate-800 bg-stone-dark/50 backdrop-blur-sm py-10 px-4">
-                <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div class="flex flex-col gap-1"><span
-                            class="stat-number text-4xl font-bold text-white">12+</span><span
-                            class="text-xs text-slate-500 uppercase tracking-widest">Projetos entregues</span></div>
-                    <div class="flex flex-col gap-1"><span
-                            class="stat-number text-4xl font-bold text-white">100%</span><span
-                            class="text-xs text-slate-500 uppercase tracking-widest">Clientes satisfeitos</span></div>
-                    <div class="flex flex-col gap-1"><span
-                            class="stat-number text-4xl font-bold text-white">3+</span><span
-                            class="text-xs text-slate-500 uppercase tracking-widest">Anos de estudo</span></div>
-                    <div class="flex flex-col gap-1"><span
-                            class="stat-number text-4xl font-bold text-white">48h</span><span
-                            class="text-xs text-slate-500 uppercase tracking-widest">Resposta média</span></div>
-                </div>
-            </section>
-
-            <!-- SERVIÇOS -->
-            <section id="services" class="w-full max-w-7xl px-4 py-24 flex flex-col gap-16">
-                <div class="text-center flex flex-col items-center gap-4">
-                    <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">O que eu faço</span>
-                    <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Serviços que entregam valor
-                    </h2>
-                    <div class="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                    <p class="text-slate-400 max-w-lg">Cada projeto começa com um objetivo claro. Você não paga por
-                        horas, você investe em resultado.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 overflow-visible pt-4">
-                    <!-- Landing Page -->
-                    <div
-                        class="service-card group bg-stone-dark rounded-2xl border border-slate-800 hover:border-primary/50 p-8 flex flex-col gap-5 transition-all duration-300 hover:shadow-rune cursor-default">
-                        <div class="shine"></div>
-                        <div
-                            class="w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
-                            <span class="material-symbols-outlined text-3xl">rocket_launch</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Landing Page</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Página focada em converter visitantes em
-                                clientes. Design persuasivo, carregamento rápido e CTA estratégico. Ideal para serviços,
-                                produtos e campanhas.</p>
-                        </div>
-                        <ul class="flex flex-col gap-2 mt-auto">
-                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                Design responsivo mobile-first</li>
-                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                Integração com WhatsApp</li>
-                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                Otimizado para SEO básico</li>
-                        </ul>
-                    </div>
-                    <!-- Site Institucional -->
-                    <div class="pt-5 overflow-visible">
-                        <div
-                            class="service-card group bg-stone-dark rounded-2xl border border-primary/60 hover:border-primary p-8 flex flex-col gap-5 transition-all duration-300 hover:shadow-rune cursor-default relative shadow-rune overflow-visible">
-                            <div class="shine"></div>
-                            <div
-                                class="absolute -top-[14px] left-1/2 -translate-x-1/2 px-4 py-1 bg-primary rounded-full text-[10px] font-bold text-white uppercase tracking-widest whitespace-nowrap shadow-rune z-20">
-                                ⭐ Mais solicitado</div>
-                            <div
-                                class="w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
-                                <span class="material-symbols-outlined text-3xl">corporate_fare</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Site Institucional</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">Presença digital profissional para sua
-                                    empresa. Múltiplas seções, sobre, serviços, contato, construído para gerar
-                                    credibilidade e facilitar negócios.</p>
-                            </div>
-                            <ul class="flex flex-col gap-2 mt-auto">
-                                <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                        class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                    Múltiplas páginas e seções</li>
-                                <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                        class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                    Formulário de contato</li>
-                                <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                        class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                    Identidade visual aplicada</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Interface sob medida -->
-                    <div
-                        class="service-card group bg-stone-dark rounded-2xl border border-slate-800 hover:border-primary/50 p-8 flex flex-col gap-5 transition-all duration-300 hover:shadow-rune cursor-default">
-                        <div class="shine"></div>
-                        <div
-                            class="w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
-                            <span class="material-symbols-outlined text-3xl">design_services</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Interface Personalizada</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Desenvolvimento front-end sob medida para
-                                projetos específicos: dashboards, painéis, portais e componentes customizados com HTML,
-                                CSS e JavaScript.</p>
-                        </div>
-                        <ul class="flex flex-col gap-2 mt-auto">
-                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                Lógica e interatividade JS</li>
-                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                Componentes reutilizáveis</li>
-                            <li class="flex items-center gap-2 text-xs text-slate-400"><span
-                                    class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-                                Integração com APIs</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-slate-500 text-sm mb-4">Não encontrou exatamente o que precisa?</p>
-                    <a href="https://wa.me/5575988472549" target="_blank"
-                        class="inline-flex items-center gap-2 text-primary hover:text-white border border-primary/40 hover:bg-primary px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all hover:shadow-rune">
-                        <span class="material-symbols-outlined text-[16px]">chat</span> Vamos conversar sobre o seu
-                        projeto
-                    </a>
-                </div>
-            </section>
-
-            <!-- como funciona -->
-            <section id="process" class="w-full bg-stone-dark/40 border-y border-slate-800 py-24 px-4">
-                <div class="max-w-5xl mx-auto flex flex-col gap-16">
-                    <div class="text-center flex flex-col items-center gap-4">
-                        <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">Como funciona</span>
-                        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Do briefing à entrega</h2>
-                        <div class="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                        <p class="text-slate-400 max-w-lg">Um processo claro, sem surpresas. Você acompanha cada etapa.
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <!-- etapa 1 -->
-                        <div class="flex flex-col gap-4 group">
-                            <div class="flex items-center">
-                                <div
-                                    class="w-14 h-14 rounded-full bg-stone-dark border-2 border-primary flex items-center justify-center text-primary font-bold text-lg shrink-0 shadow-rune group-hover:bg-primary group-hover:text-white transition-all">
-                                    01</div>
-                                <div
-                                    class="hidden md:block flex-1 h-px bg-gradient-to-r from-primary/50 to-slate-700/30 ml-2">
-                                </div>
-                            </div>
-                            <h3 class="font-bold text-white text-base uppercase tracking-wide">Contato & Briefing</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Você me conta o que precisa: objetivo,
-                                público, prazo e referências. Sem formulário complicado, uma conversa no WhatsApp
-                                resolve.</p>
-                        </div>
-                        <!-- etapa 2 -->
-                        <div class="flex flex-col gap-4 group">
-                            <div class="flex items-center">
-                                <div
-                                    class="w-14 h-14 rounded-full bg-stone-dark border border-slate-600 flex items-center justify-center text-slate-300 font-bold text-lg shrink-0 group-hover:border-primary group-hover:text-primary transition-all">
-                                    02</div>
-                                <div
-                                    class="hidden md:block flex-1 h-px bg-gradient-to-r from-slate-700/30 to-slate-700/30 ml-2">
-                                </div>
-                            </div>
-                            <h3 class="font-bold text-white text-base uppercase tracking-wide">Proposta & Aprovação</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Envio escopo, prazo e valor. Tudo por
-                                escrito. Aprovado, damos início, sem cobranças surpresa no meio do caminho.</p>
-                        </div>
-                        <!-- etapa 3 -->
-                        <div class="flex flex-col gap-4 group">
-                            <div class="flex items-center">
-                                <div
-                                    class="w-14 h-14 rounded-full bg-stone-dark border border-slate-600 flex items-center justify-center text-slate-300 font-bold text-lg shrink-0 group-hover:border-primary group-hover:text-primary transition-all">
-                                    03</div>
-                                <div
-                                    class="hidden md:block flex-1 h-px bg-gradient-to-r from-slate-700/30 to-slate-700/30 ml-2">
-                                </div>
-                            </div>
-                            <h3 class="font-bold text-white text-base uppercase tracking-wide">Desenvolvimento</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Codifico com atenção a cada detalhe. Você
-                                recebe atualizações durante o processo e pode solicitar ajustes antes da entrega final.
-                            </p>
-                        </div>
-                        <!-- etapa 4 -->
-                        <div class="flex flex-col gap-4 group">
-                            <div
-                                class="w-14 h-14 rounded-full bg-stone-dark border border-slate-600 flex items-center justify-center text-slate-300 font-bold text-lg group-hover:border-primary group-hover:text-primary transition-all">
-                                04</div>
-                            <h3 class="font-bold text-white text-base uppercase tracking-wide">Entrega & Suporte</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Projeto entregue, publicado e funcionando.
-                                Inclui orientação para edições básicas e suporte pós-entrega por 30 dias.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects" class="w-full max-w-7xl px-4 py-24 flex flex-col gap-12">
-                <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-slate-800 pb-6">
-                    <div>
-                        <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">Projetos recentes</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 tracking-tight">Resultados que falam
-                            por si</h2>
-                    </div>
-                    <a href="portfolio.html"
-                        class="text-primary hover:text-white font-bold uppercase tracking-widest text-sm flex items-center gap-2 transition-colors whitespace-nowrap">
-                        Ver portfólio completo <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <article
-                        class="group bg-stone-dark rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 shadow-lg">
-                        <div class="relative h-52 overflow-hidden">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-70">
-                            </div>
-                            <img src="Capa Kamila.png" alt="Landing Page Kamila Pontes"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-primary/80 backdrop-blur">
-                                <span class="text-[10px] font-bold text-white uppercase tracking-widest">Landing
-                                    Page</span>
-                            </div>
-                        </div>
-                        <div class="p-7 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Landing
-                                Page — Kamila Pontes, Psicóloga</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Interface de alta conversão para
-                                agendamento via WhatsApp. Tema claro/escuro dinâmico, totalmente responsiva e otimizada
-                                para carregamento rápido.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">HTML</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">Tailwind
-                                    CSS</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">JavaScript</span>
-                            </div>
-                            <a href="https://psikamilapontes.com/" target="_blank"
-                                class="w-full py-3 bg-slate-800 hover:bg-primary border border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded-lg transition-all">
-                                Ver projeto ao vivo <span
-                                    class="material-symbols-outlined text-[16px]">open_in_new</span>
-                            </a>
-                        </div>
-                    </article>
-                    <article
-                        class="group bg-stone-dark rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 shadow-lg">
-                        <div class="relative h-52 overflow-hidden">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-70">
-                            </div>
-                            <img src="Capa anjos advogados associados.png" alt="Site Anjos Advogados"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-primary/80 backdrop-blur">
-                                <span class="text-[10px] font-bold text-white uppercase tracking-widest">Site
-                                    Institucional</span>
-                            </div>
-                        </div>
-                        <div class="p-7 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Site
-                                Institucional — Anjos Advogados</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Presença digital completa para escritório
-                                de advocacia. Visual sóbrio e profissional, com seções de serviços, equipe e contato,
-                                focado em credibilidade.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">HTML</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">Tailwind</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-400 uppercase border border-slate-700">JavaScript</span>
-                            </div>
-                            <a href="https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/" target="_blank"
-                                class="w-full py-3 bg-slate-800 hover:bg-primary border border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded-lg transition-all">
-                                Ver projeto ao vivo <span
-                                    class="material-symbols-outlined text-[16px]">open_in_new</span>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section class="w-full bg-stone-dark/40 border-y border-slate-800 py-24 px-4">
-                <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-                    <div class="flex-shrink-0 relative">
-                        <div
-                            class="relative w-60 h-60 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl avatar-ring">
-                            <img src="Léo terno.png" alt="Leonardo Pires"
-                                class="w-full h-full object-cover object-top" />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-background-dark/60 via-transparent to-transparent">
-                            </div>
-                        </div>
-                        <div
-                            class="float-badge absolute -bottom-4 -right-4 bg-primary px-4 py-2 rounded-xl shadow-rune">
-                            <span class="text-white text-xs font-bold uppercase tracking-wide">Maceió, AL</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-6">
-                        <div>
-                            <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">Por que me
-                                contratar</span>
-                            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 leading-tight">Técnica
-                                sólida.<br />Comunicação clara.</h2>
-                        </div>
-                        <p class="text-slate-400 leading-relaxed max-w-lg">
-                            Sou estudante de Ciência da Computação com foco em desenvolvimento web. Trabalho com atenção
-                            real ao detalhe, não entrego templates genéricos. Cada projeto é construído do zero,
-                            pensando no seu cliente final.
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="flex items-start gap-3 p-4 rounded-xl bg-stone-dark border border-slate-800">
-                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">speed</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-sm">Entregas no prazo</h4>
-                                    <p class="text-slate-500 text-xs mt-1">Cronograma definido na proposta e respeitado.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3 p-4 rounded-xl bg-stone-dark border border-slate-800">
-                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">devices</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-sm">100% Responsivo</h4>
-                                    <p class="text-slate-500 text-xs mt-1">Perfeito em celular, tablet e desktop.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3 p-4 rounded-xl bg-stone-dark border border-slate-800">
-                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">code_blocks</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-sm">Código limpo</h4>
-                                    <p class="text-slate-500 text-xs mt-1">Organizado, comentado e fácil de manter.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3 p-4 rounded-xl bg-stone-dark border border-slate-800">
-                                <span
-                                    class="material-symbols-outlined text-primary text-2xl mt-0.5">support_agent</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-sm">Suporte incluso</h4>
-                                    <p class="text-slate-500 text-xs mt-1">30 dias de suporte após a entrega.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FAQ -->
-            <section class="w-full max-w-3xl px-4 py-24 flex flex-col gap-12">
-                <div class="text-center flex flex-col items-center gap-4">
-                    <span class="text-xs text-primary font-bold uppercase tracking-[0.2em]">Dúvidas frequentes</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Perguntas & Respostas</h2>
-                    <div class="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                </div>
-                <div class="flex flex-col gap-3">
-                    <details
-                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
-                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
-                                class="font-medium text-white">Quanto custa um site?</span><span
-                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
-                        </summary>
-                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">O valor depende do tipo de
-                            projeto, das funcionalidades e dos objetivos do seu negócio. Mais do que um site bonito, o
-                            foco é criar uma página que realmente gere resultados para você.
-
-                            Para você ter uma ideia:
-                            Landing pages: a partir de R$600,
-                            Sites institucionais completos: a partir de R$1.200.
-
-                            Cada projeto é único, então o ideal é entender exatamente o que você precisa. Me chama e eu
-                            te envio um orçamento personalizado sem compromisso.</div>
-                    </details>
-                    <details
-                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
-                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
-                                class="font-medium text-white">Em quanto tempo o site fica pronto?</span><span
-                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
-                        </summary>
-                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Uma landing page leva em média
-                            5–10 dias úteis após aprovação do briefing. Sites institucionais entre 2 e 4 semanas. O
-                            prazo exato fica definido na proposta.</div>
-                    </details>
-                    <details
-                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
-                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
-                                class="font-medium text-white">Eu preciso ter domínio e hospedagem?</span><span
-                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
-                        </summary>
-                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Sim, para publicar o site você
-                            precisa de domínio e hospedagem. Posso orientar sobre as melhores opções e, se quiser, cuido
-                            da publicação por você.</div>
-                    </details>
-                    <details
-                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
-                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
-                                class="font-medium text-white">Consigo editar o site depois?</span><span
-                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
-                        </summary>
-                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Sim. Entrego o código organizado
-                            para edições simples (textos, imagens, cores). Para alterações maiores, é só me chamar,
-                            faço via contrato de manutenção avulso.</div>
-                    </details>
-                    <details
-                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
-                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
-                                class="font-medium text-white">Como funciona o pagamento?</span><span
-                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
-                        </summary>
-                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Normalmente 40% na aprovação da
-                            proposta e 60% na entrega. Aceito Pix. Para projetos maiores, posso parcelar em até 3x sem
-                            juros.</div>
-                    </details>
-
-                    <details
-                        class="group bg-stone-dark border border-slate-800 hover:border-slate-600 rounded-xl overflow-hidden transition-all">
-                        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"><span
-                                class="font-medium text-white">Qual tipo de site é ideal para o meu negócio?</span><span
-                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 transition-transform duration-300">expand_more</span>
-                        </summary>
-                        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed">Tudo depende do objetivo do seu
-                            negócio.
-
-                            Landing page: ideal para quem quer atrair clientes de forma rápida e direta, focando em
-                            conversão.
-                            Site institucional: indicado para quem precisa apresentar a empresa de forma mais completa e
-                            fortalecer a autoridade.
-
-                            Se você não tiver certeza do que faz mais sentido, posso analisar seu caso e te indicar a
-                            melhor opção.</div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="contact" class="w-full px-4 pb-24">
-                <div
-                    class="max-w-4xl mx-auto relative rounded-2xl overflow-hidden bg-stone-dark border border-slate-700 p-10 md:p-16 text-center shadow-2xl">
-                    <div
-                        class="absolute -top-24 -right-24 w-72 h-72 bg-primary rounded-full blur-[120px] opacity-15 pointer-events-none">
-                    </div>
-                    <div
-                        class="absolute -bottom-16 -left-16 w-48 h-48 bg-primary-glow rounded-full blur-[100px] opacity-10 pointer-events-none">
-                    </div>
-                    <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary"></div>
-                    <div class="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-primary"></div>
-                    <div class="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-primary"></div>
-                    <div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary"></div>
-                    <div class="relative z-10 flex flex-col items-center gap-6">
-                        <div
-                            class="w-16 h-16 rounded-full bg-stone-light border border-slate-600 flex items-center justify-center text-primary shadow-rune">
-                            <span class="material-symbols-outlined text-3xl">handshake</span>
-                        </div>
-                        <h2 class="text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight">Pronto para
-                            ter<br /><span class="text-gradient">seu site no ar?</span></h2>
-                        <p class="text-slate-400 max-w-md text-lg">Me conta sobre o seu projeto. Respondo em até 48h com
-                            uma proposta clara e sem compromisso.</p>
-                        <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
-                            <a href="https://wa.me/5575988472549" target="_blank"
-                                class="group relative flex items-center justify-center px-8 py-4 bg-[#25D366] hover:bg-[#1aad54] text-white rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-green-900/40 hover:shadow-green-500/50 transition-all transform hover:-translate-y-1">
-                                <span
-                                    class="absolute -inset-0.5 rounded-xl bg-[#25D366] opacity-35 blur-md group-hover:opacity-55 animate-pulse transition-opacity"></span>
-                                <span class="relative flex items-center gap-2"><span
-                                        class="material-symbols-outlined text-[20px] group-hover:animate-bounce">chat</span>WhatsApp</span>
-                            </a>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
-                                target="_blank"
-                                class="flex items-center justify-center px-8 py-4 bg-stone-dark hover:bg-primary/20 border border-slate-600 hover:border-primary text-slate-300 hover:text-white rounded-xl font-bold uppercase tracking-widest transition-all transform hover:-translate-y-1">
-                                <span class="material-symbols-outlined text-[20px] mr-2">mail</span>Enviar e-mail
-                            </a>
-                        </div>
-                        <p class="text-slate-600 text-xs mt-2">leonardopires.dev@gmail.com · Maceió, Alagoas</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="recruiters" class="w-full px-4 py-24 bg-stone-dark/40 border-t border-slate-800">
-                <div class="max-w-5xl mx-auto flex flex-col gap-12">
-
-                    <div class="flex flex-col items-center text-center gap-4">
-                        <span
-                            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-constellation-blue/40 text-constellation-blue text-xs uppercase tracking-widest font-medium">
-                            <span class="material-symbols-outlined text-[14px]">badge</span> Para recrutadores
-                        </span>
-                        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Além do freelancer</h2>
-                        <p class="text-slate-400 max-w-xl text-lg">Se você chegou aqui avaliando um candidato para
-                            estágio ou CLT, aqui está o que precisa saber sobre minha formação e trajetória.</p>
-                    </div>
-
-
-
-                    <div
-                        class="relative rounded-2xl bg-stone-dark border border-constellation-blue/20 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
-                        <div
-                            class="absolute -top-16 -right-16 w-48 h-48 bg-constellation-blue rounded-full blur-[80px] opacity-[0.07] pointer-events-none">
-                        </div>
-
-                        <div class="flex flex-col gap-2 text-center md:text-left">
-                            <h3 class="text-2xl font-bold text-white">Quer ver meu portfolio completo?</h3>
-                            <p class="text-slate-400 text-sm max-w-md">Projetos, habilidades detalhadas, currículo e
-                                histórico de formação, tudo em uma página só.</p>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-                            <a href="portfolio.html"
-                                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-constellation-blue/10 hover:bg-constellation-blue/20 border border-constellation-blue/40 hover:border-constellation-blue text-constellation-blue hover:text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all transform hover:-translate-y-0.5">
-                                <span class="material-symbols-outlined text-[18px]">open_in_new</span> Ver Portfolio
-                            </a>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
-                                target="_blank"
-                                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-stone-light hover:bg-primary border border-slate-700 hover:border-primary text-slate-300 hover:text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all transform hover:-translate-y-0.5">
-                                <span class="material-symbols-outlined text-[18px]">mail</span> Enviar E-mail
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-        </main>
-
-        <!-- FOOTER -->
-        <footer class="w-full bg-stone-dark border-t border-slate-800 py-12 px-4">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex flex-col gap-1 items-center md:items-start">
-                    <h2 class="text-lg font-bold text-white tracking-[0.2em] uppercase">Leonardo Pires</h2>
-                    <p class="text-slate-600 text-xs">Desenvolvedor Web Freelancer · Maceió, AL</p>
-                    <p class="text-slate-700 text-xs mt-1">© 2026. Todos os direitos reservados.</p>
-                </div>
-                <nav
-                    class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 uppercase tracking-widest">
-                    <a href="#services" class="hover:text-primary transition-colors">Serviços</a>
-                    <a href="#process" class="hover:text-primary transition-colors">Processo</a>
-                    <a href="#projects" class="hover:text-primary transition-colors">Projetos</a>
-                    <a href="#recruiters" class="hover:text-constellation-blue transition-colors">Recrutadores</a>
-                    <a href="portfolio.html" class="hover:text-primary transition-colors">Portfólio</a>
-                    <a href="#contact" class="hover:text-primary transition-colors">Contato</a>
-                </nav>
-                <div class="flex items-center gap-4">
-                    <a href="https://github.com/Leonardo-PiresF" target="_blank"
-                        class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary transition-all"><span
-                            class="material-symbols-outlined text-sm">code</span></a>
-                    <a href="https://wa.me/5575988472549" target="_blank"
-                        class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary transition-all"><span
-                            class="material-symbols-outlined text-sm">chat</span></a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com" target="_blank"
-                        class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary transition-all"><span
-                            class="material-symbols-outlined text-sm">mail</span></a>
-                </div>
+        </div>
+        <!-- Menu Bar -->
+        <div class="win-menubar">
+            <a href="#services" class="win-menu-item">Serviços</a>
+            <a href="#process" class="win-menu-item">Processo</a>
+            <a href="#projects" class="win-menu-item">Projetos</a>
+            <a href="#about" class="win-menu-item">Sobre</a>
+            <a href="#faq" class="win-menu-item">FAQ</a>
+            <a href="#contact" class="win-menu-item">Contato</a>
+            <a href="portfolio.html" class="win-menu-item">Portfólio ↗</a>
+        </div>
+        <!-- Toolbar -->
+        <div class="win-toolbar">
+            <button class="win-toolbar-btn" onclick="window.scrollTo({top:0})">◀ Voltar</button>
+            <button class="win-toolbar-btn" onclick="window.scrollTo({top:document.body.scrollHeight})">▶ Avançar</button>
+            <div class="win-toolbar-sep"></div>
+            <button class="win-toolbar-btn" onclick="window.location.reload()">🔄 Atualizar</button>
+            <button class="win-toolbar-btn" onclick="window.location.href='#'">🏠 Início</button>
+            <div class="win-toolbar-sep"></div>
+            <a href="https://wa.me/5575988472549" target="_blank" class="win-toolbar-btn">💬 WhatsApp</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com" target="_blank" class="win-toolbar-btn">✉️ E-mail</a>
+            <a href="portfolio.html" class="win-toolbar-btn">📋 Portfólio</a>
+        </div>
+        <!-- Address Bar -->
+        <div class="win-address-bar">
+            <span class="win-address-label">Endereço:</span>
+            <input class="win-address-input" type="text" value="https://leonardopires.dev/" readonly />
+            <button class="win-button" style="height:20px; min-width:50px; font-size:10px; padding:0 8px;" onclick="window.location.href='#'">Ir</button>
+        </div>
+        <!-- Scrolling marquee -->
+        <div class="win-scrolling-strip">
+            <marquee behavior="scroll" direction="left" scrollamount="3">
+                ✨ Disponível para novos projetos &nbsp;&nbsp;|&nbsp;&nbsp; 💼 Landing Pages a partir de R$600 &nbsp;&nbsp;|&nbsp;&nbsp; 🚀 Entrega em até 10 dias úteis &nbsp;&nbsp;|&nbsp;&nbsp; 💬 Resposta em até 48h &nbsp;&nbsp;|&nbsp;&nbsp; 🏆 100% de clientes satisfeitos &nbsp;&nbsp;|&nbsp;&nbsp; 📞 (75) 98847-2549 &nbsp;&nbsp;|&nbsp;&nbsp; leonardopires.dev@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp;
+            </marquee>
+        </div>
+        <!-- Hero Content -->
+        <div class="win-hero-banner">
+            <div class="badge">
+                <span class="dot"></span>
+                Disponível para novos projetos
             </div>
-        </footer>
-
+            <h1>Sites que convertem.<br>Negócios que crescem.</h1>
+            <p>Desenvolvimento web profissional para quem quer resultados reais — landing pages, sites institucionais e interfaces personalizadas.</p>
+            <div class="win-hero-actions">
+                <a href="https://wa.me/5575988472549" target="_blank" class="win-button win-button-primary">
+                    💬 Pedir orçamento
+                </a>
+                <a href="#projects" class="win-button">
+                    📁 Ver projetos
+                </a>
+            </div>
+        </div>
+        <!-- Stats -->
+        <div class="win-stat-strip">
+            <div>
+                <div class="win-stat-num">12+</div>
+                <div class="win-stat-label">Projetos entregues</div>
+            </div>
+            <div>
+                <div class="win-stat-num">100%</div>
+                <div class="win-stat-label">Clientes satisfeitos</div>
+            </div>
+            <div>
+                <div class="win-stat-num">3+</div>
+                <div class="win-stat-label">Anos de estudo</div>
+            </div>
+            <div>
+                <div class="win-stat-num">48h</div>
+                <div class="win-stat-label">Resposta média</div>
+            </div>
+        </div>
+        <!-- Status Bar -->
+        <div class="win-statusbar">
+            <div class="win-statusbar-pane">Pronto</div>
+            <div class="win-statusbar-pane">🌍 Maceió, AL</div>
+            <div class="win-statusbar-pane"><span class="win-blink" style="color:green;">●</span> Online</div>
+        </div>
     </div>
 
-    <script>
-        const btnMobile = document.getElementById('btn-mobile');
-        const menuMobile = document.getElementById('menu-mobile');
-        const iconMobile = document.getElementById('icon-mobile');
-        btnMobile.addEventListener('click', () => {
-            menuMobile.classList.toggle('hidden');
-            iconMobile.textContent = menuMobile.classList.contains('hidden') ? 'menu' : 'close';
-        });
-        menuMobile.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { menuMobile.classList.add('hidden'); iconMobile.textContent = 'menu'; }));
+    <!-- ====== SERVICES WINDOW ====== -->
+    <div class="win-window" id="services">
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span class="win-titlebar-icon">📋</span>
+                <span class="win-titlebar-title">Serviços — O que eu faço</span>
+            </div>
+            <div class="win-titlebar-buttons">
+                <button class="win-btn-min">_</button>
+                <button class="win-btn-max">□</button>
+                <button class="win-btn-close">✕</button>
+            </div>
+        </div>
+        <div class="win-menubar">
+            <span class="win-menu-item" style="cursor:default; color:#808080;">Arquivo</span>
+            <span class="win-menu-item" style="cursor:default; color:#808080;">Editar</span>
+            <span class="win-menu-item" style="cursor:default; color:#808080;">Ver</span>
+        </div>
+        <div class="win-content-flat" style="background:var(--win-gray); padding:10px;">
+            <div class="three-col">
+                <!-- Landing Page -->
+                <div class="win-groupbox" style="background:var(--win-gray);">
+                    <span class="win-groupbox-title">🚀 Landing Page</span>
+                    <p class="win-text" style="margin:0 0 8px;">Página focada em converter visitantes em clientes. Design persuasivo, carregamento rápido e CTA estratégico.</p>
+                    <div class="win-divider"></div>
+                    <ul style="margin:4px 0; padding-left:14px; font-size:11px; line-height:1.8;">
+                        <li>✔ Design responsivo mobile-first</li>
+                        <li>✔ Integração com WhatsApp</li>
+                        <li>✔ Otimizado para SEO básico</li>
+                    </ul>
+                    <div class="win-divider"></div>
+                    <div style="text-align:center;">
+                        <a href="https://wa.me/5575988472549" target="_blank" class="win-button" style="min-width:90px; font-size:10px;">Solicitar</a>
+                    </div>
+                </div>
+                <!-- Site Institucional -->
+                <div class="win-groupbox" style="background:var(--win-gray); border-color: #0a246a;">
+                    <span class="win-groupbox-title" style="background:var(--win-gray);">🏢 Site Institucional</span>
+                    <div class="win-badge" style="display:inline-block; margin-bottom:6px; font-size:9px;">⭐ Mais solicitado</div>
+                    <p class="win-text" style="margin:0 0 8px;">Presença digital profissional para sua empresa. Múltiplas seções: sobre, serviços, contato.</p>
+                    <div class="win-divider"></div>
+                    <ul style="margin:4px 0; padding-left:14px; font-size:11px; line-height:1.8;">
+                        <li>✔ Múltiplas páginas e seções</li>
+                        <li>✔ Formulário de contato</li>
+                        <li>✔ Identidade visual aplicada</li>
+                    </ul>
+                    <div class="win-divider"></div>
+                    <div style="text-align:center;">
+                        <a href="https://wa.me/5575988472549" target="_blank" class="win-button win-button-primary" style="min-width:90px; font-size:10px;">Solicitar</a>
+                    </div>
+                </div>
+                <!-- Interface Personalizada -->
+                <div class="win-groupbox" style="background:var(--win-gray);">
+                    <span class="win-groupbox-title">🎨 Interface Custom</span>
+                    <p class="win-text" style="margin:0 0 8px;">Desenvolvimento front-end sob medida: dashboards, painéis, portais e componentes customizados.</p>
+                    <div class="win-divider"></div>
+                    <ul style="margin:4px 0; padding-left:14px; font-size:11px; line-height:1.8;">
+                        <li>✔ Lógica e interatividade JS</li>
+                        <li>✔ Componentes reutilizáveis</li>
+                        <li>✔ Integração com APIs</li>
+                    </ul>
+                    <div class="win-divider"></div>
+                    <div style="text-align:center;">
+                        <a href="https://wa.me/5575988472549" target="_blank" class="win-button" style="min-width:90px; font-size:10px;">Solicitar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="win-divider" style="margin:12px 0;"></div>
+            <div style="text-align:center;">
+                <span class="win-text" style="color:#555;">Não encontrou o que precisa?</span>
+                &nbsp;
+                <a href="https://wa.me/5575988472549" target="_blank" class="win-link">Vamos conversar sobre o seu projeto →</a>
+            </div>
+        </div>
+        <div class="win-statusbar">
+            <div class="win-statusbar-pane">3 serviços disponíveis</div>
+            <div class="win-statusbar-pane">Consulte preços por WhatsApp</div>
+        </div>
+    </div>
 
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function (e) {
-                const t = document.querySelector(this.getAttribute('href'));
-                if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    <!-- ====== PROCESS WINDOW ====== -->
+    <div class="win-window" id="process">
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span class="win-titlebar-icon">⚙️</span>
+                <span class="win-titlebar-title">Como Funciona — Do Briefing à Entrega</span>
+            </div>
+            <div class="win-titlebar-buttons">
+                <button class="win-btn-min">_</button>
+                <button class="win-btn-max">□</button>
+                <button class="win-btn-close">✕</button>
+            </div>
+        </div>
+        <div class="win-content-flat" style="background:var(--win-gray); padding:10px;">
+            <table class="win-list" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th style="width:40px;">#</th>
+                        <th>Etapa</th>
+                        <th>Descrição</th>
+                        <th style="width:100px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td><strong>Contato &amp; Briefing</strong></td>
+                        <td>Você me conta o que precisa: objetivo, público, prazo e referências. Uma conversa no WhatsApp resolve.</td>
+                        <td><span class="win-badge">Início</span></td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td><strong>Proposta &amp; Aprovação</strong></td>
+                        <td>Envio escopo, prazo e valor. Tudo por escrito. Aprovado, damos início, sem cobranças surpresa.</td>
+                        <td><span class="win-tag">Aguardando</span></td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td><strong>Desenvolvimento</strong></td>
+                        <td>Codifico com atenção a cada detalhe. Você recebe atualizações e pode solicitar ajustes.</td>
+                        <td><span class="win-tag">Em andamento</span></td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td><strong>Entrega &amp; Suporte</strong></td>
+                        <td>Projeto entregue, publicado e funcionando. Suporte pós-entrega por 30 dias incluso.</td>
+                        <td><span class="win-badge" style="background:#006400;">✔ Entregue</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="win-statusbar">
+            <div class="win-statusbar-pane">4 etapas no processo</div>
+            <div class="win-statusbar-pane">Sem surpresas</div>
+        </div>
+    </div>
+
+    <!-- ====== PROJECTS WINDOW ====== -->
+    <div class="win-window" id="projects">
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span class="win-titlebar-icon">📁</span>
+                <span class="win-titlebar-title">Projetos Recentes — Resultados que Falam por Si</span>
+            </div>
+            <div class="win-titlebar-buttons">
+                <button class="win-btn-min">_</button>
+                <button class="win-btn-max">□</button>
+                <button class="win-btn-close">✕</button>
+            </div>
+        </div>
+        <div class="win-toolbar">
+            <span class="win-toolbar-btn" style="cursor:default;">📋 Exibição: Detalhes</span>
+            <div class="win-toolbar-sep"></div>
+            <a href="portfolio.html" class="win-toolbar-btn">📂 Ver portfólio completo →</a>
+        </div>
+        <div class="win-content-flat" style="background:var(--win-gray); padding:10px;">
+            <div class="two-col">
+                <!-- Projeto 1 -->
+                <div class="win-window win-project-card" style="margin-bottom:0;">
+                    <div class="win-titlebar">
+                        <div class="win-titlebar-left">
+                            <span class="win-titlebar-icon">🖥️</span>
+                            <span class="win-titlebar-title">Landing Page — Kamila Pontes</span>
+                        </div>
+                        <div class="win-titlebar-buttons">
+                            <button class="win-btn-min">_</button>
+                            <button class="win-btn-max">□</button>
+                            <button class="win-btn-close">✕</button>
+                        </div>
+                    </div>
+                    <div class="project-thumb">
+                        <img src="Capa Kamila.png" alt="Landing Page Kamila Pontes" />
+                    </div>
+                    <div class="win-content-flat" style="padding:8px; background:var(--win-gray);">
+                        <p class="win-text" style="margin:0 0 6px;">Interface de alta conversão para agendamento via WhatsApp. Tema claro/escuro, totalmente responsiva.</p>
+                        <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:8px;">
+                            <span class="win-tag">HTML</span>
+                            <span class="win-tag">Tailwind CSS</span>
+                            <span class="win-tag">JavaScript</span>
+                        </div>
+                        <a href="https://psikamilapontes.com/" target="_blank" class="win-button" style="width:100%; font-size:10px;">🌐 Ver projeto ao vivo ↗</a>
+                    </div>
+                </div>
+                <!-- Projeto 2 -->
+                <div class="win-window win-project-card" style="margin-bottom:0;">
+                    <div class="win-titlebar">
+                        <div class="win-titlebar-left">
+                            <span class="win-titlebar-icon">🏢</span>
+                            <span class="win-titlebar-title">Site Institucional — Anjos Advogados</span>
+                        </div>
+                        <div class="win-titlebar-buttons">
+                            <button class="win-btn-min">_</button>
+                            <button class="win-btn-max">□</button>
+                            <button class="win-btn-close">✕</button>
+                        </div>
+                    </div>
+                    <div class="project-thumb">
+                        <img src="Capa anjos advogados associados.png" alt="Site Anjos Advogados" />
+                    </div>
+                    <div class="win-content-flat" style="padding:8px; background:var(--win-gray);">
+                        <p class="win-text" style="margin:0 0 6px;">Presença digital completa para escritório de advocacia. Visual sóbrio e profissional, seções de serviços, equipe e contato.</p>
+                        <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:8px;">
+                            <span class="win-tag">HTML</span>
+                            <span class="win-tag">Tailwind</span>
+                            <span class="win-tag">JavaScript</span>
+                        </div>
+                        <a href="https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/" target="_blank" class="win-button" style="width:100%; font-size:10px;">🌐 Ver projeto ao vivo ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="win-statusbar">
+            <div class="win-statusbar-pane">2 projetos exibidos</div>
+            <div class="win-statusbar-pane"><a href="portfolio.html" class="win-link">Ver portfólio completo →</a></div>
+        </div>
+    </div>
+
+    <!-- ====== ABOUT + SKILLS WINDOW ====== -->
+    <div class="win-window" id="about">
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span class="win-titlebar-icon">👤</span>
+                <span class="win-titlebar-title">Sobre — Técnica Sólida, Comunicação Clara</span>
+            </div>
+            <div class="win-titlebar-buttons">
+                <button class="win-btn-min">_</button>
+                <button class="win-btn-max">□</button>
+                <button class="win-btn-close">✕</button>
+            </div>
+        </div>
+        <div class="win-content-flat" style="background:var(--win-gray); padding:10px;">
+            <div style="display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap;">
+                <div class="about-photo">
+                    <img src="Léo terno.png" alt="Leonardo Pires" />
+                </div>
+                <div style="flex:1; min-width:200px;">
+                    <div class="win-section-head">📄 Perfil — Leonardo Pires Ferreira</div>
+                    <p class="win-text" style="margin:0 0 8px; line-height:1.7;">
+                        Estudante de Ciência da Computação com foco em desenvolvimento web. Trabalho com atenção real ao detalhe — não entrego templates genéricos. Cada projeto é construído do zero, pensando no seu cliente final.
+                    </p>
+                    <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:10px;">
+                        <span class="win-tag">📍 Maceió, AL</span>
+                        <span class="win-tag">🎓 Ciência da Computação</span>
+                        <span class="win-tag">💼 Freelancer</span>
+                    </div>
+                    <div class="win-divider"></div>
+                    <div class="win-section-head" style="margin-top:8px;">⚙️ Competências Técnicas</div>
+                    <div class="skill-row">
+                        <span class="skill-name">HTML / CSS</span>
+                        <div class="win-progress skill-bar"><div class="win-progress-fill" style="width:95%;">95%</div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="win-progress skill-bar"><div class="win-progress-fill" style="width:80%;">80%</div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Tailwind CSS</span>
+                        <div class="win-progress skill-bar"><div class="win-progress-fill" style="width:88%;">88%</div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">React</span>
+                        <div class="win-progress skill-bar"><div class="win-progress-fill" style="width:65%;">65%</div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">UI/UX Design</span>
+                        <div class="win-progress skill-bar"><div class="win-progress-fill" style="width:75%;">75%</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="win-divider" style="margin:12px 0;"></div>
+            <div class="four-col" style="gap:6px;">
+                <div class="win-groupbox" style="background:white; margin-top:0; border-color:#808080;">
+                    <span class="win-groupbox-title" style="background:white;">⏱️ Prazo</span>
+                    <p class="win-text" style="margin:2px 0;">Cronograma definido na proposta e respeitado.</p>
+                </div>
+                <div class="win-groupbox" style="background:white; margin-top:0; border-color:#808080;">
+                    <span class="win-groupbox-title" style="background:white;">📱 Responsivo</span>
+                    <p class="win-text" style="margin:2px 0;">Perfeito em celular, tablet e desktop.</p>
+                </div>
+                <div class="win-groupbox" style="background:white; margin-top:0; border-color:#808080;">
+                    <span class="win-groupbox-title" style="background:white;">💻 Código</span>
+                    <p class="win-text" style="margin:2px 0;">Organizado, comentado e fácil de manter.</p>
+                </div>
+                <div class="win-groupbox" style="background:white; margin-top:0; border-color:#808080;">
+                    <span class="win-groupbox-title" style="background:white;">🛡️ Suporte</span>
+                    <p class="win-text" style="margin:2px 0;">30 dias de suporte após a entrega.</p>
+                </div>
+            </div>
+        </div>
+        <div class="win-statusbar">
+            <div class="win-statusbar-pane">leonardopires.dev@gmail.com</div>
+            <div class="win-statusbar-pane">Maceió, Alagoas</div>
+        </div>
+    </div>
+
+    <!-- ====== FAQ WINDOW ====== -->
+    <div class="win-window" id="faq">
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span class="win-titlebar-icon">❓</span>
+                <span class="win-titlebar-title">Ajuda — Perguntas Frequentes</span>
+            </div>
+            <div class="win-titlebar-buttons">
+                <button class="win-btn-min">_</button>
+                <button class="win-btn-max">□</button>
+                <button class="win-btn-close">✕</button>
+            </div>
+        </div>
+        <div class="win-content-flat" style="background:var(--win-gray); padding:10px;">
+            <details class="win-details">
+                <summary>💰 Quanto custa um site?</summary>
+                <div class="win-details-body">
+                    O valor depende do tipo de projeto. Para ter uma ideia:
+                    Landing pages: a partir de R$600. Sites institucionais completos: a partir de R$1.200.
+                    Cada projeto é único — me chame e envio um orçamento personalizado sem compromisso.
+                </div>
+            </details>
+            <details class="win-details">
+                <summary>⏱️ Em quanto tempo o site fica pronto?</summary>
+                <div class="win-details-body">
+                    Uma landing page leva em média 5–10 dias úteis após aprovação do briefing. Sites institucionais entre 2 e 4 semanas. O prazo exato fica definido na proposta.
+                </div>
+            </details>
+            <details class="win-details">
+                <summary>🌐 Preciso ter domínio e hospedagem?</summary>
+                <div class="win-details-body">
+                    Sim, para publicar o site você precisa de domínio e hospedagem. Posso orientar sobre as melhores opções e, se quiser, cuido da publicação por você.
+                </div>
+            </details>
+            <details class="win-details">
+                <summary>✏️ Consigo editar o site depois?</summary>
+                <div class="win-details-body">
+                    Sim. Entrego o código organizado para edições simples (textos, imagens, cores). Para alterações maiores, faço via contrato de manutenção avulso.
+                </div>
+            </details>
+            <details class="win-details">
+                <summary>💳 Como funciona o pagamento?</summary>
+                <div class="win-details-body">
+                    Normalmente 40% na aprovação da proposta e 60% na entrega. Aceito Pix. Para projetos maiores, posso parcelar em até 3x sem juros.
+                </div>
+            </details>
+            <details class="win-details">
+                <summary>🤔 Qual tipo de site é ideal para o meu negócio?</summary>
+                <div class="win-details-body">
+                    Depende do objetivo. Landing page: ideal para atrair clientes de forma rápida, focando em conversão. Site institucional: para apresentar a empresa de forma completa e fortalecer a autoridade. Se não tiver certeza, posso analisar seu caso.
+                </div>
+            </details>
+        </div>
+        <div class="win-statusbar">
+            <div class="win-statusbar-pane">6 perguntas</div>
+            <div class="win-statusbar-pane">Clique para expandir</div>
+        </div>
+    </div>
+
+    <!-- ====== CONTACT WINDOW ====== -->
+    <div class="win-window" id="contact">
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span class="win-titlebar-icon">✉️</span>
+                <span class="win-titlebar-title">Contato — Pronto para ter seu site no ar?</span>
+            </div>
+            <div class="win-titlebar-buttons">
+                <button class="win-btn-min">_</button>
+                <button class="win-btn-max">□</button>
+                <button class="win-btn-close">✕</button>
+            </div>
+        </div>
+        <div class="win-content-flat" style="background:var(--win-gray); padding:16px;">
+            <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start;">
+                <div class="win-groupbox" style="flex:1; min-width:220px; margin-top:8px;">
+                    <span class="win-groupbox-title">💬 WhatsApp</span>
+                    <p class="win-text" style="margin:0 0 8px;">Me conta sobre o seu projeto. Respondo em até 48h com uma proposta clara e sem compromisso.</p>
+                    <a href="https://wa.me/5575988472549" target="_blank" class="win-button win-button-primary" style="width:100%;">
+                        💬 Abrir WhatsApp
+                    </a>
+                    <div class="win-divider"></div>
+                    <span class="win-text" style="color:#555;">(75) 98847-2549</span>
+                </div>
+                <div class="win-groupbox" style="flex:1; min-width:220px; margin-top:8px;">
+                    <span class="win-groupbox-title">📧 E-mail</span>
+                    <p class="win-text" style="margin:0 0 8px;">Prefere e-mail? Sem problema. Descreva o projeto e retorno em breve.</p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com" target="_blank" class="win-button" style="width:100%;">
+                        ✉️ Enviar E-mail
+                    </a>
+                    <div class="win-divider"></div>
+                    <span class="win-text" style="color:#555;">leonardopires.dev@gmail.com</span>
+                </div>
+                <div class="win-groupbox" style="flex:1; min-width:180px; margin-top:8px;">
+                    <span class="win-groupbox-title">📋 Portfólio</span>
+                    <p class="win-text" style="margin:0 0 8px;">Projetos, habilidades detalhadas e histórico de formação.</p>
+                    <a href="portfolio.html" class="win-button" style="width:100%; margin-bottom:6px;">
+                        📂 Ver Portfólio
+                    </a>
+                    <div class="win-divider"></div>
+                    <a href="https://github.com/Leonardo-PiresF" target="_blank" class="win-button" style="width:100%; font-size:10px;">
+                        💻 GitHub ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="win-statusbar">
+            <div class="win-statusbar-pane">Maceió, Alagoas · © 2026 Leonardo Pires</div>
+            <div class="win-statusbar-pane"><span class="win-blink" style="color:green;">●</span> Disponível</div>
+        </div>
+    </div>
+
+    <!-- ====== FOOTER / RECRUITERS ====== -->
+    <div class="win-window" id="recruiters">
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span class="win-titlebar-icon">🏷️</span>
+                <span class="win-titlebar-title">Para Recrutadores — Além do Freelancer</span>
+            </div>
+            <div class="win-titlebar-buttons">
+                <button class="win-btn-min">_</button>
+                <button class="win-btn-max">□</button>
+                <button class="win-btn-close">✕</button>
+            </div>
+        </div>
+        <div class="win-content-flat" style="background:var(--win-gray); padding:10px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:200px;">
+                <b class="win-text" style="font-size:12px;">Quer ver meu portfólio completo?</b>
+                <p class="win-text" style="margin:4px 0 0; color:#555;">Projetos, habilidades detalhadas, currículo e histórico de formação — tudo em uma página só.</p>
+            </div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <a href="portfolio.html" class="win-button">📂 Ver Portfólio</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com" target="_blank" class="win-button win-button-primary">✉️ Enviar E-mail</a>
+            </div>
+        </div>
+        <div class="win-statusbar">
+            <div class="win-statusbar-pane">© 2026 Leonardo Pires · Todos os direitos reservados</div>
+            <div class="win-statusbar-pane">Versão 2000.1.0</div>
+            <div class="win-statusbar-pane">🏙️ Maceió, AL</div>
+        </div>
+    </div>
+
+</div><!-- /page-wrap -->
+</div><!-- /win-desktop -->
+
+<script>
+    // Clock
+    function updateClock() {
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2,'0');
+        const m = String(now.getMinutes()).padStart(2,'0');
+        const el = document.getElementById('clock');
+        if (el) el.textContent = h + ':' + m;
+    }
+    updateClock();
+    setInterval(updateClock, 10000);
+
+    // Window close buttons (decorative collapse)
+    document.querySelectorAll('.win-btn-close').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const win = this.closest('.win-window');
+            if (win) {
+                win.style.display = 'none';
+            }
+        });
+    });
+
+    // Window minimize buttons (collapse to titlebar only)
+    document.querySelectorAll('.win-btn-min').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const win = this.closest('.win-window');
+            if (!win) return;
+            const children = Array.from(win.children);
+            children.forEach((c, i) => {
+                if (i === 0) return; // keep titlebar
+                c.style.display = c.style.display === 'none' ? '' : 'none';
             });
         });
-    </script>
-</body>
+    });
 
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+    });
+</script>
+</body>
 </html>
