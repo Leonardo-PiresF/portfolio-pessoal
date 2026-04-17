@@ -1,726 +1,1742 @@
 <!DOCTYPE html>
-<html class="dark" lang="pt-BR">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Leonardo Pires — Portfólio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonardo Pires — Desenvolvedor Web</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cinzel:wght@400;700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "primary-glow": "#4d8eff",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "stone-dark": "#1a1f2e",
-                        "stone-light": "#252b3d",
-                        "parchment": "#e3dacb",
-                        "constellation-blue": "#8ab4f8",
-                        "constellation-line": "rgba(255, 255, 255, 0.3)"
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "skyrim": ["Cinzel", "serif"]
-                    },
-                    backgroundImage: {
-                        'fog-pattern': "radial-gradient(circle at 50% 50%, rgba(19, 91, 236, 0.08) 0%, rgba(16, 22, 34, 0) 50%)",
-                        'stone-texture': "linear-gradient(to bottom right, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%)",
-                        'nebula': "radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 40%, #020617 100%)"
-                    },
-                    boxShadow: {
-                        'rune': '0 0 15px rgba(19, 91, 236, 0.3)',
-                        'rune-hover': '0 0 25px rgba(19, 91, 236, 0.6)',
-                        'star-glow': '0 0 10px 2px rgba(138, 180, 248, 0.6), 0 0 20px 5px rgba(19, 91, 236, 0.2)',
-                    }
-                },
-            },
-        }
-    </script>
-    <link rel="stylesheet" href="styles.css" />
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
+        /* ══════════════════════════════════════
+       VARIÁVEIS
+    ══════════════════════════════════════ */
+        :root {
+            --black: #090909;
+            --black-2: #111111;
+            --black-3: #1c1c1c;
+            --white: #f2f2ee;
+            --yellow: #e7fc00;
+            --gray-1: #3a3a3a;
+            --gray-2: #888;
+            --border: rgba(255, 255, 255, 0.08);
+            --font-d: 'Bebas Neue', sans-serif;
+            --font-b: 'Manrope', sans-serif;
+        }
+
+        /* ══════════════════════════════════════
+       RESET
+    ══════════════════════════════════════ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--font-b);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* ══════════════════════════════════════
+       SCROLLBAR
+    ══════════════════════════════════════ */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 7px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #101622;
+            background: var(--black);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #252b3d;
-            border: 1px solid #135bec;
+            background: var(--gray-1);
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #135bec;
+            background: var(--yellow);
         }
 
-        @keyframes drift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        /* ══════════════════════════════════════
+       BOTÕES FIXOS
+    ══════════════════════════════════════ */
+        .fixed-btn {
+            position: fixed;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .4s ease, transform .3s ease;
+            border: none;
         }
 
-        .fog-bg {
-            background-size: 200% 200%;
-            animation: drift 15s ease infinite;
+        .fixed-btn.show {
+            opacity: 1;
+            pointer-events: all;
         }
 
-        @keyframes twinkle {
+        .fixed-btn:hover {
+            transform: scale(1.1);
+        }
+
+        #btn-top {
+            bottom: 28px;
+            left: 28px;
+            background: var(--white);
+            color: var(--black);
+        }
+
+        #btn-whatsapp {
+            bottom: 28px;
+            right: 28px;
+            background: #25D366;
+            color: #fff;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
 
             0%,
             100% {
-                opacity: 0.8;
-                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, .45);
             }
 
             50% {
-                opacity: 0.4;
-                transform: scale(0.9);
+                box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
             }
         }
 
-        .star-node {
-            animation: twinkle 4s ease-in-out infinite;
+        /* ══════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.6rem 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background .35s ease, padding .35s ease, border-color .35s ease;
+            border-bottom: 1px solid transparent;
         }
 
-        .star-node:nth-child(even) {
-            animation-duration: 5s;
-            animation-delay: 1s;
+        .header.sticky {
+            background: rgba(9, 9, 9, .93);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2.5rem;
+            border-bottom-color: var(--border);
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            z-index: 101;
+        }
+
+        .logo .logo-sym {
+            height: 34px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo .logo-text {
+            height: 46px;
+            width: 190px;
+            object-fit: cover;
+            object-position: center;
+            mix-blend-mode: screen;
+            margin-left: -6px;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .hamburger input {
+            display: none;
+        }
+
+        .hamburger svg {
+            height: 2.4rem;
+            transition: transform 600ms cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .ham-line {
+            fill: none;
+            stroke: var(--white);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 3;
+            transition: stroke-dasharray 600ms cubic-bezier(.4, 0, .2, 1),
+                stroke-dashoffset 600ms cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .ham-ltb {
+            stroke-dasharray: 12 63;
+        }
+
+        .hamburger input:checked+svg {
+            transform: rotate(-45deg);
+        }
+
+        .hamburger input:checked+svg .ham-ltb {
+            stroke-dasharray: 20 300;
+            stroke-dashoffset: -32.42;
+        }
+
+        /* ══════════════════════════════════════
+       NAV OVERLAY
+    ══════════════════════════════════════ */
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--black);
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: height .55s ease, opacity .55s ease;
+        }
+
+        .nav-overlay.open {
+            height: 100vh;
+            opacity: 1;
+        }
+
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav-list a {
+            font-family: var(--font-d);
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            letter-spacing: .05em;
+            color: var(--gray-2);
+            opacity: 0;
+            transform: translateY(-24px);
+            transition: color .3s ease, opacity .4s ease, transform .4s ease;
+        }
+
+        .nav-overlay.open .nav-list a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-overlay.open .nav-list a:nth-child(1) {
+            transition-delay: .08s;
+        }
+
+        .nav-overlay.open .nav-list a:nth-child(2) {
+            transition-delay: .14s;
+        }
+
+        .nav-overlay.open .nav-list a:nth-child(3) {
+            transition-delay: .20s;
+        }
+
+        .nav-overlay.open .nav-list a:nth-child(4) {
+            transition-delay: .26s;
+        }
+
+        .nav-overlay.open .nav-list a:nth-child(5) {
+            transition-delay: .32s;
+        }
+
+        .nav-list a:hover {
+            color: var(--yellow);
+        }
+
+        /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+        .hero {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 2.5rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-wrap {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .hero-status {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            padding: .4rem 1.1rem;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: .72rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+            margin-bottom: 2rem;
+        }
+
+        .hero-status .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: blink 1.8s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .25;
+            }
+        }
+
+        .hero-sub {
+            font-size: clamp(.8rem, 1.4vw, 1.05rem);
+            font-weight: 600;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: .4rem;
+        }
+
+        .hero-name {
+            font-family: var(--font-d);
+            font-size: clamp(5rem, 14vw, 15rem);
+            line-height: .88;
+            letter-spacing: .02em;
+            margin-bottom: 3rem;
+        }
+
+        .hero-name .n1 {
+            display: block;
+        }
+
+        .hero-name .n2 {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--white);
+        }
+
+        .hero-footer {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .hero-desc {
+            font-size: clamp(.88rem, 1.15vw, 1rem);
+            color: var(--gray-2);
+            max-width: 380px;
+            line-height: 1.8;
+        }
+
+        /* CTA button */
+        .hero-cta {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 32px;
+            cursor: pointer;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50px;
+            background: var(--yellow);
+            transition: width .3s ease;
+            z-index: 0;
+        }
+
+        .hero-cta:hover::before {
+            width: 100%;
+        }
+
+        .hero-cta .ct,
+        .hero-cta .ca {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cta .ct {
+            font-weight: 700;
+            font-size: .95rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: color .25s ease;
+        }
+
+        .hero-cta:hover .ct {
+            color: var(--black);
+        }
+
+        .hero-cta .ca {
+            width: 18px;
+            fill: none;
+            stroke: var(--yellow);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2;
+            transform: translateX(-5px);
+            transition: transform .3s ease, stroke .25s ease;
+        }
+
+        .hero-cta:hover .ca {
+            transform: translateX(0);
+            stroke: var(--black);
+        }
+
+        .hero-loc {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .78rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+        }
+
+        .hero-loc i {
+            font-size: 1rem;
+            color: var(--yellow);
+        }
+
+        /* ══════════════════════════════════════
+       MARQUEE
+    ══════════════════════════════════════ */
+        .marquee-wrap {
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1.6rem 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 22s linear infinite;
+        }
+
+        .marquee-track span {
+            font-family: var(--font-d);
+            font-size: clamp(2.8rem, 5.5vw, 5rem);
+            display: inline-flex;
+            align-items: center;
+            padding: 0 .6rem;
+        }
+
+        .mk-bold {
+            color: var(--white);
+        }
+
+        .mk-light {
+            color: var(--gray-1);
+        }
+
+        .mk-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-2);
+            margin: 0 18px;
+            vertical-align: middle;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ══════════════════════════════════════
+       SEÇÃO GENÉRICA
+    ══════════════════════════════════════ */
+        .wrap {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .sec-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2.5rem;
+            margin-bottom: 4.5rem;
+        }
+
+        .sec-title {
+            font-family: var(--font-d);
+            font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+            line-height: 1;
+        }
+
+        .sec-sub {
+            font-size: .98rem;
+            color: var(--gray-2);
+            max-width: 380px;
+            line-height: 1.75;
+        }
+
+        /* ══════════════════════════════════════
+       SOBRE
+    ══════════════════════════════════════ */
+        .sobre {
+            padding: 8rem 2.5rem;
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .sobre-left h2 {
+            font-family: var(--font-d);
+            font-size: clamp(3rem, 5.5vw, 6.5rem);
+            line-height: .95;
+            margin-bottom: 2.2rem;
+        }
+
+        .sobre-left h2 em {
+            color: var(--yellow);
+            font-style: normal;
+        }
+
+        .sobre-left p {
+            color: var(--gray-2);
+            font-size: 1.05rem;
+            line-height: 1.82;
+            margin-bottom: 1.4rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.8rem 0 2.4rem;
+        }
+
+        .stat {
+            border-top: 1px solid var(--border);
+            padding-top: 1.2rem;
+        }
+
+        .stat-n {
+            font-family: var(--font-d);
+            font-size: 3.6rem;
+            color: var(--yellow);
+            line-height: 1;
+        }
+
+        .stat-l {
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+            margin-top: .3rem;
+        }
+
+        .sobre-socials {
+            display: flex;
+            flex-direction: column;
+            gap: .2rem;
+        }
+
+        .sobre-socials a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: .88rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+            transition: color .3s ease;
+        }
+
+        .sobre-socials a:hover {
+            color: var(--yellow);
+        }
+
+        .sobre-img-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre-img-wrap img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            object-position: top center;
+            filter: grayscale(15%);
+            transition: filter .6s ease, transform .6s ease;
+        }
+
+        .sobre-img-wrap:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .img-badge {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            background: var(--yellow);
+            color: var(--black);
+            padding: .75rem 1.4rem;
+            font-weight: 800;
+            font-size: .8rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        /* ══════════════════════════════════════
+       SKILLS
+    ══════════════════════════════════════ */
+        .skills {
+            background: var(--black-2);
+            padding: 8rem 2.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--black-3);
+            border: 1px solid var(--border);
+            padding: 2.8rem 2.2rem;
+            transition: border-color .3s ease, transform .3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--yellow);
+            transform: translateY(-6px);
+        }
+
+        .sk-icon {
+            font-size: 2.4rem;
+            color: var(--yellow);
+            margin-bottom: 1.6rem;
+        }
+
+        .sk-title {
+            font-family: var(--font-d);
+            font-size: 2rem;
+            letter-spacing: .05em;
+            margin-bottom: 1.4rem;
+        }
+
+        .sk-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .sk-tag {
+            padding: .3rem .8rem;
+            border: 1px solid var(--border);
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+            transition: border-color .3s, color .3s;
+        }
+
+        .skill-card:hover .sk-tag {
+            border-color: rgba(231, 252, 0, .3);
+            color: var(--white);
+        }
+
+        /* ══════════════════════════════════════
+       SERVIÇOS  (fundo branco)
+    ══════════════════════════════════════ */
+        .servicos {
+            background: var(--white);
+            color: var(--black);
+            padding: 8rem 2.5rem;
+        }
+
+        .servicos .sec-head {
+            border-bottom-color: rgba(0, 0, 0, .12);
+        }
+
+        .servicos .sec-title {
+            color: var(--black);
+        }
+
+        .servicos .sec-sub {
+            color: var(--gray-1);
+        }
+
+        .serv-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .serv-item {
+            border: 1.5px solid rgba(0, 0, 0, .18);
+            border-radius: 120px;
+            min-height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem 2.8rem;
+            transition: background .35s ease, border-color .35s ease;
+        }
+
+        .serv-item:hover {
+            background: var(--black);
+            border-color: var(--black);
+        }
+
+        .serv-name {
+            font-family: var(--font-d);
+            font-size: clamp(1.3rem, 2.8vw, 2.4rem);
+            letter-spacing: .06em;
+            color: var(--black);
+            transition: color .35s ease;
+        }
+
+        .serv-item:hover .serv-name {
+            color: var(--white);
+        }
+
+        .serv-icon {
+            width: 58px;
+            height: 58px;
+            flex-shrink: 0;
+            border: 1.5px solid rgba(0, 0, 0, .18);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--gray-1);
+            transition: all .35s ease;
+        }
+
+        .serv-item:hover .serv-icon {
+            border-color: rgba(255, 255, 255, .2);
+            color: var(--yellow);
+        }
+
+        /* ══════════════════════════════════════
+       QUOTE  (fundo branco)
+    ══════════════════════════════════════ */
+        .quote-sec {
+            background: var(--white);
+            padding: 4rem 2.5rem 7rem;
+            overflow: hidden;
+        }
+
+        .q-wrap {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .q-row {
+            font-family: var(--font-d);
+            font-size: clamp(4rem, 12vw, 14rem);
+            line-height: 1;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+        }
+
+        .q-row.c {
+            justify-content: center;
+        }
+
+        .q-row.r {
+            justify-content: flex-end;
+        }
+
+        .q-line {
+            flex: 1;
+            height: 2px;
+            background: rgba(0, 0, 0, .15);
+            margin: 0 2.5rem;
+        }
+
+        /* ══════════════════════════════════════
+       PROJETOS
+    ══════════════════════════════════════ */
+        .projetos {
+            padding: 8rem 2.5rem;
+        }
+
+        .cases {
+            display: flex;
+            flex-direction: column;
+            gap: 9rem;
+            margin-top: 1rem;
+        }
+
+        .case {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .case.rev .ci {
+            order: 2;
+        }
+
+        .case.rev .ct {
+            order: 1;
+        }
+
+        .ci {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ci img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            transition: transform .7s ease;
+        }
+
+        .ci:hover img {
+            transform: scale(1.06);
+        }
+
+        .case-num {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.2rem;
+            font-family: var(--font-d);
+            font-size: 1rem;
+            letter-spacing: .18em;
+            color: rgba(255, 255, 255, .45);
+        }
+
+        .c-tag {
+            display: inline-block;
+            padding: .35rem .95rem;
+            background: var(--yellow);
+            color: var(--black);
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            margin-bottom: 1.6rem;
+        }
+
+        .c-title {
+            font-family: var(--font-d);
+            font-size: clamp(2.2rem, 3.8vw, 4rem);
+            letter-spacing: .03em;
+            line-height: 1.05;
+            margin-bottom: 1.6rem;
+        }
+
+        .c-desc {
+            color: var(--gray-2);
+            font-size: 1rem;
+            line-height: 1.82;
+            margin-bottom: 2.2rem;
+        }
+
+        .c-techs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .c-tech {
+            padding: .3rem .85rem;
+            border: 1px solid var(--border);
+            font-size: .7rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+        }
+
+        .c-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            padding: .9rem 1.8rem;
+            border: 1.5px solid var(--border);
+            font-weight: 700;
+            font-size: .8rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: background .3s ease, border-color .3s ease, color .3s ease;
+        }
+
+        .c-link:hover {
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: var(--black);
+        }
+
+        /* ══════════════════════════════════════
+       CONTATO
+    ══════════════════════════════════════ */
+        .contato {
+            background: var(--black-2);
+            padding: 9rem 2.5rem;
+        }
+
+        .contato-in {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .ct-label {
+            font-size: .75rem;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 1.8rem;
+        }
+
+        .ct-title {
+            font-family: var(--font-d);
+            font-size: clamp(3.5rem, 9vw, 9rem);
+            line-height: .95;
+            margin-bottom: 2rem;
+        }
+
+        .ct-desc {
+            font-size: 1.05rem;
+            color: var(--gray-2);
+            line-height: 1.8;
+            max-width: 580px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .ct-btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.4rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-em {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--yellow);
+            color: var(--black);
+            font-weight: 800;
+            font-size: .85rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            transition: opacity .3s ease, transform .3s ease;
+        }
+
+        .btn-em:hover {
+            opacity: .85;
+            transform: translateY(-3px);
+        }
+
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            padding: 1rem 2.8rem;
+            border: 1.5px solid var(--border);
+            font-weight: 800;
+            font-size: .85rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: background .3s ease, border-color .3s ease;
+        }
+
+        .btn-wa:hover {
+            background: #25D366;
+            border-color: #25D366;
+        }
+
+        .ct-info {
+            margin-top: 3.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .ct-info a {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            font-size: .88rem;
+            color: var(--gray-2);
+            transition: color .3s ease;
+        }
+
+        .ct-info a:hover {
+            color: var(--yellow);
+        }
+
+        /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+        .footer {
+            background: var(--black);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2.5rem;
+        }
+
+        .footer-in {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: .2rem;
+        }
+
+        .footer-brand strong {
+            font-family: var(--font-d);
+            font-size: 1.6rem;
+            letter-spacing: .1em;
+        }
+
+        .footer-brand span {
+            font-size: .8rem;
+            color: var(--gray-2);
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            font-size: .8rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+            transition: color .3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-soc {
+            display: flex;
+            gap: .8rem;
+        }
+
+        .footer-soc a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--gray-2);
+            transition: border-color .3s ease, color .3s ease;
+        }
+
+        .footer-soc a:hover {
+            border-color: var(--yellow);
+            color: var(--yellow);
+        }
+
+        /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+        @media (max-width: 1100px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+
+            .case {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .case.rev .ci,
+            .case.rev .ct {
+                order: unset;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 1.2rem 1.4rem;
+            }
+
+            .header.sticky {
+                padding: .8rem 1.4rem;
+            }
+
+            .hero {
+                padding: 8rem 1.4rem 3rem;
+            }
+
+            .sobre,
+            .skills,
+            .servicos,
+            .projetos,
+            .contato {
+                padding: 5rem 1.4rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .q-row {
+                font-size: clamp(3rem, 14vw, 6rem);
+            }
+
+            .footer-in {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .serv-item {
+                border-radius: 20px;
+            }
         }
     </style>
 </head>
 
-<body
-    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display selection:bg-primary selection:text-white overflow-x-hidden">
-    <div class="fixed inset-0 pointer-events-none z-0 bg-fog-pattern opacity-60"></div>
-    <div class="relative flex min-h-screen w-full flex-col z-10">
-        <header
-            class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-dark/80 border-b border-primary/30 shadow-lg shadow-black/20">
+<body>
 
-            <div class="w-full bg-primary/10 border-b border-primary/20 text-center py-2 px-4">
-                <a href="index.html"
-                    class="inline-flex items-center gap-1 text-xs text-primary hover:text-white transition-colors uppercase tracking-widest font-bold">
-                    <span class="material-symbols-outlined text-[14px]">arrow_back</span>
-                    Voltar ao site principal
+    <!-- ╔════════════════════════════════╗
+       ║  BOTÕES FIXOS                  ║
+       ╚════════════════════════════════╝ -->
+    <button id="btn-top" class="fixed-btn" aria-label="Voltar ao topo">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+    <a id="btn-whatsapp" class="fixed-btn" href="https://wa.me/5575988472549" target="_blank" rel="noopener"
+        aria-label="WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- ╔════════════════════════════════╗
+       ║  NAV OVERLAY (tela cheia)      ║
+       ╚════════════════════════════════╝ -->
+    <div id="nav-overlay" class="nav-overlay">
+        <nav class="nav-list">
+            <a href="#inicio">INÍCIO</a>
+            <a href="#sobre">SOBRE</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#projetos">PROJETOS</a>
+            <a href="#contato">CONTATO</a>
+        </nav>
+    </div>
+
+    <!-- ╔════════════════════════════════╗
+       ║  HEADER                        ║
+       ╚════════════════════════════════╝ -->
+    <header class="header" id="header">
+        <div class="logo">
+            <img src="logo 1.png" alt="Símbolo Leonardo Pires" class="logo-sym">
+            <img src="logo 2.png" alt="Leonardo Pires" class="logo-text">
+        </div>
+        <label class="hamburger" aria-label="Menu">
+            <input type="checkbox" id="menu-toggle">
+            <svg viewBox="0 0 32 32">
+                <path class="ham-line ham-ltb"
+                    d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+                </path>
+                <path class="ham-line" d="M7 16 27 16"></path>
+            </svg>
+        </label>
+    </header>
+
+    <main>
+        <!--
+         ╔════════════════════════════════╗
+         ║  HERO                          ║
+         ╚════════════════════════════════╝ -->
+        <section id="inicio" class="hero">
+            <div class="hero-wrap">
+
+                <div class="hero-status" data-aos="fade-up">
+                    <span class="dot"></span>
+                    Disponível para novos projetos
+                </div>
+
+                <p class="hero-sub" data-aos="fade-up" data-aos-delay="80">
+                    Desenvolvedor Web
+                </p>
+
+                <h1 class="hero-name" data-aos="fade-up" data-aos-delay="160">
+                    <span class="n1">LEONARDO</span>
+                    <span class="n2">PIRES</span>
+                </h1>
+
+                <div class="hero-footer">
+                    <p class="hero-desc" data-aos="fade-up" data-aos-delay="240">
+                        Estudante de Ciência da Computação, construindo soluções web funcionais,
+                        bem estruturadas e com ótima experiência para o usuário.
+                    </p>
+
+                    <a href="#projetos" class="hero-cta" data-aos="fade-up" data-aos-delay="320">
+                        <span class="ct">Ver Projetos</span>
+                        <svg class="ca" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+
+                    <div class="hero-loc" data-aos="fade-up" data-aos-delay="400">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        Maceió, Alagoas, Brasil
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ╔════════════════════════════════╗
+         ║  MARQUEE — "SOBRE"             ║
+         ╚════════════════════════════════╝ -->
+        <div class="marquee-wrap" id="sobre-anchor">
+            <div class="marquee-track">
+                <!-- 12 pares para garantir loop contínuo -->
+                <span class="mk-bold">TE </span><span class="mk-dot"></span>
+                <span class="mk-light">AMO </span><span class="mk-dot"></span>
+                <span class="mk-bold">JUJU </span><span class="mk-dot"></span>
+                <span class="mk-light">TE </span><span class="mk-dot"></span>
+                <span class="mk-bold">AMO </span><span class="mk-dot"></span>
+                <span class="mk-light">JUJU </span><span class="mk-dot"></span>
+                <!-- duplicado -->
+                <span class="mk-bold">TE </span><span class="mk-dot"></span>
+                <span class="mk-light">AMO </span><span class="mk-dot"></span>
+                <span class="mk-bold">JUJU </span><span class="mk-dot"></span>
+                <span class="mk-light">TE </span><span class="mk-dot"></span>
+                <span class="mk-bold">AMO </span><span class="mk-dot"></span>
+                <span class="mk-light">JUJU </span><span class="mk-dot"></span>
+            </div>
+        </div>
+
+        <!-- ╔════════════════════════════════╗
+         ║  SOBRE                         ║
+         ╚════════════════════════════════╝ -->
+        <section id="sobre" class="sobre">
+            <div class="wrap">
+                <div class="sobre-grid">
+
+                    <!-- Texto -->
+                    <div class="sobre-left" data-aos="fade-right" data-aos-duration="900">
+                        <h2>Olá, eu sou<br><em>Leonardo</em></h2>
+                        <p>
+                            Sou natural de Salvador, Bahia, e me mudei para Maceió no final de 2021.
+                            Desde 2023, quando me encontrei na Ciência da Computação, minha verdadeira vocação.
+                        </p>
+                        <p>
+                            Venho direcionando minha energia para o desenvolvimento web, transformando
+                            fundamentos sólidos de lógica e algoritmos em aplicações funcionais, bem
+                            estruturadas e eficientes.
+                        </p>
+                        <p>
+                            Atualmente desenvolvo projetos com foco em frontend e backend, priorizando clareza de
+                            código,
+                            organização arquitetural, performance e experiência do usuário.
+                        </p>
+
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-n">3+</div>
+                                <div class="stat-l">Anos de Estudo</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-n">12+</div>
+                                <div class="stat-l">Projetos Concluídos</div>
+                            </div>
+                        </div>
+
+                        <div class="sobre-socials">
+                            <a href="https://github.com/Leonardo-PiresF" target="_blank" rel="noopener">
+                                GITHUB <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/leonardo-pires-ferreira-a34a12384" target="_blank"
+                                rel="noopener">
+                                LINKEDIN <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <a href="mailto:leonardopires.dev@gmail.com">
+                                EMAIL <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Foto -->
+                    <div class="sobre-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+                        <div class="sobre-img-wrap">
+                            <img src="Léo terno.png" alt="Leonardo Pires — Desenvolvedor Web">
+                            <div class="img-badge">Desenvolvedor Web · Maceió, AL</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ╔════════════════════════════════╗
+         ║  SKILLS                        ║
+         ╚════════════════════════════════╝ -->
+        <section id="skills" class="skills">
+            <div class="wrap">
+
+                <div class="sec-head">
+                    <h2 class="sec-title" data-aos="fade-up">MINHAS<br>SKILLS</h2>
+                    <p class="sec-sub" data-aos="fade-up" data-aos-delay="100">
+                        Tecnologias e ferramentas com as quais trabalho no dia a dia,
+                        do frontend ao banco de dados.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="80">
+                        <div class="sk-icon"><i class="bi bi-layout-wtf"></i></div>
+                        <h3 class="sk-title">FRONTEND</h3>
+                        <div class="sk-tags">
+                            <span class="sk-tag">HTML5</span>
+                            <span class="sk-tag">CSS3</span>
+                            <span class="sk-tag">JavaScript</span>
+                            <span class="sk-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="180">
+                        <div class="sk-icon"><i class="bi bi-server"></i></div>
+                        <h3 class="sk-title">BACKEND</h3>
+                        <div class="sk-tags">
+                            <span class="sk-tag">Python</span>
+                            <span class="sk-tag">Flask</span>
+                            <span class="sk-tag">PHP</span>
+                            <span class="sk-tag">MVC</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="280">
+                        <div class="sk-icon"><i class="bi bi-database-fill"></i></div>
+                        <h3 class="sk-title">BANCO DE DADOS</h3>
+                        <div class="sk-tags">
+                            <span class="sk-tag">MySQL</span>
+                            <span class="sk-tag">SQLite</span>
+                            <span class="sk-tag">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="380">
+                        <div class="sk-icon"><i class="bi bi-tools"></i></div>
+                        <h3 class="sk-title">FERRAMENTAS</h3>
+                        <div class="sk-tags">
+                            <span class="sk-tag">Git</span>
+                            <span class="sk-tag">GitHub</span>
+                            <span class="sk-tag">VSCode</span>
+                            <span class="sk-tag">Figma</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ╔════════════════════════════════╗
+         ║  SERVIÇOS  (fundo branco)      ║
+         ╚════════════════════════════════╝ -->
+        <section id="servicos" class="servicos">
+            <div class="wrap">
+
+                <div class="sec-head">
+                    <h2 class="sec-title" data-aos="fade-up">O QUE<br>OFEREÇO</h2>
+                    <p class="sec-sub" data-aos="fade-up" data-aos-delay="100">
+                        Soluções web construídas sob medida, com foco em performance,
+                        design e resultados concretos.
+                    </p>
+                </div>
+
+                <div class="serv-list">
+                    <div class="serv-item" data-aos="fade-up" data-aos-delay="80">
+                        <span class="serv-name">LANDING PAGES</span>
+                        <div class="serv-icon"><i class="bi bi-globe2"></i></div>
+                    </div>
+                    <div class="serv-item" data-aos="fade-up" data-aos-delay="160">
+                        <span class="serv-name">SITES INSTITUCIONAIS</span>
+                        <div class="serv-icon"><i class="bi bi-building"></i></div>
+                    </div>
+                    <div class="serv-item" data-aos="fade-up" data-aos-delay="240">
+                        <span class="serv-name">SISTEMAS CMS</span>
+                        <div class="serv-icon"><i class="bi bi-gear-fill"></i></div>
+                    </div>
+                    <div class="serv-item" data-aos="fade-up" data-aos-delay="320">
+                        <span class="serv-name">APLICAÇÕES WEB</span>
+                        <div class="serv-icon"><i class="bi bi-code-slash"></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ╔════════════════════════════════╗
+         ║  QUOTE TIPOGRÁFICA             ║
+         ╚════════════════════════════════╝ -->
+        <section class="quote-sec">
+            <div class="q-wrap">
+                <div class="q-row" data-aos="fade-up">
+                    <span>CÓDIGO QUE</span>
+                    <span class="q-line"></span>
+                </div>
+                <div class="q-row c" data-aos="fade-up" data-aos-delay="100">
+                    <span class="q-line"></span>
+                    <span>RESOLVE</span>
+                    <span class="q-line"></span>
+                </div>
+                <div class="q-row r" data-aos="fade-up" data-aos-delay="200">
+                    <span class="q-line"></span>
+                    <span>PROBLEMAS.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ╔════════════════════════════════╗
+         ║  PROJETOS                      ║
+         ╚════════════════════════════════╝ -->
+        <section id="projetos" class="projetos">
+            <div class="wrap">
+
+                <div class="sec-head">
+                    <h2 class="sec-title" data-aos="fade-up">PROJETOS<br>RECENTES</h2>
+                    <div>
+                        <p class="sec-sub" data-aos="fade-up" data-aos-delay="100">
+                            Entregas que refletem evolução contínua e resultados reais.
+                        </p>
+                        <a href="https://github.com/Leonardo-PiresF" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;
+                      font-weight:800;font-size:.78rem;letter-spacing:.18em;
+                      text-transform:uppercase;color:var(--yellow);" data-aos="fade-up" data-aos-delay="160">
+                            VER TODOS <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cases">
+
+                    <!-- CASE 1 -->
+                    <div class="case" data-aos="fade-up">
+                        <div class="ci">
+                            <img src="Capa Kamila.png" alt="Landing Page — Kamila Pontes, Psicóloga Clínica">
+                            <span class="case-num">01</span>
+                        </div>
+                        <div class="ct">
+                            <span class="c-tag">Landing Page</span>
+                            <h3 class="c-title">KAMILA PONTES<br>PSICÓLOGA CLÍNICA</h3>
+                            <p class="c-desc">
+                                Interface front-end otimizada para conversão e agendamento via WhatsApp.
+                                Estilizada com Tailwind CSS e suporte a temas dinâmicos (Light/Dark)
+                                via JavaScript.
+                            </p>
+                            <div class="c-techs">
+                                <span class="c-tech">HTML</span>
+                                <span class="c-tech">Tailwind CSS</span>
+                                <span class="c-tech">JavaScript</span>
+                            </div>
+                            <a href="https://psikamilapontes.com/" target="_blank" rel="noopener" class="c-link">
+                                Ver Projeto <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CASE 2  (invertido) -->
+                    <div class="case rev" data-aos="fade-up">
+                        <div class="ci">
+                            <img src="Capa anjos advogados associados.png" alt="Site — Anjos Advogados Associados">
+                            <span class="case-num">02</span>
+                        </div>
+                        <div class="ct">
+                            <span class="c-tag">Site Institucional</span>
+                            <h3 class="c-title">ANJOS<br>ADVOGADOS</h3>
+                            <p class="c-desc">
+                                Site institucional moderno e responsivo para o escritório de advocacia
+                                Anjos Advogados Associados, desenvolvido com HTML, Tailwind CSS e JavaScript.
+                            </p>
+                            <div class="c-techs">
+                                <span class="c-tech">HTML</span>
+                                <span class="c-tech">Tailwind CSS</span>
+                                <span class="c-tech">JavaScript</span>
+                            </div>
+                            <a href="https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/" target="_blank"
+                                rel="noopener" class="c-link">
+                                Ver Projeto <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CASE 3 -->
+                    <div class="case" data-aos="fade-up">
+                        <div class="ci">
+                            <img src="cms-horus.jpeg" alt="LandingPro — CMS para landing pages">
+                            <span class="case-num">03</span>
+                        </div>
+                        <div class="ct">
+                            <span class="c-tag">Sistema CMS</span>
+                            <h3 class="c-title">LANDINGPRO<br>CMS</h3>
+                            <p class="c-desc">
+                                Projeto em equipe. CMS desenvolvido em PHP com arquitetura MVC integrado
+                                a uma landing page dinâmica. Permite que empresas gerenciem o conteúdo
+                                do site sem depender de desenvolvedores, via painel administrativo completo.
+                            </p>
+                            <div class="c-techs">
+                                <span class="c-tech">PHP</span>
+                                <span class="c-tech">CSS</span>
+                                <span class="c-tech">MySQL</span>
+                                <span class="c-tech">JavaScript</span>
+                            </div>
+                            <a href="https://github.com/ephremmatheus/cms-php" target="_blank" rel="noopener"
+                                class="c-link">
+                                Ver no GitHub <i class="bi bi-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ╔════════════════════════════════╗
+         ║  CONTATO                       ║
+         ╚════════════════════════════════╝ -->
+        <section id="contato" class="contato">
+            <div class="contato-in">
+
+                <p class="ct-label" data-aos="fade-up">— Vamos conversar —</p>
+                <h2 class="ct-title" data-aos="fade-up" data-aos-delay="100">
+                    VAMOS<br>TRABALHAR<br>JUNTOS?
+                </h2>
+                <p class="ct-desc" data-aos="fade-up" data-aos-delay="200">
+                    Aberto a oportunidades de estágio, freelance e colaborações em
+                    desenvolvimento web. Entre em contato e vamos construir algo juntos.
+                </p>
+
+                <div class="ct-btns" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com" target="_blank"
+                        rel="noopener" class="btn-em">
+                        Enviar Email
+                    </a>
+                    <a href="https://wa.me/5575988472549" target="_blank" rel="noopener" class="btn-wa">
+                        <i class="bi bi-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+
+                <div class="ct-info" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://github.com/Leonardo-PiresF" target="_blank" rel="noopener">
+                        <i class="bi bi-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/leonardo-pires-ferreira-a34a12384" target="_blank"
+                        rel="noopener">
+                        <i class="bi bi-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="mailto:leonardopires.dev@gmail.com">
+                        <i class="bi bi-envelope"></i> leonardopires.dev@gmail.com
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ╔════════════════════════════════╗
+       ║  FOOTER                        ║
+       ╚════════════════════════════════╝ -->
+    <footer class="footer">
+        <div class="footer-in">
+
+            <div class="footer-brand">
+                <strong>LEONARDO PIRES</strong>
+                <span>© 2026. Todos os direitos reservados.</span>
+            </div>
+
+            <nav class="footer-nav">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#skills">Skills</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
+            <div class="footer-soc">
+                <a href="https://github.com/Leonardo-PiresF" target="_blank" rel="noopener" aria-label="GitHub">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/leonardo-pires-ferreira-a34a12384" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="mailto:leonardopires.dev@gmail.com" aria-label="Email">
+                    <i class="bi bi-envelope"></i>
                 </a>
             </div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
 
-                    <div class="flex-shrink-0 flex items-center group cursor-pointer">
-                        <img src="logo 1.png" alt="Símbolo Leonardo" class="h-10 w-auto object-contain" />
-                        <img src="logo 2.png" alt="Nome Leonardo"
-                            class="h-16 w-72 object-cover object-center mix-blend-screen -ml-2" />
-                    </div>
+        </div>
+    </footer>
 
-                    <div class="hidden md:block">
-                        <div class="ml-auto flex items-baseline space-x-8">
-                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
-                                href="#about">
-                                <span class="material-symbols-outlined text-[18px]">history_edu</span> Diário de Missões
-                            </a>
-                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
-                                href="#skills">
-                                <span class="material-symbols-outlined text-[18px]">swords</span> Habilidades
-                            </a>
-                            <a class="text-slate-300 hover:text-white hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
-                                href="#projects">
-                                <span class="material-symbols-outlined text-[18px]">backpack</span> Inventário
-                            </a>
-                            <a class="text-slate-400 hover:text-constellation-blue hover:scale-105 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-2"
-                                href="index.html">
-                                <span class="material-symbols-outlined text-[18px]">home</span> Site Principal
-                            </a>
-                            <a class="bg-primary/10 hover:bg-primary hover:shadow-rune border border-primary text-primary hover:text-white transition-all duration-300 px-6 py-2 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center gap-2"
-                                href="#contact">
-                                <span class="material-symbols-outlined text-[18px]">mail</span> Recrutar
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="-mr-2 flex md:hidden">
-                        <button id="btn-mobile"
-                            class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-stone-light focus:outline-none transition-colors"
-                            type="button">
-                            <span id="icon-mobile" class="material-symbols-outlined text-2xl">menu</span>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
-            <div id="menu-mobile"
-                class="hidden md:hidden bg-stone-dark/95 backdrop-blur-lg border-t border-slate-800 shadow-2xl">
-                <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
-                        href="#about">
-                        <span class="material-symbols-outlined text-[20px] text-primary">history_edu</span> Diário de
-                        Missões
-                    </a>
-                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
-                        href="#skills">
-                        <span class="material-symbols-outlined text-[20px] text-primary">swords</span> Habilidades
-                    </a>
-                    <a class="text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 px-4 py-3 rounded-md text-sm font-medium uppercase tracking-widest flex items-center gap-3"
-                        href="#projects">
-                        <span class="material-symbols-outlined text-[20px] text-primary">backpack</span> Inventário
-                    </a>
-                    <a class="mt-4 bg-primary/10 hover:bg-primary border border-primary text-primary hover:text-white transition-all duration-300 px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3"
-                        href="#contact">
-                        <span class="material-symbols-outlined text-[20px]">mail</span> Recrutar
-                    </a>
-                </div>
-            </div>
-        </header>
-        <main class="flex-grow flex flex-col items-center w-full">
-            <section class="relative w-full py-20 lg:py-32 px-4 flex justify-center overflow-hidden">
-                <div class="absolute inset-0 z-[-1]">
-                    <img alt="Paisagem nórdica escura e enevoada com montanhas e neblina"
-                        class="w-full h-full object-cover opacity-20 mix-blend-overlay"
-                        data-alt="Paisagem nórdica escura e enevoada com montanhas e neblina"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuR_hDf5jl6PhmwUmDop1-T9poYWssx2AlqYZhORegDUqd8wcrQUg-Yz0AoKnmsIC3wJ5FOG5Yu36hb42B_oM2PmYZ0N_w2NG6qEmm5RuqdaEF0LDZrfQEuttH2JYLgWcWk3UBvMPrzGJZlkSn36Y4YKwjdrK57UpBeVfN0gKKKe-r8ghx-NRNQbmCrZLNJtryeW5hemiHWetldHlszmkZlnFO35Stlzm7lztlApsVW8kNXd1wniYKraq18dP2H8DXYb9yzM7jPDg" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent">
-                    </div>
-                </div>
-                <div class="max-w-5xl w-full text-center flex flex-col items-center gap-8 relative z-10">
-                    <div
-                        class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-stone-light/50 border border-slate-700 backdrop-blur-sm">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span class="text-xs text-slate-300 font-medium tracking-widest uppercase">Desenvolvedor Web
-                            Nível 23</span>
-                    </div>
-                    <h1
-                        class="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-tight drop-shadow-2xl">
-                        LEONARDO <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">PIRES</span>
-                    </h1>
-                    <div class="h-1 w-32 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                    <p class="text-lg md:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
-                        Estudante de Ciência da Computação | Desenvolvedor Web.<br />
-                        <span class="text-white font-normal italic opacity-80">"Construindo soluções web com foco em
-                            performance e experiência do usuário."</span>
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full justify-center">
-                        <a href="#projects"
-                            class="group relative px-8 py-4 bg-stone-dark overflow-hidden rounded-lg border border-primary text-white shadow-rune transition-all hover:scale-105 active:scale-95">
-                            <div
-                                class="absolute inset-0 w-0 bg-primary transition-all duration-[250ms] ease-out group-hover:w-full opacity-20">
-                            </div>
-                            <span
-                                class="relative text-sm font-bold uppercase tracking-[0.15em] flex items-center gap-2 justify-center">
-                                Ver Meus projetos <span
-                                    class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </span>
-                        </a>
-                        <a href="#contact"
-                            class="px-8 py-4 bg-transparent rounded-lg border border-slate-600 text-slate-300 hover:bg-stone-light hover:border-slate-400 hover:text-white transition-all active:scale-95 text-sm font-bold uppercase tracking-[0.15em]">
-                            Contatar
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <section class="w-full max-w-6xl px-4 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" id="about">
-                <div class="relative group">
-                    <div
-                        class="absolute -inset-2 bg-gradient-to-r from-primary to-slate-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
-                    </div>
-                    <div
-                        class="relative h-[500px] w-full bg-stone-dark rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
-                        <img alt="Pessoa programando no notebook em ambiente escuro com iluminação azul"
-                            class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
-                            data-alt="Pessoa programando no notebook em ambiente escuro com iluminação azul"
-                            src="Léo terno.png" />
-                        <div
-                            class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
-                            <div class="flex items-center gap-2 text-primary mb-1">
-                                <span class="material-symbols-outlined text-sm">location_on</span>
-                                <span class="text-xs uppercase tracking-widest font-bold">Maceió, Alagoas</span>
-                            </div>
-                            <h3 class="text-white font-bold text-xl">Leonardo Pires - Desenvolvedor Web</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-6">
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">Minha caminhada
-                        </h2>
-                    </div>
-                    <div
-                        class="bg-stone-dark/50 p-8 rounded-lg border border-slate-700/50 backdrop-blur-sm relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
-                        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
-                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
-                            Sou natural de Salvador, Bahia, e me mudei para Maceió no final de 2021.
-                        </p>
-                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
-                            Desde 2023, quando me encontrei na Ciência da Computação, minha verdadeira vocação, venho
-                            direcionando
-                            minha energia para o desenvolvimento web, buscando transformar fundamentos sólidos de lógica
-                            e algoritmos em aplicações funcionais, bem estruturadas e eficientes.
-                        </p>
-                        <p class="text-slate-300 text-lg leading-relaxed mb-6 text-justify">
-                            Atualmente desenvolvo projetos próprios com foco em frontend e backend, priorizando clareza
-                            de código, organização arquitetural, performance e experiência do usuário. Acredito que boas
-                            soluções nascem do equilíbrio entre técnica, simplicidade e propósito.
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 rounded bg-stone-dark border border-slate-800 flex flex-col gap-1">
-                            <span class="text-2xl font-bold text-white">3+</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider">Anos de Estudo</span>
-                        </div>
-                        <div class="p-4 rounded bg-stone-dark border border-slate-800 flex flex-col gap-1">
-                            <span class="text-2xl font-bold text-white">12+</span>
-                            <span class="text-xs text-slate-500 uppercase tracking-wider">Projetos Concluídos</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="w-full bg-nebula py-24 px-4 border-y border-slate-800/50 relative overflow-hidden"
-                id="skills">
-
-                <div class="absolute inset-0 z-0 pointer-events-none">
-                    <img src="universo.jpeg" alt="Fundo constelação" class="w-full h-full object-cover opacity-20" />
-                    <div class="absolute inset-0 bg-background-dark/20"></div>
-                </div>
-
-                <div class="absolute inset-0 opacity-40 z-0 pointer-events-none"
-                    style="background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px); background-size: 550px 550px; background-position: 0 0;">
-                </div>
-                <div class="absolute inset-0 opacity-20 z-0 pointer-events-none"
-                    style="background-image: radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px); background-size: 350px 350px; background-position: 50% 50%;">
-                </div>
-
-                <div class="max-w-7xl mx-auto flex flex-col gap-16 relative z-10">
-
-                    <div class="text-center">
-                        <h2
-                            class="text-3xl md:text-4xl font-skyrim font-bold text-white tracking-widest uppercase mb-2">
-                            Constelações de Habilidades</h2>
-                        <div class="h-[1px] w-64 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto">
-                        </div>
-
-                    </div>
-
-                    <div id="constellation-wrap" class="relative grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
-
-
-
-                        <!-- ── FRONTEND ── -->
-                        <div class="relative flex flex-col items-center h-[520px]">
-                            <h3
-                                class="text-xl font-skyrim text-constellation-blue mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(138,180,248,0.8)]">
-                                Caminho do Frontend</h3>
-                            <div class="relative w-full flex-1">
-
-                                <div id="n-html" data-connects="n-css:solid"
-                                    class="skill-node absolute top-[10%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div
-                                        class="node-circle w-16 h-16 rounded-full bg-slate-900 border-2 border-constellation-blue shadow-star-glow flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                                        <span
-                                            class="material-symbols-outlined text-3xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">html</span>
-                                    </div>
-                                    <span
-                                        class="text-constellation-blue font-serif text-xs uppercase tracking-widest mt-1">HTML5</span>
-                                </div>
-
-                                <div id="n-css" data-connects="n-js:solid n-tailwind:solid"
-                                    class="skill-node absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div
-                                        class="node-circle w-14 h-14 rounded-full bg-slate-900 border-2 border-constellation-blue shadow-star-glow flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                                        <span
-                                            class="material-symbols-outlined text-2xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">css</span>
-                                    </div>
-                                    <span
-                                        class="text-constellation-blue font-serif text-xs uppercase tracking-widest mt-1">CSS3</span>
-                                </div>
-
-                                <div id="n-js" data-connects="n-react:dashed"
-                                    class="skill-node absolute top-[65%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div class="node-circle w-13 h-13 rounded-full bg-slate-900 border border-constellation-blue shadow-[0_0_10px_rgba(138,180,248,0.4)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-                                        style="width:3.25rem;height:3.25rem">
-                                        <span class="material-symbols-outlined text-xl text-white">javascript</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider mt-1">JavaScript</span>
-                                </div>
-
-                                <div id="n-tailwind" data-connects=""
-                                    class="skill-node absolute top-[65%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div class="node-circle rounded-full bg-slate-900 border border-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.35)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-                                        style="width:3.25rem;height:3.25rem">
-                                        <span class="material-symbols-outlined text-xl text-white">brush</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider mt-1">Tailwind</span>
-                                </div>
-
-                                <div id="n-react" data-connects=""
-                                    class="skill-node absolute top-[88%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed z-10">
-                                    <div
-                                        class="node-circle w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center opacity-50 grayscale">
-                                        <span
-                                            class="material-symbols-outlined text-base text-slate-500">code_blocks</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-1">React</span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <!-- ── BACKEND ── -->
-                        <div class="relative flex flex-col items-center h-[520px]">
-                            <h3
-                                class="text-xl font-skyrim text-purple-300 mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(216,180,254,0.6)]">
-                                Caminho do Backend</h3>
-                            <div class="relative w-full flex-1">
-
-                                <div id="n-python" data-connects="n-flask:solid n-php:dashed"
-                                    class="skill-node absolute top-[10%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div
-                                        class="node-circle w-16 h-16 rounded-full bg-slate-900 border-2 border-purple-400 shadow-[0_0_15px_rgba(192,132,252,0.4)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                                        <span
-                                            class="material-symbols-outlined text-3xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">terminal</span>
-                                    </div>
-                                    <span
-                                        class="text-purple-300 font-serif text-sm uppercase tracking-widest mt-1">Python</span>
-                                </div>
-
-                                <div id="n-flask" data-connects="n-nodejs:dashed"
-                                    class="skill-node absolute top-[48%] left-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div
-                                        class="node-circle w-12 h-12 rounded-full bg-slate-900 border border-purple-300 shadow-[0_0_10px_rgba(192,132,252,0.3)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                                        <span class="material-symbols-outlined text-xl text-white">smart_toy</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider mt-1">Framework
-                                        Flask</span>
-                                </div>
-
-                                <div id="n-php" data-connects=""
-                                    class="skill-node absolute top-[48%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer z-10">
-                                    <div
-                                        class="node-circle w-12 h-12 rounded-full bg-slate-900 border border-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.3)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 opacity-80">
-                                        <span class="material-symbols-outlined text-xl text-white">php</span>
-                                    </div>
-                                    <span class="text-white font-serif text-[10px] uppercase tracking-wider mt-1">PHP
-                                    </span>
-                                </div>
-
-                                <div id="n-nodejs" data-connects=""
-                                    class="skill-node absolute top-[82%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed z-10">
-                                    <div
-                                        class="node-circle w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center opacity-60 grayscale">
-                                        <span class="material-symbols-outlined text-lg text-slate-500">dns</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-1">Node.js</span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <!-- ── DADOS ── -->
-                        <div class="relative flex flex-col items-center h-[520px]">
-                            <h3
-                                class="text-xl font-skyrim text-emerald-300 mb-8 tracking-widest uppercase drop-shadow-[0_0_8px_rgba(110,231,183,0.6)]">
-                                Caminho dos Dados</h3>
-                            <div class="relative w-full flex-1">
-
-                                <div id="n-sqlite" data-connects="n-json:solid n-sql:solid"
-                                    class="skill-node absolute top-[10%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div
-                                        class="node-circle w-14 h-14 rounded-full bg-slate-900 border-2 border-emerald-400 shadow-[0_0_15px_rgba(52,211,153,0.4)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                                        <span
-                                            class="material-symbols-outlined text-2xl text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]">database</span>
-                                    </div>
-                                    <span
-                                        class="text-emerald-300 font-serif text-sm uppercase tracking-widest mt-1">MySQL</span>
-                                </div>
-
-                                <div id="n-json" data-connects="n-postgresql:dashed"
-                                    class="skill-node absolute top-[50%] left-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div
-                                        class="node-circle w-12 h-12 rounded-full bg-slate-900 border border-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.3)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                                        <span class="material-symbols-outlined text-xl text-white">data_object</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider mt-1">SQLite</span>
-                                </div>
-
-                                <div id="n-sql" data-connects="n-postgresql:dashed"
-                                    class="skill-node absolute top-[50%] left-[75%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-pointer star-node z-10">
-                                    <div
-                                        class="node-circle w-12 h-12 rounded-full bg-slate-900 border border-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.3)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                                        <span class="material-symbols-outlined text-xl text-white">table_chart</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-300 font-serif text-[10px] uppercase tracking-wider mt-1">SQL</span>
-                                </div>
-
-                                <div id="n-postgresql" data-connects=""
-                                    class="skill-node absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group cursor-not-allowed z-10">
-                                    <div
-                                        class="node-circle w-10 h-10 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center opacity-60 grayscale">
-                                        <span class="material-symbols-outlined text-lg text-slate-500">storage</span>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 font-serif text-[10px] uppercase tracking-wider mt-1">PostgreSQL</span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </section>
-            <section class="w-full max-w-7xl px-4 py-24 flex flex-col gap-12" id="projects">
-                <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-slate-800 pb-6">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight uppercase">Projetos
-                            Recentes</h2>
-                        <p class="text-slate-400 mt-2">Explore meus projetos mais recentes, onde cada entrega reflete
-                            resultados concretos e a evolução contínua da minha jornada no desenvolvimento.</p>
-                        </p>
-                    </div>
-                    <a class="text-primary hover:text-white font-bold uppercase tracking-widest text-sm flex items-center gap-2 transition-colors text-center"
-                        href="https://github.com/Leonardo-PiresF">
-                        Ver Todos os Projetos <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <article
-                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
-                        <div class="relative h-48 overflow-hidden">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
-                            </div>
-                            <img alt="Landing Page - Kamila Pontes, Psicóloga Clínica"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                data-alt="Landing Page - Kamila Pontes, Psicóloga Clínica" src="Capa Kamila.png" />
-                            <div
-                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">Landing Page</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                                Landing Page - Kamila Pontes, Psicóloga Clínica</h3>
-                            <p class="text-slate-400 text-sm mb-6 flex-1">Uma interface front-end otimizada para
-                                conversão e agendamento via WhatsApp, estilizada com Tailwind CSS e suporte a temas
-                                dinâmicos (Light/Dark) via JavaScript.</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">HTML</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Tailwind
-                                    CSS</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JavaScript</span>
-                            </div>
-                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="https://psikamilapontes.com/" target="_blank">
-                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
-                            </a>
-                        </div>
-                    </article>
-                    <article
-                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
-                        <div class="relative h-48 overflow-hidden">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
-                            </div>
-                            <img alt="site institucional para escritório de advocacia, com design moderno e profissional"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                data-alt="site institucional para escritório de advocacia, com design moderno e profissional"
-                                src="Capa anjos advogados associados.png" />
-                            <div
-                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">Site institucional</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                                Site institucional - Anjos Advogados Associados</h3>
-                            <p class="text-slate-400 text-sm mb-6 flex-1">Site institucional para o escritorio de
-                                advocacia Anjos Advogados Associados, desenvolvido com HTML, Tailwind CSS e JavaScript.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">HTML</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">Tailwind</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JS</span>
-                            </div>
-                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/"
-                                target="_blank">
-                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
-                            </a>
-                        </div>
-                    </article>
-                    <article
-                        class="group bg-stone-dark rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 flex flex-col h-full shadow-lg">
-                        <div class="relative h-48 overflow-hidden">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-stone-dark to-transparent z-10 opacity-60">
-                            </div>
-                            <img alt="CMS (Sistema de Gerenciamento de Conteúdo) com painel administrativo e landing page integrada"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                data-alt="CMS (Sistema de Gerenciamento de Conteúdo) com painel administrativo e landing page integrada"
-                                src="cms-horus.jpeg" />
-                            <div
-                                class="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur px-3 py-1 rounded border border-slate-700">
-                                <span class="text-xs font-bold text-primary uppercase">CMS (Sistema de Gerenciamento de
-                                    Conteúdo)</span>
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                                LandingPro - CMS
-                                para landing page</h3>
-                            <p class="text-slate-400 text-sm mb-6 flex-1">Projeto realizado em equipe. Desenvolvido em
-                                PHP com arquitetura MVC, integrado a uma landing page dinâmica. O projeto permite que
-                                empresas gerenciem o conteúdo do seu site sem depender de desenvolvedores, através de um
-                                painel administrativo completo.</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">PHP</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">CSS</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">MySQL</span>
-                                <span
-                                    class="px-2 py-1 bg-stone-light rounded text-[10px] font-bold text-slate-300 uppercase border border-slate-700">JavaScript</span>
-                            </div>
-                            <a class="mt-auto w-full py-3 bg-slate-800 hover:bg-primary border-t border-slate-700 hover:border-primary text-slate-300 hover:text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors"
-                                href="https://github.com/ephremmatheus/cms-php" target="_blank">
-                                Ver Projeto <span class="material-symbols-outlined text-[16px]">visibility</span>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-            </section>
-            <section class="w-full px-4 pb-20 pt-10" id="contact">
-                <div
-                    class="max-w-5xl mx-auto relative rounded-2xl overflow-hidden bg-stone-dark border border-slate-700 p-8 md:p-16 text-center shadow-2xl">
-                    <div class="absolute top-0 left-0 w-full h-full bg-stone-texture opacity-30"></div>
-                    <div
-                        class="absolute -top-[100px] -right-[100px] w-64 h-64 bg-primary rounded-full blur-[100px] opacity-20">
-                    </div>
-                    <div class="relative z-10 flex flex-col items-center gap-6">
-                        <div
-                            class="w-16 h-16 rounded-full bg-stone-light border border-slate-600 flex items-center justify-center text-primary mb-2 shadow-rune">
-                            <span class="material-symbols-outlined text-3xl">handshake</span>
-                        </div>
-                        <h2 class="text-3xl md:text-5xl font-bold text-white max-w-2xl leading-tight">Disponível para
-                            novos projetos</h2>
-                        <p class="text-slate-400 max-w-lg mx-auto text-lg">Aberto a oportunidades de estágio, freelance
-                            e colaborações em desenvolvimento web.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 mt-6">
-                            <a class="flex items-center justify-center px-8 py-4 bg-primary hover:bg-primary-glow text-white rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-blue-900/50 hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1"
-                                href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
-                                target="_blank">
-                                Enviar Email
-                            </a>
-
-                            <a class="relative flex items-center justify-center px-8 py-4 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-green-900/40 hover:shadow-green-500/60 transition-all transform hover:-translate-y-1 group"
-                                href="https://wa.me/5575988472549" target="_blank">
-
-                                <span
-                                    class="absolute -inset-0.5 rounded-lg bg-[#25D366] opacity-40 blur-md group-hover:opacity-60 animate-pulse transition-opacity duration-300"></span>
-
-                                <span class="relative flex items-center gap-2">
-                                    <span
-                                        class="material-symbols-outlined group-hover:animate-bounce text-[20px]">chat</span>
-                                    WhatsApp
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer class="w-full bg-stone-dark border-t border-slate-800 py-12 px-4">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex flex-col gap-2">
-                    <h2 class="text-xl font-bold text-white tracking-[0.2em]">LEONARDO PIRES</h2>
-                    <p class="text-slate-500 text-sm">© 2026. Todos os direitos reservados.</p>
-                </div>
-                <div class="flex items-center gap-6">
-                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
-                        href="https://github.com/Leonardo-PiresF">
-                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">code</span>
-                    </a>
-                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
-                        href="https://www.linkedin.com/in/leonardo-pires-ferreira-a34a12384?utm_source=share_via&utm_content=profile&utm_medium=member_android">
-                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">work</span>
-                    </a>
-                    <a class="w-10 h-10 rounded bg-stone-light border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary hover:bg-slate-800 transition-all duration-300 group"
-                        href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com">
-                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">mail</span>
-                    </a>
-                </div>
-            </div>
-        </footer>
-    </div>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const btnMobile = document.getElementById('btn-mobile');
-            const menuMobile = document.getElementById('menu-mobile');
-            const iconMobile = document.getElementById('icon-mobile');
-            const linksMobile = menuMobile.querySelectorAll('a');
+        // ── AOS ──────────────────────────────────────────
+        AOS.init({ once: true, duration: 850, easing: 'ease-out-cubic' });
 
-            btnMobile.addEventListener('click', () => {
-                menuMobile.classList.toggle('hidden');
+        // ── HEADER STICKY ────────────────────────────────
+        const header = document.getElementById('header');
+        function onScroll() {
+            const scrolled = window.scrollY > 60;
+            header.classList.toggle('sticky', scrolled);
 
-                if (menuMobile.classList.contains('hidden')) {
-                    iconMobile.textContent = 'menu';
-                } else {
-                    iconMobile.textContent = 'close';
-                }
-            });
+            // Botões fixos
+            const show = window.scrollY > 320;
+            document.getElementById('btn-top').classList.toggle('show', show);
+            document.getElementById('btn-whatsapp').classList.toggle('show', show);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
 
-            linksMobile.forEach(link => {
-                link.addEventListener('click', () => {
-                    menuMobile.classList.add('hidden');
-                    iconMobile.textContent = 'menu';
-                });
+        // ── BACK TO TOP ──────────────────────────────────
+        document.getElementById('btn-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ── HAMBURGER / NAV OVERLAY ──────────────────────
+        const toggle = document.getElementById('menu-toggle');
+        const overlay = document.getElementById('nav-overlay');
+
+        toggle.addEventListener('change', () => {
+            const open = toggle.checked;
+            overlay.classList.toggle('open', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        });
+
+        // Fecha ao clicar em link
+        overlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.checked = false;
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
             });
         });
+
+        // Fecha com Escape
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && toggle.checked) {
+                toggle.checked = false;
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
-
-
 </body>
 
 </html>
