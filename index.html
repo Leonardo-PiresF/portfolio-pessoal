@@ -8,21 +8,15 @@
     <meta name="description"
         content="Landing pages, sites institucionais e interfaces personalizadas que convertem visitantes em clientes. Orçamento sem compromisso.">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* VARIÁVEIS */
         :root {
             --black: #090909;
             --black-2: #111111;
@@ -37,7 +31,6 @@
             --fb: 'Manrope', sans-serif;
         }
 
-        /* RESET */
         *,
         *::before,
         *::after {
@@ -46,8 +39,11 @@
             box-sizing: border-box;
         }
 
+        /* FIX: overflow-x travado em html E body */
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100%;
         }
 
         body {
@@ -55,6 +51,7 @@
             color: var(--white);
             font-family: var(--fb);
             overflow-x: hidden;
+            max-width: 100%;
         }
 
         a {
@@ -247,8 +244,7 @@
             stroke-linecap: round;
             stroke-linejoin: round;
             stroke-width: 3;
-            transition: stroke-dasharray 600ms cubic-bezier(.4, 0, .2, 1),
-                stroke-dashoffset 600ms cubic-bezier(.4, 0, .2, 1);
+            transition: stroke-dasharray 600ms cubic-bezier(.4, 0, .2, 1), stroke-dashoffset 600ms cubic-bezier(.4, 0, .2, 1);
         }
 
         .ham-ltb {
@@ -350,14 +346,13 @@
             width: 100%;
         }
 
-        /* Noise grain overlay */
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
             pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
         }
 
         .hero-kicker {
@@ -396,6 +391,7 @@
             }
         }
 
+        /* FIX: word-break impede overflow horizontal do headline */
         .hero-headline {
             font-family: var(--fd);
             font-size: clamp(4.5rem, 13vw, 14rem);
@@ -404,6 +400,8 @@
             margin-bottom: 3.5rem;
             position: relative;
             z-index: 1;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .hero-headline .hl1 {
@@ -930,8 +928,6 @@
             align-items: center;
         }
 
-        .pq-left {}
-
         .pq-left .sec-kicker {
             color: #1a1a1a;
             opacity: .55;
@@ -1393,7 +1389,9 @@
             color: var(--yellow);
         }
 
-        /* RESPONSIVO — TABLET LARGO (≤1100px) */
+        /* ══════════════════
+           TABLET LARGO ≤1100
+        ══════════════════ */
         @media (max-width:1100px) {
             .servicos-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1417,10 +1415,11 @@
             }
         }
 
-        /* RESPONSIVO — TABLET (≤900px) */
+        /* ══════════════════════════════════════════════
+           TABLET ≤900  —  FIX: header compacto aqui,
+           pois é quando o hamburger aparece
+        ══════════════════════════════════════════════ */
         @media (max-width:900px) {
-
-            /* Nav */
             .desk-nav {
                 display: none;
             }
@@ -1429,14 +1428,23 @@
                 display: flex;
             }
 
-            /* Hero */
+            /* FIX hamburger saindo da tela */
+            .header {
+                padding: 1rem 1.4rem;
+            }
+
+            .header.sticky {
+                padding: .8rem 1.4rem;
+            }
+
             .hero {
                 padding: 9rem 1.6rem 5rem;
                 min-height: auto;
             }
 
+            /* FIX headline não vaza em tablets */
             .hero-headline {
-                font-size: clamp(4rem, 16vw, 8rem);
+                font-size: clamp(3.2rem, 11vw, 8rem);
                 margin-bottom: 2.5rem;
             }
 
@@ -1465,7 +1473,6 @@
                 gap: 1rem;
             }
 
-            /* Grids */
             .pq-grid {
                 grid-template-columns: 1fr;
                 gap: 3.5rem;
@@ -1481,12 +1488,10 @@
                 align-items: flex-start;
             }
 
-            /* Projetos */
             .proj-img {
                 height: 280px;
             }
 
-            /* Quote */
             .q-row {
                 font-size: clamp(3rem, 12vw, 7rem);
             }
@@ -1495,7 +1500,6 @@
                 margin: 0 1.5rem;
             }
 
-            /* CTA */
             .cta-box h2 {
                 font-size: clamp(2.8rem, 10vw, 6rem);
             }
@@ -1509,7 +1513,6 @@
                 justify-content: center;
             }
 
-            /* Footer */
             .footer-in {
                 flex-direction: column;
                 align-items: flex-start;
@@ -1521,41 +1524,44 @@
             }
         }
 
-        /* RESPONSIVO — MOBILE (≤680px) */
+        /* ══════════════════
+           MOBILE ≤680
+        ══════════════════ */
         @media (max-width:680px) {
 
             /* Header */
             .header {
-                padding: 1rem 1.2rem;
+                padding: .9rem 1.2rem;
             }
 
             .header.sticky {
-                padding: .75rem 1.2rem;
+                padding: .7rem 1.2rem;
             }
 
             .logo .lt {
-                width: 150px;
-                height: 38px;
+                width: 140px;
+                height: 36px;
             }
 
             .logo .ls {
-                height: 28px;
+                height: 26px;
             }
 
             /* Hero */
             .hero {
-                padding: 8rem 1.2rem 4rem;
+                padding: 7.5rem 1.2rem 4rem;
             }
 
             .hero-kicker {
-                font-size: .65rem;
-                padding: .4rem 1rem;
-                margin-bottom: 1.8rem;
+                font-size: .62rem;
+                padding: .38rem .9rem;
+                margin-bottom: 1.6rem;
             }
 
+            /* FIX: "DESENVOLVEDOR" cabe em 375px com este clamp */
             .hero-headline {
-                font-size: clamp(3.2rem, 17vw, 5.5rem);
-                margin-bottom: 2rem;
+                font-size: clamp(2.8rem, 14vw, 4.5rem);
+                margin-bottom: 1.8rem;
                 letter-spacing: .01em;
             }
 
@@ -1604,7 +1610,7 @@
                 height: 7px;
             }
 
-            /* Seções padding global */
+            /* Seções */
             .servicos,
             .processo,
             .projetos,
@@ -1614,7 +1620,6 @@
                 padding: 4rem 1.2rem;
             }
 
-            /* sec-head */
             .sec-head {
                 padding-bottom: 1.8rem;
                 margin-bottom: 2.8rem;
@@ -1687,7 +1692,7 @@
                 font-size: .88rem;
             }
 
-            /* Projetos */
+            /* Projetos — desc e link sempre visíveis (sem hover em touch) */
             .proj-img {
                 height: 220px;
             }
@@ -1701,7 +1706,6 @@
                 padding: .25rem .7rem;
             }
 
-            /* Descrição e link sempre visíveis no mobile */
             .proj-desc {
                 max-height: 80px;
                 margin-bottom: 1rem;
@@ -1753,7 +1757,6 @@
                 margin: 0 -1.2rem;
             }
 
-            /* sangra nas bordas laterais */
             .pq-badge {
                 left: 1.2rem;
                 bottom: 1.2rem;
@@ -1810,7 +1813,7 @@
                 padding-bottom: 1.5rem;
             }
 
-            /* CTA Final */
+            /* CTA */
             .cta-sec {
                 padding: 4rem 1.2rem;
             }
@@ -1907,18 +1910,20 @@
             }
         }
 
-        /* RESPONSIVO — MOBILE XS (≤380px) */
+        /* ══════════════════
+           MOBILE XS ≤380
+        ══════════════════ */
         @media (max-width:380px) {
             .hero-headline {
-                font-size: clamp(2.8rem, 18vw, 4rem);
+                font-size: clamp(2.4rem, 15vw, 3.2rem);
             }
 
             .logo .lt {
-                width: 120px;
+                width: 110px;
             }
 
             .logo .ls {
-                height: 24px;
+                height: 22px;
             }
 
             .btn-wa-hero,
@@ -1948,18 +1953,15 @@
 
 <body>
 
-    <!-- Botão voltar ao topo -->
     <button id="btn-top" class="fixed-btn" aria-label="Voltar ao topo">
         <i class="bi bi-chevron-up"></i>
     </button>
 
-    <!-- Botão whatsApp flutuante -->
     <a id="btn-wa" class="fixed-btn" href="https://wa.me/5575988472549" target="_blank" rel="noopener"
         aria-label="WhatsApp">
         <i class="bi bi-whatsapp"></i>
     </a>
 
-    <!-- NAV OVERLAY -->
     <div id="nav-overlay" class="nav-overlay">
         <nav class="nav-list">
             <a href="#servicos">SERVIÇOS</a>
@@ -1971,13 +1973,11 @@
         </nav>
     </div>
 
-    <!-- HEADER -->
     <header class="header" id="header">
         <div class="logo">
             <img src="logo 1.png" alt="Leonardo Pires" class="ls">
             <img src="logo 2.png" alt="Leonardo Pires" class="lt">
         </div>
-
         <nav class="desk-nav">
             <a href="#servicos">Serviços</a>
             <a href="#processo">Processo</a>
@@ -1987,7 +1987,6 @@
                 <i class="bi bi-whatsapp"></i> Pedir orçamento
             </a>
         </nav>
-
         <label class="hamburger" aria-label="Menu">
             <input type="checkbox" id="menu-toggle">
             <svg viewBox="0 0 32 32">
@@ -2001,28 +2000,23 @@
 
     <main>
 
-        <!-- HERO -->
         <section id="inicio" class="hero">
             <div class="hero-wrap">
-
                 <div class="hero-kicker" data-aos="fade-up">
                     <span class="dot"></span>
                     Disponível para novos projetos
                 </div>
-
                 <h1 class="hero-headline" data-aos="fade-up" data-aos-delay="80">
                     <span class="hl1">LEONARDO</span>
                     <span class="hl2">PIRES</span>
                     <span class="hl3">DESENVOLVEDOR</span>
                     <span class="hl4">WEB</span>
                 </h1>
-
                 <div class="hero-bottom">
                     <p class="hero-desc" data-aos="fade-up" data-aos-delay="160">
                         Desenvolvimento web profissional, landing pages, sites institucionais
                         e interfaces personalizadas que transformam visitantes em clientes.
                     </p>
-
                     <div class="hero-actions" data-aos="fade-up" data-aos-delay="240">
                         <a href="https://wa.me/5575988472549" target="_blank" rel="noopener" class="btn-wa-hero">
                             <i class="bi bi-whatsapp"></i> Pedir orçamento grátis
@@ -2031,24 +2025,15 @@
                             Ver projetos <i class="bi bi-arrow-down"></i>
                         </a>
                     </div>
-
                     <div class="hero-trust" data-aos="fade-up" data-aos-delay="320">
-                        <div class="trust-item">
-                            <i class="bi bi-check-circle-fill"></i> Entrega no prazo
-                        </div>
-                        <div class="trust-item">
-                            <i class="bi bi-check-circle-fill"></i> 100% responsivo
-                        </div>
-                        <div class="trust-item">
-                            <i class="bi bi-check-circle-fill"></i> Suporte 30 dias
-                        </div>
+                        <div class="trust-item"><i class="bi bi-check-circle-fill"></i> Entrega no prazo</div>
+                        <div class="trust-item"><i class="bi bi-check-circle-fill"></i> 100% responsivo</div>
+                        <div class="trust-item"><i class="bi bi-check-circle-fill"></i> Suporte 30 dias</div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- MARQUEE -->
         <div class="marquee-wrap">
             <div class="marquee-track">
                 <span class="mb">LANDING PAGE</span><span class="md"></span>
@@ -2057,7 +2042,6 @@
                 <span class="ml">CONVERSÃO</span><span class="md"></span>
                 <span class="mb">LANDING PAGE</span><span class="md"></span>
                 <span class="ml">SITE INSTITUCIONAL</span><span class="md"></span>
-                <!-- duplicado para loop -->
                 <span class="mb">LANDING PAGE</span><span class="md"></span>
                 <span class="ml">SITE INSTITUCIONAL</span><span class="md"></span>
                 <span class="mb">INTERFACE WEB</span><span class="md"></span>
@@ -2067,181 +2051,132 @@
             </div>
         </div>
 
-        <!-- SERVIÇOS -->
         <section id="servicos" class="servicos">
             <div class="wrap">
-
                 <div class="sec-head">
                     <div>
                         <span class="sec-kicker">O que eu faço</span>
                         <h2 class="sec-title" data-aos="fade-up">SERVIÇOS<br>QUE ENTREGAM</h2>
                     </div>
                     <p class="sec-sub" data-aos="fade-up" data-aos-delay="100">
-                        Você não paga por horas, investe em resultado. Cada projeto começa
-                        com um objetivo claro e termina com uma entrega real.
+                        Você não paga por horas, investe em resultado. Cada projeto começa com um objetivo claro e
+                        termina com uma entrega real.
                     </p>
                 </div>
-
                 <div class="servicos-grid">
-
-                    <!-- Landing page -->
                     <div class="sv-card" data-aos="fade-up" data-aos-delay="80">
                         <div class="sv-icon"><i class="bi bi-rocket-takeoff"></i></div>
                         <div>
                             <h3 class="sv-title">LANDING<br>PAGE</h3>
-                            <p class="sv-desc">
-                                Página focada em converter visitantes em clientes. Design persuasivo,
-                                carregamento rápido e CTA estratégico. Ideal para serviços, produtos e campanhas.
-                            </p>
+                            <p class="sv-desc">Página focada em converter visitantes em clientes. Design persuasivo,
+                                carregamento rápido e CTA estratégico. Ideal para serviços, produtos e campanhas.</p>
                         </div>
                         <ul class="sv-list">
                             <li><i class="bi bi-check-lg"></i> Design responsivo mobile-first</li>
                             <li><i class="bi bi-check-lg"></i> Integração com WhatsApp</li>
                             <li><i class="bi bi-check-lg"></i> Otimizado para SEO básico</li>
                         </ul>
-                        <a href="https://wa.me/5575988472549" target="_blank" class="sv-cta ghost">
-                            Solicitar orçamento <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <a href="https://wa.me/5575988472549" target="_blank" class="sv-cta ghost">Solicitar orçamento
+                            <i class="bi bi-arrow-right"></i></a>
                     </div>
-
-                    <!-- Site institucional destaque -->
                     <div class="sv-card featured" data-aos="fade-up" data-aos-delay="180">
                         <span class="sv-badge">⭐ Mais solicitado</span>
                         <div class="sv-icon"><i class="bi bi-building"></i></div>
                         <div>
                             <h3 class="sv-title">SITE<br>INSTITUCIONAL</h3>
-                            <p class="sv-desc">
-                                Presença digital profissional completa. Sobre, serviços, contato, construído
-                                para gerar credibilidade e facilitar negócios de verdade.
-                            </p>
+                            <p class="sv-desc">Presença digital profissional completa. Sobre, serviços, contato,
+                                construído para gerar credibilidade e facilitar negócios de verdade.</p>
                         </div>
                         <ul class="sv-list">
                             <li><i class="bi bi-check-lg"></i> Múltiplas páginas e seções</li>
                             <li><i class="bi bi-check-lg"></i> Formulário de contato</li>
                             <li><i class="bi bi-check-lg"></i> Identidade visual aplicada</li>
                         </ul>
-                        <a href="https://wa.me/5575988472549" target="_blank" class="sv-cta">
-                            Solicitar orçamento <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <a href="https://wa.me/5575988472549" target="_blank" class="sv-cta">Solicitar orçamento <i
+                                class="bi bi-arrow-right"></i></a>
                     </div>
-
-                    <!-- Interface personalizada -->
                     <div class="sv-card" data-aos="fade-up" data-aos-delay="280">
                         <div class="sv-icon"><i class="bi bi-code-slash"></i></div>
                         <div>
                             <h3 class="sv-title">INTERFACE<br>PERSONALIZADA</h3>
-                            <p class="sv-desc">
-                                Front-end sob medida para projetos específicos, dashboards, painéis,
-                                portais e componentes customizados com HTML, CSS e JavaScript.
-                            </p>
+                            <p class="sv-desc">Front-end sob medida para projetos específicos, dashboards, painéis,
+                                portais e componentes customizados com HTML, CSS e JavaScript.</p>
                         </div>
                         <ul class="sv-list">
                             <li><i class="bi bi-check-lg"></i> Lógica e interatividade JS</li>
                             <li><i class="bi bi-check-lg"></i> Componentes reutilizáveis</li>
                             <li><i class="bi bi-check-lg"></i> Integração com APIs</li>
                         </ul>
-                        <a href="https://wa.me/5575988472549" target="_blank" class="sv-cta ghost">
-                            Solicitar orçamento <i class="bi bi-arrow-right"></i>
-                        </a>
+                        <a href="https://wa.me/5575988472549" target="_blank" class="sv-cta ghost">Solicitar orçamento
+                            <i class="bi bi-arrow-right"></i></a>
                     </div>
-
                 </div>
-
-                <!-- CTA central extra -->
                 <div style="text-align:center;margin-top:3.5rem;" data-aos="fade-up">
-                    <p style="font-size:.85rem;color:var(--gray-2);margin-bottom:1.2rem;">
-                        Não encontrou exatamente o que precisa?
-                    </p>
-                    <a href="https://wa.me/5575988472549" target="_blank" style="display:inline-flex;align-items:center;gap:.6rem;
-                    padding:.9rem 2rem;border:1.5px solid var(--border);
-                    font-weight:700;font-size:.78rem;letter-spacing:.15em;
-                    text-transform:uppercase;color:var(--gray-2);
-                    transition:border-color .3s,color .3s;"
+                    <p style="font-size:.85rem;color:var(--gray-2);margin-bottom:1.2rem;">Não encontrou exatamente o que
+                        precisa?</p>
+                    <a href="https://wa.me/5575988472549" target="_blank"
+                        style="display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2rem;border:1.5px solid var(--border);font-weight:700;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-2);transition:border-color .3s,color .3s;"
                         onmouseover="this.style.borderColor='var(--yellow)';this.style.color='var(--yellow)'"
                         onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--gray-2)'">
                         <i class="bi bi-chat-dots"></i> Vamos conversar sobre o seu projeto
                     </a>
                 </div>
-
             </div>
         </section>
 
-        <!-- PROCESSO -->
         <section id="processo" class="processo">
             <div class="wrap">
-
                 <div class="sec-head">
                     <div>
                         <span class="sec-kicker">Como funciona</span>
                         <h2 class="sec-title" data-aos="fade-up">DO BRIEFING<br>À ENTREGA</h2>
                     </div>
-                    <p class="sec-sub" data-aos="fade-up" data-aos-delay="100">
-                        Um processo claro, sem surpresas. Você acompanha cada etapa e sabe
-                        exatamente o que está acontecendo.
-                    </p>
+                    <p class="sec-sub" data-aos="fade-up" data-aos-delay="100">Um processo claro, sem surpresas. Você
+                        acompanha cada etapa e sabe exatamente o que está acontecendo.</p>
                 </div>
-
                 <div class="proc-grid" data-aos="fade-up" data-aos-delay="100">
-
                     <div class="proc-step">
                         <div class="proc-num">01</div>
                         <h3 class="proc-title">CONTATO & BRIEFING</h3>
-                        <p class="proc-desc">
-                            Você me conta o que precisa: objetivo, público, prazo e referências.
-                            Sem formulário complicado, uma conversa no WhatsApp resolve.
-                        </p>
+                        <p class="proc-desc">Você me conta o que precisa: objetivo, público, prazo e referências. Sem
+                            formulário complicado, uma conversa no WhatsApp resolve.</p>
                     </div>
-
                     <div class="proc-step">
                         <div class="proc-num">02</div>
                         <h3 class="proc-title">PROPOSTA & APROVAÇÃO</h3>
-                        <p class="proc-desc">
-                            Envio escopo, prazo e valor. Tudo por escrito. Aprovado, damos início,
-                            sem cobranças surpresa no meio do caminho.
-                        </p>
+                        <p class="proc-desc">Envio escopo, prazo e valor. Tudo por escrito. Aprovado, damos início, sem
+                            cobranças surpresa no meio do caminho.</p>
                     </div>
-
                     <div class="proc-step">
                         <div class="proc-num">03</div>
                         <h3 class="proc-title">DESENVOLVIMENTO</h3>
-                        <p class="proc-desc">
-                            Codifico com atenção a cada detalhe. Você recebe atualizações durante
-                            o processo e pode solicitar ajustes antes da entrega final.
-                        </p>
+                        <p class="proc-desc">Codifico com atenção a cada detalhe. Você recebe atualizações durante o
+                            processo e pode solicitar ajustes antes da entrega final.</p>
                     </div>
-
                     <div class="proc-step">
                         <div class="proc-num">04</div>
                         <h3 class="proc-title">ENTREGA & SUPORTE</h3>
-                        <p class="proc-desc">
-                            Projeto entregue, publicado e funcionando. Inclui orientação para
-                            edições básicas e suporte pós-entrega por 30 dias.
-                        </p>
+                        <p class="proc-desc">Projeto entregue, publicado e funcionando. Inclui orientação para edições
+                            básicas e suporte pós-entrega por 30 dias.</p>
                     </div>
-
                 </div>
-
             </div>
         </section>
 
-        <!-- PROJETOS -->
         <section id="projetos" class="projetos">
             <div class="wrap">
-
                 <div class="sec-head">
                     <div>
                         <span class="sec-kicker">Projetos recentes</span>
                         <h2 class="sec-title" data-aos="fade-up">RESULTADOS<br>QUE FALAM</h2>
                     </div>
-                    <a href="portfolio.html" style="display:inline-flex;align-items:center;gap:.5rem;
-                    font-weight:800;font-size:.78rem;letter-spacing:.18em;
-                    text-transform:uppercase;color:var(--yellow);" data-aos="fade-up" data-aos-delay="100">
+                    <a href="portfolio.html"
+                        style="display:inline-flex;align-items:center;gap:.5rem;font-weight:800;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);"
+                        data-aos="fade-up" data-aos-delay="100">
                         VER PORTFÓLIO COMPLETO <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-
                 <div class="proj-grid">
-
                     <a href="https://psikamilapontes.com/" target="_blank" class="proj-card" data-aos="fade-up">
                         <img class="proj-img" src="Capa Kamila.png" alt="Landing Page Kamila Pontes">
                         <span class="proj-tag">Landing Page</span>
@@ -2249,12 +2184,10 @@
                             <h3 class="proj-title">KAMILA PONTES<br>PSICÓLOGA</h3>
                             <p class="proj-desc">Interface de alta conversão para agendamento via WhatsApp. Tema
                                 claro/escuro dinâmico, totalmente responsiva.</p>
-                            <div class="proj-techs">
-                            </div>
+                            <div class="proj-techs"></div>
                         </div>
                         <div class="proj-link"><i class="bi bi-arrow-up-right"></i></div>
                     </a>
-
                     <a href="https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/" target="_blank"
                         class="proj-card" data-aos="fade-up" data-aos-delay="80">
                         <img class="proj-img" src="Capa anjos advogados associados.png" alt="Site Anjos Advogados">
@@ -2263,12 +2196,10 @@
                             <h3 class="proj-title">ANJOS<br>ADVOGADOS</h3>
                             <p class="proj-desc">Presença digital completa para escritório de advocacia. Visual sóbrio e
                                 profissional, focado em credibilidade.</p>
-                            <div class="proj-techs">
-                            </div>
+                            <div class="proj-techs"></div>
                         </div>
                         <div class="proj-link"><i class="bi bi-arrow-up-right"></i></div>
                     </a>
-
                     <a href="https://portfolio-julia-figueiredo.vercel.app/" target="_blank" class="proj-card"
                         data-aos="fade-up" data-aos-delay="160">
                         <img class="proj-img" src="capa portfolio julia.png" alt="Portfólio Júlia Figueiredo">
@@ -2277,12 +2208,10 @@
                             <h3 class="proj-title">JÚLIA<br>FIGUEIREDO</h3>
                             <p class="proj-desc">Site de apresentação com portfólio em vídeo, pacotes de serviço e
                                 contato direto. Visual editorial sofisticado.</p>
-                            <div class="proj-techs">
-                            </div>
+                            <div class="proj-techs"></div>
                         </div>
                         <div class="proj-link"><i class="bi bi-arrow-up-right"></i></div>
                     </a>
-
                     <a href="https://leonardo-piresf.github.io/Site-KiDelicia/" target="_blank" class="proj-card"
                         data-aos="fade-up" data-aos-delay="240">
                         <img class="proj-img" src="capa kidelicia.png" alt="Kidelicia Protótipo">
@@ -2291,215 +2220,150 @@
                             <h3 class="proj-title">KIDELICIA<br>CONCEITUAL</h3>
                             <p class="proj-desc">Proposta de redesign focada em apresentação de produtos e conversão.
                                 Criado para fins de estudo e portfólio.</p>
-                            <div class="proj-techs">
-                            </div>
+                            <div class="proj-techs"></div>
                         </div>
                         <div class="proj-link"><i class="bi bi-arrow-up-right"></i></div>
                     </a>
-
                 </div>
             </div>
         </section>
 
-        <!-- POR QUE CONTRATAR -->
         <section id="porque" class="porque">
             <div class="wrap">
                 <div class="pq-grid">
-
                     <div class="pq-left" data-aos="fade-right">
                         <span class="sec-kicker">Por que me contratar</span>
                         <h2 class="sec-title">TÉCNICA<br>SÓLIDA.<br>RESULTADO<br>REAL.</h2>
                         <div class="pq-items">
-                            <div class="pq-item">
-                                <i class="bi bi-speedometer2"></i>
+                            <div class="pq-item"><i class="bi bi-speedometer2"></i>
                                 <h4>Entregas no prazo</h4>
                                 <p>Cronograma definido na proposta e respeitado. Sem enrolação.</p>
                             </div>
-                            <div class="pq-item">
-                                <i class="bi bi-phone"></i>
+                            <div class="pq-item"><i class="bi bi-phone"></i>
                                 <h4>100% responsivo</h4>
                                 <p>Perfeito em celular, tablet e desktop. Testado em todos.</p>
                             </div>
-                            <div class="pq-item">
-                                <i class="bi bi-code-square"></i>
+                            <div class="pq-item"><i class="bi bi-code-square"></i>
                                 <h4>Código limpo</h4>
                                 <p>Organizado, comentado e fácil de manter ou expandir.</p>
                             </div>
-                            <div class="pq-item">
-                                <i class="bi bi-headset"></i>
+                            <div class="pq-item"><i class="bi bi-headset"></i>
                                 <h4>Suporte incluso</h4>
                                 <p>30 dias de suporte após a entrega, sem custo adicional.</p>
                             </div>
                         </div>
                     </div>
-
                     <div class="pq-right" data-aos="fade-left" data-aos-delay="100">
                         <img src="Léo terno.png" alt="Leonardo Pires" class="pq-photo">
                         <div class="pq-badge">Leonardo Pires · Maceió, AL</div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- QUOTE -->
         <section class="quote-sec">
             <div class="q-wrap">
-                <div class="q-row" data-aos="fade-up">
-                    <span>SEU SITE</span>
-                    <span class="q-line"></span>
-                </div>
-                <div class="q-row c" data-aos="fade-up" data-aos-delay="100">
-                    <span class="q-line"></span>
-                    <span>NO AR</span>
-                    <span class="q-line"></span>
-                </div>
-                <div class="q-row r" data-aos="fade-up" data-aos-delay="200">
-                    <span class="q-line"></span>
-                    <span>EM DIAS.</span>
-                </div>
+                <div class="q-row" data-aos="fade-up"><span>SEU SITE</span><span class="q-line"></span></div>
+                <div class="q-row c" data-aos="fade-up" data-aos-delay="100"><span class="q-line"></span><span>NO
+                        AR</span><span class="q-line"></span></div>
+                <div class="q-row r" data-aos="fade-up" data-aos-delay="200"><span class="q-line"></span><span>EM
+                        DIAS.</span></div>
             </div>
         </section>
 
-        <!-- FAQ -->
         <section id="faq" class="faq">
             <div class="wrap faq-wrap">
-
                 <div class="sec-head">
                     <div>
                         <span class="sec-kicker">Dúvidas frequentes</span>
                         <h2 class="sec-title" data-aos="fade-up">PERGUNTAS<br>& RESPOSTAS</h2>
                     </div>
                 </div>
-
                 <div class="faq-list">
-
                     <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">
-                            <span class="faq-q-text">QUANTO CUSTA UM SITE?</span>
-                            <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                        </button>
-                        <div class="faq-a">
-                            O valor depende do tipo de projeto e das funcionalidades. Landing pages a partir de <strong
-                                style="color:var(--yellow)">R$ 600</strong> e sites institucionais completos a partir de
-                            <strong style="color:var(--yellow)">R$ 1.200</strong>. Cada projeto é único, me chama e
-                            envio um orçamento personalizado sem compromisso.
-                        </div>
+                        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">QUANTO CUSTA UM
+                                SITE?</span><span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+                        <div class="faq-a">O valor depende do tipo de projeto e das funcionalidades. Landing pages a
+                            partir de <strong style="color:var(--yellow)">R$ 600</strong> e sites institucionais
+                            completos a partir de <strong style="color:var(--yellow)">R$ 1.200</strong>. Cada projeto é
+                            único, me chama e envio um orçamento personalizado sem compromisso.</div>
                     </div>
-
                     <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">
-                            <span class="faq-q-text">EM QUANTO TEMPO FICA PRONTO?</span>
-                            <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                        </button>
-                        <div class="faq-a">
-                            Uma landing page leva em média <strong style="color:var(--yellow)">5–10 dias úteis</strong>
-                            após aprovação do briefing. Sites institucionais entre <strong style="color:var(--yellow)">2
-                                e 4 semanas</strong>. O prazo exato fica definido na proposta.
-                        </div>
+                        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">EM QUANTO TEMPO FICA
+                                PRONTO?</span><span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+                        <div class="faq-a">Uma landing page leva em média <strong style="color:var(--yellow)">5–10 dias
+                                úteis</strong> após aprovação do briefing. Sites institucionais entre <strong
+                                style="color:var(--yellow)">2 e 4 semanas</strong>. O prazo exato fica definido na
+                            proposta.</div>
                     </div>
-
                     <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">
-                            <span class="faq-q-text">PRECISO TER DOMÍNIO E HOSPEDAGEM?</span>
-                            <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                        </button>
-                        <div class="faq-a">
-                            Sim, para publicar o site você precisa de domínio e hospedagem. Posso orientar sobre as
-                            melhores opções e, se quiser, cuido da publicação por você sem custo adicional.
-                        </div>
+                        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">PRECISO TER DOMÍNIO E
+                                HOSPEDAGEM?</span><span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+                        <div class="faq-a">Sim, para publicar o site você precisa de domínio e hospedagem. Posso
+                            orientar sobre as melhores opções e, se quiser, cuido da publicação por você sem custo
+                            adicional.</div>
                     </div>
-
                     <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">
-                            <span class="faq-q-text">CONSIGO EDITAR O SITE DEPOIS?</span>
-                            <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                        </button>
-                        <div class="faq-a">
-                            Sim. Entrego o código organizado para edições simples (textos, imagens, cores). Para
-                            alterações maiores, faço via contrato de manutenção avulso.
-                        </div>
+                        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">CONSIGO EDITAR O SITE
+                                DEPOIS?</span><span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+                        <div class="faq-a">Sim. Entrego o código organizado para edições simples (textos, imagens,
+                            cores). Para alterações maiores, faço via contrato de manutenção avulso.</div>
                     </div>
-
                     <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">
-                            <span class="faq-q-text">COMO FUNCIONA O PAGAMENTO?</span>
-                            <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                        </button>
-                        <div class="faq-a">
-                            Normalmente <strong style="color:var(--yellow)">40% na aprovação</strong> da proposta e
-                            <strong style="color:var(--yellow)">60% na entrega</strong>. Aceito Pix. Para projetos
-                            maiores, posso parcelar em até 3x sem juros.
-                        </div>
+                        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">COMO FUNCIONA O
+                                PAGAMENTO?</span><span class="faq-icon"><i class="bi bi-plus"></i></span></button>
+                        <div class="faq-a">Normalmente <strong style="color:var(--yellow)">40% na aprovação</strong> da
+                            proposta e <strong style="color:var(--yellow)">60% na entrega</strong>. Aceito Pix. Para
+                            projetos maiores, posso parcelar em até 3x sem juros.</div>
                     </div>
-
                     <div class="faq-item">
-                        <button class="faq-q" aria-expanded="false">
-                            <span class="faq-q-text">QUE TIPO DE SITE É IDEAL PARA MEU NEGÓCIO?</span>
-                            <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                        </button>
-                        <div class="faq-a">
-                            Depende do objetivo. <strong style="color:var(--yellow)">Landing page</strong>: ideal para
-                            atrair clientes de forma rápida e direta, focando em conversão. <strong
-                                style="color:var(--yellow)">Site institucional</strong>: para apresentar a empresa de
-                            forma completa e fortalecer autoridade. Me conta sobre o seu negócio e te indico a melhor
-                            opção.
-                        </div>
+                        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">QUE TIPO DE SITE É IDEAL
+                                PARA MEU NEGÓCIO?</span><span class="faq-icon"><i
+                                    class="bi bi-plus"></i></span></button>
+                        <div class="faq-a">Depende do objetivo. <strong style="color:var(--yellow)">Landing
+                                page</strong>: ideal para atrair clientes de forma rápida e direta, focando em
+                            conversão. <strong style="color:var(--yellow)">Site institucional</strong>: para apresentar
+                            a empresa de forma completa e fortalecer autoridade. Me conta sobre o seu negócio e te
+                            indico a melhor opção.</div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- CTA FINAL -->
         <section id="contato" class="cta-sec">
             <div class="wrap">
                 <div class="cta-box" data-aos="fade-up">
-                    <div class="cta-corners">
-                        <span></span><span></span><span></span><span></span>
-                    </div>
+                    <div class="cta-corners"><span></span><span></span><span></span><span></span></div>
                     <h2>PRONTO PARA<br>TER SEU<br>SITE NO AR?</h2>
-                    <p>
-                        Me conta sobre o seu projeto. Respondo em até 48h com uma
-                        proposta clara, objetiva e sem compromisso.
-                    </p>
+                    <p>Me conta sobre o seu projeto. Respondo em até 48h com uma proposta clara, objetiva e sem
+                        compromisso.</p>
                     <div class="cta-btns">
-                        <a href="https://wa.me/5575988472549" target="_blank" rel="noopener" class="btn-wa-hero">
-                            <i class="bi bi-whatsapp"></i> Pedir orçamento no WhatsApp
-                        </a>
+                        <a href="https://wa.me/5575988472549" target="_blank" rel="noopener" class="btn-wa-hero"><i
+                                class="bi bi-whatsapp"></i> Pedir orçamento no WhatsApp</a>
                         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
-                            target="_blank" rel="noopener" class="btn-ghost">
-                            <i class="bi bi-envelope"></i> Enviar e-mail
-                        </a>
+                            target="_blank" rel="noopener" class="btn-ghost"><i class="bi bi-envelope"></i> Enviar
+                            e-mail</a>
                     </div>
                     <p class="cta-note">leonardopires.dev@gmail.com · Maceió, Alagoas</p>
                 </div>
             </div>
         </section>
 
-        <!-- RECRUTADORES -->
         <section class="recrutadores">
             <div class="wrap">
                 <div class="rec-box" data-aos="fade-up">
-                    <div class="rec-label">
-                        <i class="bi bi-person-badge"></i> Para recrutadores
-                    </div>
+                    <div class="rec-label"><i class="bi bi-person-badge"></i> Para recrutadores</div>
                     <div class="rec-inner">
                         <div class="rec-text">
                             <h3>ALÉM DO<br>FREELANCER</h3>
-                            <p>
-                                Estudante de Ciência da Computação avaliando oportunidades de estágio ou CLT?
-                                Aqui está tudo sobre minha formação, projetos e trajetória.
-                            </p>
+                            <p>Estudante de Ciência da Computação avaliando oportunidades de estágio ou CLT? Aqui está
+                                tudo sobre minha formação, projetos e trajetória.</p>
                         </div>
                         <div class="rec-btns">
-                            <a href="portfolio.html" class="btn-rec">
-                                <i class="bi bi-person-lines-fill"></i> Ver Portfólio
-                            </a>
+                            <a href="portfolio.html" class="btn-rec"><i class="bi bi-person-lines-fill"></i> Ver
+                                Portfólio</a>
                             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com"
-                                target="_blank" class="btn-rec solid">
-                                <i class="bi bi-envelope"></i> Enviar E-mail
-                            </a>
+                                target="_blank" class="btn-rec solid"><i class="bi bi-envelope"></i> Enviar E-mail</a>
                         </div>
                     </div>
                 </div>
@@ -2508,15 +2372,12 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-in">
-
             <div class="footer-brand">
                 <strong>LEONARDO PIRES</strong>
                 <span>Desenvolvedor Web Freelancer · Maceió, AL · © 2026</span>
             </div>
-
             <nav class="footer-nav">
                 <a href="#servicos">Serviços</a>
                 <a href="#processo">Processo</a>
@@ -2525,41 +2386,31 @@
                 <a href="portfolio.html">Portfólio</a>
                 <a href="#contato">Contato</a>
             </nav>
-
             <div class="footer-soc">
-                <a href="https://github.com/Leonardo-PiresF" target="_blank" aria-label="GitHub">
-                    <i class="bi bi-github"></i>
-                </a>
-                <a href="https://wa.me/5575988472549" target="_blank" aria-label="WhatsApp">
-                    <i class="bi bi-whatsapp"></i>
-                </a>
+                <a href="https://github.com/Leonardo-PiresF" target="_blank" aria-label="GitHub"><i
+                        class="bi bi-github"></i></a>
+                <a href="https://wa.me/5575988472549" target="_blank" aria-label="WhatsApp"><i
+                        class="bi bi-whatsapp"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardopires.dev@gmail.com" target="_blank"
-                    aria-label="Email">
-                    <i class="bi bi-envelope"></i>
-                </a>
+                    aria-label="Email"><i class="bi bi-envelope"></i></a>
             </div>
-
         </div>
     </footer>
 
-    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, duration: 850, easing: 'ease-out-cubic' });
 
-        // ── HEADER STICKY ──
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('sticky', window.scrollY > 60);
             document.getElementById('btn-top').classList.toggle('show', window.scrollY > 400);
         }, { passive: true });
 
-        // ── BACK TO TOP ──
         document.getElementById('btn-top').addEventListener('click', () =>
             window.scrollTo({ top: 0, behavior: 'smooth' })
         );
 
-        // ── HAMBURGER ──
         const toggle = document.getElementById('menu-toggle');
         const overlay = document.getElementById('nav-overlay');
         toggle.addEventListener('change', () => {
@@ -2579,7 +2430,6 @@
             }
         });
 
-        // ── FAQ ──
         document.querySelectorAll('.faq-q').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
