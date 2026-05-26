@@ -1,67 +1,144 @@
-import { ArrowDown, Sparkles, Zap, Github, Linkedin, MapPin } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Sparkles, Zap, Github, Linkedin, MapPin, ArrowDown } from "lucide-react";
 import { useMode } from "./ModeContext";
 import { PROFILE } from "./data";
 
 export function Hero() {
   const { mode, openBriefing } = useMode();
 
+  const [isLight, setIsLight] = useState(false);
+  useEffect(() => {
+    const root = document.documentElement;
+    const check = () => setIsLight(root.classList.contains("light"));
+    check();
+    const observer = new MutationObserver(check);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
+  const videoSrc = isLight ? "/0527.mp4" : "/0526.mp4";
+  const videoStyle = isLight
+    ? { opacity: 0.9 }
+    : { mixBlendMode: "screen", opacity: 1 };
+
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 md:pt-32"
-      style={{ background: "var(--gradient-radial)" }}
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden"
     >
-      <div className="grain absolute inset-0" />
+      {/* ── Vídeo suminagashi ────────────────────────────────────── */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          key={videoSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={videoStyle}
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 md:pb-16">
-        <div className="flex items-center gap-2">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow" />
-          </span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground">
-            {mode === "client" ? "Disponível para novos projetos" : "Aberto a oportunidades · Estágio / CLT"}
+      {/* ── Grain ────────────────────────────────────────────────── */}
+      <div className="grain absolute inset-0 pointer-events-none" />
+
+      {/* ── Conteúdo ─────────────────────────────────────────────── */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 pb-28 pt-32 w-full">
+
+        {/* Avatar */}
+        <div className="mb-8 animate-float-up" style={{ animationDelay: "0.1s" }}>
+          <div className="relative h-36 w-36 md:h-40 md:w-40">
+            <img
+              src="/avatar.png"
+              alt={PROFILE.name}
+              className="h-full w-full object-cover object-top"
+              style={{ clipPath: "circle(50%)" }}
+            />
+            <div className="absolute inset-0 rounded-full border-2 border-yellow animate-pulse-ring pointer-events-none" />
+          </div>
+        </div>
+
+        {/* Linha do nome */}
+        <div
+          className="flex w-full max-w-5xl items-center gap-4 animate-float-up"
+          style={{ animationDelay: "0.2s" }}
+        >
+          <div className="flex flex-1 items-center gap-4">
+            <a
+              href={PROFILE.github}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden sm:block text-muted-foreground transition hover:text-yellow"
+              aria-label="GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href={PROFILE.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden sm:block text-muted-foreground transition hover:text-yellow"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <div className="h-px flex-1 bg-border" />
+          </div>
+
+          <h1 className="font-display text-[clamp(2.2rem,7vw,5.5rem)] leading-none text-yellow whitespace-nowrap">
+            {PROFILE.name}
+          </h1>
+
+          <div className="flex flex-1 items-center gap-4">
+            <div className="h-px flex-1 bg-border" />
+            <span className="hidden sm:flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+              <MapPin className="h-3.5 w-3.5 text-yellow" />
+              Maceió - AL
+            </span>
+          </div>
+        </div>
+
+        {/* Role — tag amarela */}
+        <div
+          className="mt-4 inline-flex items-center bg-yellow px-3 py-1 animate-float-up"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-yellow-foreground">
+            Desenvolvedor Web
           </span>
         </div>
 
-        <h1 className="mt-6 font-display text-[clamp(3rem,11vw,9rem)] leading-[0.9] text-balance">
-          {mode === "client" ? (
-            <>
-              SITES QUE<br />
-              <span className="text-yellow">CONVERTEM</span>.<br />
-              SEM ENROLAÇÃO.
-            </>
-          ) : (
-            <>
-              CÓDIGO LIMPO.<br />
-              <span className="text-yellow">PRODUTO</span> REAL.<br />
-              ENTREGA NO PRAZO.
-            </>
-          )}
-        </h1>
+        {/* Descrição — só aparece no modo recrutador */}
+        {mode === "recruiter" && (
+          <p
+            className="mt-5 max-w-lg text-sm text-muted-foreground md:text-base animate-float-up"
+            style={{ animationDelay: "0.35s" }}
+          >
+            Construo interfaces performáticas, acessíveis e bem arquitetadas, do design ao deploy.
+          </p>
+        )}
 
-        <p className="mt-8 max-w-xl text-base text-muted-foreground md:text-lg">
-          {mode === "client"
-            ? "Landing pages, sites institucionais e interfaces personalizadas que transformam visitantes em clientes. De Maceió para o Brasil."
-            : "Sou Leonardo, estudante de Ciência da Computação focado em desenvolvimento front-end. Construo interfaces performáticas, acessíveis e bem arquitetadas — do design ao deploy."}
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-3">
+        {/* CTAs */}
+        <div
+          className="mt-10 flex flex-wrap justify-center gap-3 animate-float-up"
+          style={{ animationDelay: "0.4s" }}
+        >
           {mode === "client" ? (
             <>
               <button
                 onClick={openBriefing}
                 className="group inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-yellow-foreground transition hover:shadow-glow"
               >
-                <Sparkles className="h-4 w-4" />
-                Iniciar briefing
+                <Sparkles className="h-4 w-4" /> Iniciar briefing
               </button>
               <a
                 href="#projetos"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-foreground transition hover:border-yellow hover:text-yellow"
               >
-                Ver projetos
-                <ArrowDown className="h-4 w-4 rotate-[-30deg]" />
+                Ver projetos <ArrowDown className="h-4 w-4 -rotate-[30deg]" />
               </a>
             </>
           ) : (
@@ -71,8 +148,7 @@ export function Hero() {
                 download
                 className="group inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-yellow-foreground transition hover:shadow-glow"
               >
-                <Zap className="h-4 w-4" />
-                Download CV
+                <Zap className="h-4 w-4" /> Download CV
               </a>
               <a
                 href={PROFILE.github}
@@ -93,34 +169,53 @@ export function Hero() {
             </>
           )}
         </div>
-
-        <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-          <span className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-yellow" /> {PROFILE.city}</span>
-          <span>· Entrega no prazo</span>
-          <span>· 100% responsivo</span>
-          <span>· Código bem arquitetado</span>
-        </div>
       </div>
 
-      {/* Marquee */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden border-y border-border bg-surface/40 py-4 md:bottom-0">
-        <div className="marquee">
-          {[...Array(2)].map((_, k) => (
-            <div key={k} className="flex items-center gap-12 pr-12">
-              {[
-                "Landing Page",
-                "Site Institucional",
-                "Interface Web",
-                "Conversão",
-                "React",
-                "TypeScript",
-                "UI/UX",
-                "Performance",
-              ].map((t, i) => (
-                <span key={`${k}-${i}`} className="font-display text-2xl text-muted-foreground/80">
-                  {t} <span className="ml-12 text-yellow">✦</span>
-                </span>
-              ))}
+      {/* ── Marquee ────────────────────────────────────────────── */}
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden border-y border-border bg-surface/40 py-4">
+        {/*
+          Sem a classe .marquee — tudo inline pra evitar conflito de CSS.
+          Cada cópia repete os itens 2× (8 itens) → cobre qualquer resolução.
+          gap: 0 entre as 2 cópias + paddingRight igual ao gap interno → seam perfeito.
+          translateX(-50%) = exatamente 1 cópia → loop sem salto garantido.
+        */}
+        <div
+          style={{
+            display: "flex",
+            width: "max-content",
+            gap: 0,
+            animation: "marquee 35s linear infinite",
+            willChange: "transform",
+          }}
+        >
+          {[0, 1].map(k => (
+            <div
+              key={k}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexShrink: 0,
+                gap: "3.5rem",
+                paddingRight: "3.5rem",
+              }}
+            >
+              {[...Array(2)].flatMap((_, rep) =>
+                ["Landing Page", "Site Institucional", "Interface Web", "UI/UX"].flatMap((t, i) => [
+                  <span
+                    key={`t-${k}-${rep}-${i}`}
+                    className="font-display text-2xl text-muted-foreground/80 whitespace-nowrap"
+                  >
+                    {t}
+                  </span>,
+                  <span
+                    key={`s-${k}-${rep}-${i}`}
+                    className="text-yellow"
+                    style={{ flexShrink: 0 }}
+                  >
+                    ✦
+                  </span>,
+                ])
+              )}
             </div>
           ))}
         </div>

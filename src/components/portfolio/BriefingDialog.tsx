@@ -51,7 +51,7 @@ export function BriefingDialog() {
     const lines = [
       `Olá, Leonardo! 👋`,
       ``,
-      `*Briefing rápido — vindo do site*`,
+      `*Briefing rápido, vindo do site*`,
       ``,
       `🧑 *Nome:* ${nome}`,
       `🎯 *Serviço:* ${serviceLabel}`,
@@ -107,7 +107,7 @@ export function BriefingDialog() {
 
         <div className="flex-1 overflow-y-auto p-6 md:p-8">
           {step === 0 && (
-            <StepWrap title="Qual serviço você procura?" sub="Escolha a opção que mais se aproxima — refinamos depois.">
+            <StepWrap title="Qual serviço você procura?" sub="Escolha a opção que mais se aproxima, refinamos depois.">
               <div className="grid gap-2 sm:grid-cols-2">
                 {SERVICES.map((s) => (
                   <SelectCard
@@ -129,7 +129,7 @@ export function BriefingDialog() {
           )}
 
           {step === 2 && (
-            <StepWrap title="Já possui site atualmente?" sub="Sem julgamentos — só para entender o ponto de partida.">
+            <StepWrap title="Já possui site atualmente?" sub="Sem julgamentos, só para entender o ponto de partida.">
               <Choices options={possuiSite} value={siteAtual} onChange={setSiteAtual} />
             </StepWrap>
           )}
