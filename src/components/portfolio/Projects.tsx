@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowUpRight, ArrowRight, ExternalLink, X, Github, MessageCircle } from "lucide-react";
 import {
   getSiteProjects,
@@ -18,6 +18,21 @@ type SubTab = "sites" | "sistemas";
 export function Projects() {
   const { mode, openProject, activeProject, closeProject } = useMode();
   const [subTab, setSubTab] = useState<SubTab>("sites");
+
+  // Detecta tema para trocar os assets dos cards
+  const [isLight, setIsLight] = useState(false);
+  useEffect(() => {
+    const root = document.documentElement;
+    const check = () => setIsLight(root.classList.contains("light"));
+    check();
+    const observer = new MutationObserver(check);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
+  const cardAssets = isLight
+    ? ["/asset-card1L.png", "/asset-card2L.png"]
+    : ["/asset-card1.png", "/asset-card2.png"];
 
   const audience = mode === "client" ? "client" : "recruiter";
   const sites = getSiteProjects(audience);
@@ -92,12 +107,23 @@ export function Projects() {
                     {p.tag}
                   </span>
                 </div>
-                <div className="flex items-start justify-between gap-4 p-6">
-                  <div>
+                <div className="relative flex items-start justify-between gap-4 overflow-hidden p-6">
+                  {/* Marble background — intercala card1/card2 por índice */}
+                  <img
+                    src={cardAssets[i % 2]}
+                    alt=""
+                    aria-hidden
+                    className="absolute inset-0 h-full w-full object-cover"
+                    style={{ opacity: 1, transform: "scale(1.05)" }}
+                  />
+                  {/* Overlay pra legibilidade */}
+                  <div className="absolute inset-0 bg-card/60" />
+                  {/* Conteúdo acima do background */}
+                  <div className="relative z-10">
                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">{p.title}</p>
                     <h3 className="mt-1 font-display text-3xl leading-tight">{p.client}</h3>
                   </div>
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-surface text-foreground transition group-hover:bg-yellow group-hover:text-yellow-foreground">
+                  <div className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full bg-surface text-foreground transition group-hover:bg-yellow group-hover:text-yellow-foreground">
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
                 </div>
@@ -129,9 +155,26 @@ function SystemCard({ project: p, index }: { project: SystemProject; index: numb
 
   return (
     <div
-      className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-yellow/60 hover:shadow-card"
+      className="relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-yellow/60 hover:shadow-card"
       style={{ animation: `float-up 0.6s ease-out ${index * 0.05}s both` }}
     >
+      {/* Background image — só renderiza se o projeto tiver cover */}
+      {p.cover && (
+        <>
+          <img
+            src={p.cover}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ filter: "blur(2px) saturate(0.6)", transform: "scale(1.05)" }}
+          />
+          {/* Overlay escuro pra garantir legibilidade do conteúdo */}
+          <div className="absolute inset-0 bg-card/85" />
+        </>
+      )}
+
+      {/* Todo o conteúdo precisa de z-10 pra ficar acima do background */}
+      <div className="relative z-10 flex flex-col gap-5">
       {/* Header */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex flex-col gap-1">
@@ -193,6 +236,7 @@ function SystemCard({ project: p, index }: { project: SystemProject; index: numb
         <MessageCircle className="h-3.5 w-3.5" />
         Quero saber mais
       </a>
+      </div> {/* fim z-10 wrapper */}
     </div>
   );
 }
