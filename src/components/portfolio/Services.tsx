@@ -101,7 +101,6 @@ export function Services() {
           </h2>
 
           <div className="mt-7 flex items-start gap-4">
-            <div className="mt-3 h-px w-12 shrink-0 bg-yellow/60" />
             <p className="max-w-xl text-base text-muted-foreground md:text-lg">
               Você não paga por horas, investe em resultado. Cada projeto começa
               com um objetivo claro e termina com uma entrega real.

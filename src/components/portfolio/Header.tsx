@@ -32,12 +32,10 @@ function Logo() {
           alt="Logo Parte 1"
           className="h-9 md:h-12 w-auto block opacity-90 group-hover:opacity-100 transition-opacity"
         />
-        <img
-          src={logo2Src}
-          alt="Logo Parte 2"
-          aria-hidden="true"
-          className="h-9 md:h-12 w-auto block opacity-90 group-hover:opacity-100 transition-opacity"
-        />
+        <div className="flex flex-col leading-none">
+          <span className="font-display text-sm md:text-base text-foreground tracking-wide">Leonardo Pires</span>
+          <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Desenvolvedor Web</span>
+        </div>
       </div>
     </a>
   );
