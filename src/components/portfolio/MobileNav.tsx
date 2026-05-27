@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Home, Layers, Calculator, FolderKanban, MessageCircle, Briefcase, Sparkles, Download } from "lucide-react";
+import { Home, Layers, Calculator, FolderKanban, MessageCircle, Briefcase, Sparkles, Download, Sun, Moon } from "lucide-react";
 import { useMode } from "./ModeContext";
 import { PROFILE } from "./data";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ const recruiterItems = [
 ];
 
 export function MobileNav() {
-  const { mode, toggle, openBriefing } = useMode();
+  const { mode, toggle, openBriefing, theme, toggleTheme } = useMode();
   const [active, setActive] = useState("top");
 
   const items = mode === "client" ? clientItems : recruiterItems;
@@ -44,22 +44,37 @@ export function MobileNav() {
     <>
       {/* Mobile top compact bar */}
       <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-border/60 bg-background/85 px-4 py-3 backdrop-blur-xl md:hidden">
-        <a href="#top" className="flex items-center gap-2">
-          <div className="grid h-8 w-8 place-items-center rounded-md bg-yellow text-yellow-foreground">
-            <span className="font-display text-sm leading-none">LP</span>
-          </div>
-          <span className="text-xs font-bold">{PROFILE.name}</span>
+        <a href="#top" className="flex items-center">
+          <img
+            src="/logo-1.png"
+            alt="Leonardo Pires"
+            className="h-9 w-auto"
+          />
         </a>
-        <button
-          onClick={toggle}
-          className="flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em]"
-        >
-          {mode === "client" ? (
-            <><Sparkles className="h-3 w-3 text-yellow" /> Cliente</>
-          ) : (
-            <><Briefcase className="h-3 w-3 text-yellow" /> Recrutador</>
-          )}
-        </button>
+        <div className="flex items-center gap-2">
+          {/* Toggle tema */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Alternar tema"
+            className="grid h-8 w-8 place-items-center rounded-xl border border-border/60 bg-foreground/[0.06] text-foreground/80"
+          >
+            {theme === "dark"
+              ? <Sun className="h-3.5 w-3.5 text-yellow-300" />
+              : <Moon className="h-3.5 w-3.5" />
+            }
+          </button>
+          {/* Toggle modo */}
+          <button
+            onClick={toggle}
+            className="flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em]"
+          >
+            {mode === "client" ? (
+              <><Sparkles className="h-3 w-3 text-yellow" /> Cliente</>
+            ) : (
+              <><Briefcase className="h-3 w-3 text-yellow" /> Recrutador</>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Bottom nav */}

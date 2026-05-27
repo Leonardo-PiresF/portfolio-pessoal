@@ -43,22 +43,52 @@ export function Calculator() {
   const fmt = (n: number) =>
     n.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
 
-  const bgImage = theme === "light" ? "/backgroundL.webp" : "/background.webp";
-
   return (
     <section 
       id="calculadora" 
       className="relative min-h-screen overflow-hidden scroll-mt-24 py-24 md:py-32 flex flex-col justify-center"
     >
-      {/* Camada do Background isolada */}
-      <div
-        className="absolute inset-0 bg-cover bg-[center_top] bg-no-repeat transition-all duration-500"
-        style={{ backgroundImage: `url(${bgImage})` }}
+      {/* Assets decorativos — dark usa screen pra sumir fundo preto, light usa arquivos próprios */}
+
+      {/* Topo direito — fluido grande */}
+      <img
+        src={theme === "dark" ? "/asset-backgroun2.webp" : "/asset-backgroundL2.png"}
         aria-hidden="true"
+        className="pointer-events-none select-none absolute top-0 -right-16 md:-right-8 w-[300px] md:w-[460px] rotate-[12deg] origin-top-right"
+        style={{
+          mixBlendMode: theme === "dark" ? "screen" : "normal",
+        }}
       />
 
-      {/* Overlay sutil para garantir legibilidade do texto */}
-      <div className="absolute inset-0 bg-background/40 backdrop-blur-[2px]" aria-hidden="true" />
+      {/* Topo esquerdo — topográfico médio */}
+      <img
+        src={theme === "dark" ? "/asset-background.png" : "/asset-backgroundL.png"}
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute top-8 -left-16 md:-left-8 w-[200px] md:w-[280px] -rotate-[15deg] scale-x-[-1]"
+        style={{
+          mixBlendMode: theme === "dark" ? "screen" : "normal",
+        }}
+      />
+
+      {/* Fundo direito — topográfico pequeno */}
+      <img
+        src={theme === "dark" ? "/asset-background.png" : "/asset-backgroundL.png"}
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute bottom-8 right-4 md:right-12 w-[160px] md:w-[220px] rotate-[40deg]"
+        style={{
+          mixBlendMode: theme === "dark" ? "screen" : "normal",
+        }}
+      />
+
+      {/* Fundo esquerdo — fluido médio */}
+      <img
+        src={theme === "dark" ? "/asset-backgroun2.webp" : "/asset-backgroundL2.png"}
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute bottom-4 -left-12 md:-left-4 w-[240px] md:w-[320px] -rotate-[25deg]"
+        style={{
+          mixBlendMode: theme === "dark" ? "screen" : "normal",
+        }}
+      />
 
       {/* Conteúdo da Seção */}
       <div className="relative z-10 w-full mx-auto max-w-7xl px-6">

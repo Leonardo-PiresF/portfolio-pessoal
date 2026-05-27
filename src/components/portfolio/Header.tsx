@@ -133,7 +133,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "hidden md:block fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "border-b border-border/[0.15] bg-background/90 backdrop-blur-3xl shadow-[0_4px_32px_-4px_rgba(0,0,0,0.3)] py-3 md:py-3"
           : "py-4 md:py-5 bg-transparent",
