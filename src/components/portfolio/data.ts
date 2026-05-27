@@ -1,9 +1,6 @@
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-export type ProjectType = "site" | "system";
-
-// "clientes" aparece na aba de clientes, "recrutadores" na de recrutadores
-export type ProjectAudience = "clientes" | "recrutadores";
+export type ProjectAudience = "client" | "recruiter";
 
 export type SiteProject = {
   type: "site";
@@ -26,14 +23,13 @@ export type SystemProject = {
   type: "system";
   slug: string;
   title: string;
-  subtitle: string; // ex: "CMS de Landing Pages"
+  subtitle: string;
   tag: string;
   audience: ProjectAudience[];
   teamProject?: boolean;
   inDevelopment?: boolean;
   repo?: string;
-  // sem cover, sem url — CTA vai para WhatsApp
-  description: string;   // parágrafo curto para o card
+  description: string;
   delivered: string[];
   stack: string[];
 };
@@ -53,7 +49,6 @@ export const PROFILE = {
   cv: "/cv-leonardo-pires.pdf",
 };
 
-// Helper: gera link do WhatsApp com mensagem pré-preenchida
 export function getWhatsappLink(projectTitle: string) {
   const msg = encodeURIComponent(
     `Olá Leonardo! Estou interessado em saber mais sobre o ${projectTitle}.`
@@ -84,7 +79,7 @@ export const SERVICES: { key: ServiceKey; label: string; desc: string }[] = [
 
 export const PROJECTS: Project[] = [
 
-  // ── Sites (clientes + recrutadores) ────────────────────────────────────────
+  // ── Sites ──────────────────────────────────────────────────────────────────
 
   {
     type: "site",
@@ -94,7 +89,7 @@ export const PROJECTS: Project[] = [
     tag: "Saúde",
     cover: "Capa Kamila.png",
     url: "https://psikamilapontes.com/",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     problem: "Pacientes em potencial não encontravam um canal claro de agendamento e a profissional precisava qualificar contatos pelo WhatsApp.",
     goal: "Aumentar agendamentos via WhatsApp com uma página que transmita confiança, acolhimento e clareza sobre os serviços.",
     delivered: [
@@ -119,7 +114,7 @@ export const PROJECTS: Project[] = [
     tag: "Jurídico",
     cover: "Capa anjos advogados associados.png",
     url: "https://leonardo-piresf.github.io/Site-Anjos_Advogados_Associados/",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     problem: "Escritório sem presença digital, perdendo credibilidade em buscas e indicações on-line.",
     goal: "Construir uma identidade digital sóbria e profissional que reforce autoridade e gere contatos qualificados.",
     delivered: [
@@ -142,9 +137,9 @@ export const PROJECTS: Project[] = [
     title: "Site Institucional",
     client: "Belo Monte Sorveteria",
     tag: "Alimentício",
-    cover: "/Capa-Belo-Monte.png",
+    cover: "Capa-Belo-Monte.png",
     url: "https://site-belo-monte.vercel.app/",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     problem: "Sorveteria com 7 unidades em Maceió não tinha presença digital para apresentar cardápio, localizar lojas e reforçar a marca artesanal.",
     goal: "Criar um site institucional que centralize cardápio, localização das lojas e a história da marca com visual leve e apetitoso.",
     delivered: [
@@ -168,7 +163,7 @@ export const PROJECTS: Project[] = [
     tag: "Estudo / Conceitual",
     cover: "capa-kidelicia.png",
     url: "https://leonardo-piresf.github.io/Site-KiDelicia/",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     problem: "Redesign conceitual para repensar a apresentação de produtos e o funil de conversão.",
     goal: "Demonstrar capacidade de redesenhar uma marca real com foco em produto e conversão.",
     delivered: [
@@ -188,7 +183,7 @@ export const PROJECTS: Project[] = [
     tag: "Marketing / Remake",
     cover: "Capa-mandala.png",
     url: "https://www.agenciamandala.online/",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     problem: "A agência precisava de uma presença digital mais alinhada ao nível atual da marca e dos serviços oferecidos.",
     goal: "Criar uma nova experiência visual mais moderna, estratégica e alinhada ao posicionamento da empresa.",
     delivered: [
@@ -208,7 +203,7 @@ export const PROJECTS: Project[] = [
     tag: "Gastronomia / Conceito",
     cover: "Capa-Arturito.png",
     url: "https://site-arturito.lpferreira2003.workers.dev/",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     problem: "A presença digital precisava refletir com mais precisão a atmosfera autoral, sensorial e sofisticada que tornou o Arturito uma referência gastronômica.",
     goal: "Desenvolver uma experiência digital imersiva capaz de transmitir o cuidado artesanal da marca, valorizando atmosfera, narrativa e identidade visual além da funcionalidade tradicional de um restaurante.",
     delivered: [
@@ -235,7 +230,7 @@ export const PROJECTS: Project[] = [
     tag: "Educação / Protótipo",
     cover: "Capa-Deniel.png",
     url: "https://leonardo-piresf.github.io/Site-Redacao-com-Deniel/",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     problem: "O professor precisava de uma página de captação que transmitisse credibilidade e urgência para estudantes do ENEM, sem parecer mais um curso genérico da internet.",
     goal: "Criar uma landing page com identidade visual própria, baseada na estética de caderno escolar, que tornasse o produto imediatamente reconhecível e gerasse conversão.",
     delivered: [
@@ -260,7 +255,7 @@ export const PROJECTS: Project[] = [
     tag: "Concept / Esporte",
     cover: "capa-Advanced.png",
     url: "https://site-advanced-fighting.vercel.app/",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     problem: "O centro de treinamento buscava uma presença digital mais forte para apresentar sua estrutura, modalidades e identidade esportiva.",
     goal: "Criar uma landing page moderna e energética, transmitindo profissionalismo e intensidade visual.",
     delivered: [
@@ -273,38 +268,45 @@ export const PROJECTS: Project[] = [
     challenges: "Transmitir energia esportiva sem comprometer legibilidade e navegação.",
   },
 
-  // ── Sistemas Web (clientes: 3 cards) ────────────────────────────────────────
+  // ── Sistemas Web ────────────────────────────────────────────────────────────
 
+  {
+    type: "system",
+    slug: "fincontrol",
+    title: "FinControl",
+    subtitle: "Sistema de Controle Financeiro Empresarial",
+    tag: "PHP / SQLite / Back-end",
+    audience: ["client", "recruiter"],
+    description:
+      "Sistema web completo para controle financeiro interno de pequenas empresas, com autenticação segura, dashboard em tempo real e relatórios exportáveis.",
+    delivered: [
+      "Dashboard com KPIs financeiros em tempo real e gráfico de fluxo de caixa (6 meses)",
+      "CRUD completo de receitas e despesas com filtros por tipo, categoria, data e busca",
+      "Módulo de reserva de segurança financeira (cálculo automático de 3× a despesa média)",
+      "Relatórios mensais com gráfico de categorias e exportação CSV",
+      "Gerenciamento de usuários e categorias com controle de permissões (admin)",
+      "Autenticação segura: bcrypt, CSRF, prepared statements e log de auditoria",
+      "Deploy via Docker, compatível com Railway e Render",
+    ],
+    stack: ["PHP 8.2", "SQLite", "HTML5", "CSS3", "JavaScript", "Chart.js", "Docker"],
+  },
   {
     type: "system",
     slug: "landingpro",
     title: "LandingPro",
     subtitle: "CMS de Landing Pages",
     tag: "PHP / MVC / Back-end",
-    audience: ["clientes", "recrutadores"],
-    teamProject: true,
-    repo: "https://github.com/ephremmatheus/cms-php",
+    audience: ["client", "recruiter"],
     description:
-      "Sistema CMS para criação e gerenciamento de landing pages com painel administrativo, CRUDs completos e arquitetura MVC em PHP.",
+      "Sistema CMS para criação e gerenciamento de landing pages com painel administrativo, CRUDs completos e arquitetura inspirada em MVC, desenvolvido em equipe.",
     delivered: [
       "CRUDs para módulos de características, depoimentos e contatos",
       "Arquitetura MVC com separação em controllers, models e templates",
       "Integração com banco de dados relacional para conteúdo dinâmico",
-      "Interface administrativa para gerenciamento de informações",
+      "Interface administrativa para gerenciamento de informações do site",
       "Renderização dinâmica de páginas e manipulação de formulários em PHP",
     ],
     stack: ["PHP", "HTML5", "CSS3", "MySQL", "MVC"],
-  },
-  {
-    type: "system",
-    slug: "fincontrol",
-    title: "Fincontrol", // TODO: ajustar após análise do .zip
-    subtitle: "TODO — aguardando .zip",
-    tag: "TODO",
-    audience: ["clientes", "recrutadores"],
-    description: "TODO — preencher após análise do projeto.",
-    delivered: [],
-    stack: [],
   },
   {
     type: "system",
@@ -312,10 +314,10 @@ export const PROJECTS: Project[] = [
     title: "Sistema de Ordens de Serviço",
     subtitle: "Gestão de OS para pequenos negócios",
     tag: "Flask / Python / Em desenvolvimento",
-    audience: ["clientes", "recrutadores"],
+    audience: ["client", "recruiter"],
     inDevelopment: true,
     description:
-      "Sistema web para abertura, acompanhamento e encerramento de ordens de serviço, desenvolvido com Flask e banco de dados relacional.",
+      "Sistema web para abertura, acompanhamento e encerramento de ordens de serviço, com controle de status e histórico de atendimentos.",
     delivered: [
       "Criação e gerenciamento de ordens de serviço",
       "Controle de status e histórico de atendimentos",
@@ -324,7 +326,7 @@ export const PROJECTS: Project[] = [
     stack: ["Python", "Flask", "SQLite", "HTML5", "CSS3"],
   },
 
-  // ── Sistemas Web (apenas recrutadores) ─────────────────────────────────────
+  // ── Sistemas só para recrutadores ──────────────────────────────────────────
 
   {
     type: "system",
@@ -332,7 +334,7 @@ export const PROJECTS: Project[] = [
     title: "Sistema de Gestão Financeira",
     subtitle: "Controle de receitas e despesas",
     tag: "Python / Flask / Back-end",
-    audience: ["recrutadores"],
+    audience: ["recruiter"],
     description:
       "CRUD completo para controle de receitas e despesas com rotas, regras de negócio e persistência via banco de dados relacional, organizado em padrão MVC.",
     delivered: [
@@ -349,7 +351,7 @@ export const PROJECTS: Project[] = [
     title: "Sistema de Gerenciamento de Livros",
     subtitle: "CRUD com Django ORM",
     tag: "Python / Django / Back-end",
-    audience: ["recrutadores"],
+    audience: ["recruiter"],
     description:
       "Aplicação Django para cadastro e gerenciamento de livros com ORM, modelos, views e rotas estruturados com foco em legibilidade e manutenibilidade.",
     delivered: [
@@ -366,7 +368,7 @@ export const PROJECTS: Project[] = [
     title: "Projeto API GitHub",
     subtitle: "Consumo e tratamento de API REST",
     tag: "Python / API REST",
-    audience: ["recrutadores"],
+    audience: ["recruiter"],
     description:
       "Conexão com a API pública do GitHub via HTTP, extração e tratamento de dados JSON e classificação de repositórios por estrelas.",
     delivered: [
@@ -383,7 +385,7 @@ export const PROJECTS: Project[] = [
     title: "COINctrl",
     subtitle: "Sistema de Controle Financeiro",
     tag: "Back-end / Trabalho em Equipe",
-    audience: ["recrutadores"],
+    audience: ["recruiter"],
     teamProject: true,
     repo: "https://github.com/luccaborelladev/COINctrl",
     description:
@@ -398,7 +400,7 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-// ─── Helpers de filtragem ──────────────────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 export const getSiteProjects = (audience: ProjectAudience) =>
   PROJECTS.filter(
@@ -407,10 +409,11 @@ export const getSiteProjects = (audience: ProjectAudience) =>
 
 export const getSystemProjects = (audience: ProjectAudience) =>
   PROJECTS.filter(
-    (p): p is SystemProject => p.type === "system" && p.audience.includes(audience)
+    (p): p is SystemProject =>
+      p.type === "system" && p.audience.includes(audience)
   );
 
-// ─── Stack & FAQs (inalterados) ────────────────────────────────────────────────
+// ─── Stack & FAQs ─────────────────────────────────────────────────────────────
 
 export const STACK_GROUPS = [
   {

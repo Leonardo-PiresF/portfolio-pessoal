@@ -1,18 +1,37 @@
 import { useState } from "react";
-import { ArrowUpRight, ArrowRight, ExternalLink, X } from "lucide-react";
-import { PROJECTS, type Project } from "./data";
+import { ArrowUpRight, ArrowRight, ExternalLink, X, Github, MessageCircle } from "lucide-react";
+import {
+  getSiteProjects,
+  getSystemProjects,
+  getWhatsappLink,
+  type SiteProject,
+  type SystemProject,
+  type Project,
+} from "./data";
 import { useMode } from "./ModeContext";
 import { SectionHeader } from "./Services";
 
+type SubTab = "sites" | "sistemas";
+
+// ─── Main Section ─────────────────────────────────────────────────────────────
+
 export function Projects() {
-  const { openProject, activeProject, closeProject } = useMode();
-  const project = PROJECTS.find((p) => p.slug === activeProject) || null;
+  const { mode, openProject, activeProject, closeProject } = useMode();
+  const [subTab, setSubTab] = useState<SubTab>("sites");
+
+  const audience = mode === "client" ? "client" : "recruiter";
+  const sites = getSiteProjects(audience);
+  const systems = getSystemProjects(audience);
+
+  const project = sites.find((p) => p.slug === activeProject) || null;
 
   return (
     <section id="projetos" className="relative scroll-mt-24 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
+
+        {/* Header row */}
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeader eyebrow="Projetos recentes" title="RESULTADOS QUE FALAM" />
+          <SectionHeader eyebrow="Projetos recentes" title="IDEIAS TRANSFORMADAS EM INTERFACES" />
           <a
             href="#contato"
             className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground transition hover:text-yellow"
@@ -21,46 +40,166 @@ export function Projects() {
           </a>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {PROJECTS.map((p, i) => (
-            <button
-              key={p.slug}
-              onClick={() => openProject(p.slug)}
-              className="group relative block overflow-hidden rounded-2xl border border-border bg-card text-left transition hover:-translate-y-1 hover:border-yellow/60 hover:shadow-card"
-              style={{ animation: `float-up 0.6s ease-out ${i * 0.05}s both` }}
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-surface">
-                <img
-                  src={p.cover}
-                  alt={p.client}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent opacity-80" />
-                <span className="absolute left-4 top-4 rounded-full bg-background/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] backdrop-blur">
-                  {p.tag}
-                </span>
-              </div>
-              <div className="flex items-start justify-between gap-4 p-6">
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">{p.title}</p>
-                  <h3 className="mt-1 font-display text-3xl leading-tight">{p.client}</h3>
-                </div>
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-surface text-foreground transition group-hover:bg-yellow group-hover:text-yellow-foreground">
-                  <ArrowUpRight className="h-4 w-4" />
-                </div>
-              </div>
-            </button>
-          ))}
+        {/* Sub-tab switcher */}
+        <div className="mt-10 flex w-fit rounded-full border border-border bg-card p-1">
+          <button
+            onClick={() => setSubTab("sites")}
+            className={`rounded-full px-5 py-2 text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-300 ${
+              subTab === "sites"
+                ? "bg-yellow text-yellow-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            Sites & Landing Pages
+            <span className={`ml-2 rounded-full px-1.5 py-0.5 text-[10px] ${subTab === "sites" ? "bg-yellow-foreground/10 text-yellow-foreground" : "bg-surface text-muted-foreground"}`}>
+              {sites.length}
+            </span>
+          </button>
+          <button
+            onClick={() => setSubTab("sistemas")}
+            className={`rounded-full px-5 py-2 text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-300 ${
+              subTab === "sistemas"
+                ? "bg-yellow text-yellow-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            Sistemas Web
+            <span className={`ml-2 rounded-full px-1.5 py-0.5 text-[10px] ${subTab === "sistemas" ? "bg-yellow-foreground/10 text-yellow-foreground" : "bg-surface text-muted-foreground"}`}>
+              {systems.length}
+            </span>
+          </button>
         </div>
+
+        {/* Sites grid */}
+        {subTab === "sites" && (
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {sites.map((p, i) => (
+              <button
+                key={p.slug}
+                onClick={() => openProject(p.slug)}
+                className="group relative block overflow-hidden rounded-2xl border border-border bg-card text-left transition hover:-translate-y-1 hover:border-yellow/60 hover:shadow-card"
+                style={{ animation: `float-up 0.6s ease-out ${i * 0.05}s both` }}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-surface">
+                  <img
+                    src={p.cover}
+                    alt={p.client}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent opacity-80" />
+                  <span className="absolute left-4 top-4 rounded-full bg-background/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] backdrop-blur">
+                    {p.tag}
+                  </span>
+                </div>
+                <div className="flex items-start justify-between gap-4 p-6">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">{p.title}</p>
+                    <h3 className="mt-1 font-display text-3xl leading-tight">{p.client}</h3>
+                  </div>
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-surface text-foreground transition group-hover:bg-yellow group-hover:text-yellow-foreground">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Sistemas grid */}
+        {subTab === "sistemas" && (
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {systems.map((p, i) => (
+              <SystemCard key={p.slug} project={p} index={i} />
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* Modal só para sites */}
       <ProjectModal project={project} onClose={closeProject} />
     </section>
   );
 }
 
-function ProjectModal({ project, onClose }: { project: Project | null; onClose: () => void }) {
+// ─── System Card ─────────────────────────────────────────────────────────────
+
+function SystemCard({ project: p, index }: { project: SystemProject; index: number }) {
+  const waLink = getWhatsappLink(p.title);
+
+  return (
+    <div
+      className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-yellow/60 hover:shadow-card"
+      style={{ animation: `float-up 0.6s ease-out ${index * 0.05}s both` }}
+    >
+      {/* Header */}
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex flex-col gap-1">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+              {p.tag}
+            </span>
+            {p.teamProject && (
+              <span className="rounded-full border border-border px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-muted-foreground">
+                Equipe
+              </span>
+            )}
+            {p.inDevelopment && (
+              <span className="rounded-full border border-yellow/30 bg-yellow/5 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-yellow">
+                Em dev
+              </span>
+            )}
+          </div>
+          <h3 className="font-display text-2xl leading-tight">{p.title}</h3>
+          <p className="text-xs text-muted-foreground">{p.subtitle}</p>
+        </div>
+
+        {p.repo && (
+          <a
+            href={p.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border bg-surface text-muted-foreground transition hover:border-yellow/60 hover:text-yellow"
+            title="Ver repositório"
+          >
+            <Github className="h-4 w-4" />
+          </a>
+        )}
+      </div>
+
+      {/* Description */}
+      <p className="flex-1 text-sm leading-relaxed text-foreground/70">{p.description}</p>
+
+      {/* Stack */}
+      <div className="flex flex-wrap gap-2">
+        {p.stack.map((tech) => (
+          <span
+            key={tech}
+            className="rounded-full border border-border bg-surface px-3 py-1 text-[10px] font-semibold"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      {/* CTA WhatsApp */}
+      <a
+        href={waLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-2 rounded-full border border-border bg-surface py-3 text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground transition hover:border-yellow/60 hover:bg-yellow/5 hover:text-yellow"
+      >
+        <MessageCircle className="h-3.5 w-3.5" />
+        Quero saber mais
+      </a>
+    </div>
+  );
+}
+
+// ─── Project Modal (sites only) ───────────────────────────────────────────────
+
+function ProjectModal({ project, onClose }: { project: SiteProject | null; onClose: () => void }) {
   if (!project) return null;
 
   return (
@@ -153,9 +292,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-yellow">{children}</p>
-  );
+  return <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-yellow">{children}</p>;
 }
 
 function Block({ label, children }: { label: string; children: React.ReactNode }) {
