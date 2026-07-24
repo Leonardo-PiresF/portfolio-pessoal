@@ -267,6 +267,134 @@ export const PROJECTS: Project[] = [
     results: ["Proposta visual desenvolvida para fortalecer a presença digital da marca"],
     challenges: "Transmitir energia esportiva sem comprometer legibilidade e navegação.",
   },
+  {
+  type: "site",
+  slug: "julia-figueiredo",
+  title: "Portfólio Profissional",
+  client: "Júlia Figueiredo | UGC Creator",
+  tag: "Marketing",
+  cover: "capa-julia.webp",
+  url: "https://novo-portfolio-julia-figueiredo.vercel.app/",
+  audience: ["client", "recruiter"],
+
+  problem:
+    "A criadora de conteúdo precisava de um portfólio profissional que centralizasse seus trabalhos, apresentasse sua proposta de valor e transmitisse credibilidade para marcas interessadas em parcerias.",
+
+  goal:
+    "Criar uma landing page moderna e estratégica para fortalecer sua marca pessoal, facilitar o contato comercial e aumentar as oportunidades de colaboração com empresas.",
+
+  delivered: [
+    "Portfólio profissional com identidade visual personalizada",
+    "Tema claro e escuro com alternância dinâmica",
+    "Seções para apresentação, serviços e trabalhos realizados",
+    "CTA estratégico para contato comercial",
+    "Design responsivo para desktop, tablet e mobile",
+    "SEO básico e otimização de performance"
+  ],
+
+  stack: [
+    "React 19",
+    "TypeScript",
+    "TanStack Start",
+    "Tailwind CSS v4",
+    "Framer Motion"
+  ],
+
+  results: [
+    "Apresentação profissional da marca pessoal em um único endereço",
+    "Carregamento otimizado com excelente experiência de navegação",
+    "Layout 100% responsivo para todos os dispositivos",
+    "Facilidade para marcas conhecerem o trabalho e entrarem em contato"
+  ],
+
+  challenges:
+    "Desenvolver um design que transmitisse criatividade e profissionalismo ao mesmo tempo, destacando o conteúdo produzido sem comprometer a identidade visual da criadora."
+},
+{
+  type: "site",
+  slug: "la-luna",
+  title: "Catálogo Digital para Bijuteria",
+  client: "La Luna Bijuteria",
+  tag: "Moda / Acessórios",
+  cover: "capa-laluna.png",
+  url: "",
+  audience: ["client", "recruiter"],
+
+  problem:
+    "A bijuteria precisava de uma plataforma própria para apresentar seus produtos de forma organizada, fortalecer sua identidade visual e facilitar o processo de compra sem depender exclusivamente das redes sociais.",
+
+  goal:
+    "Desenvolver um catálogo digital moderno que valorizasse os produtos, proporcionasse uma experiência premium de navegação e simplificasse o processo de compra através de um carrinho integrado ao WhatsApp.",
+
+  delivered: [
+    "Catálogo de produtos organizado por categorias",
+    "Carrinho de compras integrado ao WhatsApp",
+    "Painel administrativo (CMS) para gerenciamento dos produtos",
+    "Cadastro, edição e remoção de produtos",
+    "Upload e gerenciamento de imagens",
+    "Interface administrativa intuitiva",
+    "Design responsivo para desktop, tablet e mobile",
+    "Otimização de performance e SEO básico"
+  ],
+
+  stack: [
+  "React",
+  "Vite",
+  "JavaScript (ES6+)",
+  "CSS-in-JS",
+  "LocalStorage API",
+  "WhatsApp API Integration",
+  "Responsive Design"
+],
+
+  results: [
+    "Autonomia para gerenciar o catálogo sem alterar código",
+    "Experiência de compra simplificada com pedidos enviados pelo WhatsApp",
+    "Apresentação visual premium que reforça a percepção da marca",
+    "Catálogo totalmente responsivo e otimizado para dispositivos móveis"
+  ],
+
+  challenges:
+    "Conciliar uma experiência visual sofisticada com um painel administrativo simples de utilizar, permitindo que a equipe gerenciasse produtos e imagens de forma intuitiva sem comprometer a performance do site."
+},
+{
+  type: "site",
+  slug: "faceburguer",
+  title: "Sistema de Pedidos Online",
+  client: "Faceburguer | Hamburgueria Artesanal",
+  tag: "Alimentício / Delivery",
+  cover: "capa-faceburguer.png",
+  url: "https://faceburguer.vercel.app/",
+  audience: ["client", "recruiter"],
+  problem:
+    "A hamburgueria precisava de um sistema de pedidos próprio, sem depender de aplicativos de terceiros com taxas altas, para vender diretamente aos clientes com um fluxo rápido e familiar.",
+  goal:
+    "Criar uma plataforma de pedidos online completa, com cardápio interativo, carrinho persistente e finalização via WhatsApp, refletindo a identidade visual da marca.",
+  delivered: [
+    "Cardápio completo com 5 categorias e 22 produtos",
+    "Adicionais personalizados por produto",
+    "Carrinho de compras persistente com localStorage",
+    "Checkout com opção de delivery ou retirada",
+    "Pagamento via Pix (QR Code), dinheiro ou cartão",
+    "Finalização automática do pedido pelo WhatsApp",
+    "Design responsivo com identidade dark e fire orange"
+  ],
+  stack: [
+    "React 18",
+    "TypeScript",
+    "Vite 5",
+    "Tailwind CSS 3",
+    "React Router DOM 6"
+  ],
+  results: [
+    "Fluxo de pedidos independente de plataformas de terceiros",
+    "Experiência de compra rápida, do cardápio ao WhatsApp",
+    "Dados do cliente e carrinho salvos automaticamente",
+    "Layout 100% responsivo para todos os dispositivos"
+  ],
+  challenges:
+    "Construir um fluxo de pedidos completo (cardápio, carrinho, checkout e pagamento) inteiramente no front-end, sem back-end, mantendo persistência de dados e uma mensagem de WhatsApp bem formatada como etapa final."
+},
 
   // ── Sistemas Web ────────────────────────────────────────────────────────────
 

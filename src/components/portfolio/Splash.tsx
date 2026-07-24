@@ -21,7 +21,7 @@ export function Splash() {
           <img
             src="/logo-1.png"
             alt="Leonardo Pires"
-            className="h-16 sm:h-20 w-auto"
+            className="h-32 sm:h-40 w-auto"
           />
           <div className="absolute -inset-4 -z-10 rounded-full bg-yellow/20 blur-2xl" />
         </div>

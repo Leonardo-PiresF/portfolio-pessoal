@@ -42,13 +42,12 @@ export function Stack() {
           </div>
 
           <div className="grid gap-4">
-            <Stat icon={Code2} number="6+" label="Projetos entregues em produção" />
             <Stat icon={Award} number="3 anos" label="Construindo interfaces" />
-            <Stat icon={Award} number="100%" label="Entregas no prazo combinado" />
+            <Stat icon={Award} number="Sites responsivos" label="Desktop, tablet e mobile" />
             <div className="rounded-2xl border border-yellow/40 bg-yellow/5 p-6">
               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-yellow">Buscando</p>
               <p className="mt-2 font-display text-2xl">Estágio · CLT · Júnior front-end</p>
-              <p className="mt-2 text-sm text-muted-foreground">Remoto, híbrido ou Maceió/AL. Aberto a relocação.</p>
+              <p className="mt-2 text-sm text-muted-foreground">Remoto, híbrido ou presencial em Maceió/AL. Aberto a relocação.</p>
             </div>
           </div>
         </div>

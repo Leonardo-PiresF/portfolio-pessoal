@@ -48,7 +48,7 @@ export function MobileNav() {
           <img
             src="/logo-1.png"
             alt="Leonardo Pires"
-            className="h-9 w-auto"
+            className="h-12 w-auto"
           />
         </a>
         <div className="flex items-center gap-2">
